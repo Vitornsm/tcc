@@ -1,0 +1,78 @@
+
+.txtbox2{
+	width: 20%;
+	border:none;
+	padding: 10px;
+    box-shadow: 1px 1px 5px #1F1F1F;
+}
+.txtbox2:hover{
+
+	box-shadow: 1px 1px 10px #000000;
+	border:none;
+}
+.butom{
+	text-decoration: none;
+	padding: 10px;
+	background-color: #339966;
+	border:none;
+	border-radius: 5px;
+    -moz-border-radius: 5px;
+    color: black;
+}
+.esqueci{
+	text-decoration: none;
+	color:black;
+}
+.esqueci:hover{
+	text-decoration:underline;
+	
+}
+.celecionado{
+	text-decoration:none;
+	padding: 10px;
+	background-color:red;
+	border:none;
+	border-radius: 5px;
+    -moz-border-radius: 5px;
+    color: black;
+}
+.celecionado:hover{
+	cursor: pointer;
+	color: white;
+	box-shadow: 1px 1px 5px #000000;
+}
+.texto{
+	text-decoration: none;
+	font-family: Arial;
+	font-size: 16px;
+}
+.butom:hover{
+	cursor: pointer;
+	color: white;
+	box-shadow: 1px 1px 5px #000000;
+}
+.Erro{
+	text-decoration-color: red;
+	font-family: Arial;
+}
+.txtbox3{
+	width: 100%;
+	border:none;
+	padding: 10px;
+    box-shadow: 1px 1px 5px #1F1F1F;
+}
+.txtbox3:hover{
+
+	box-shadow: 1px 1px 10px #000000;
+	border:none;
+}
+.espaco_esquerdo{
+	padding-left: 5%;
+}
+table, td {
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    padding: 5px;
+
+}
+
