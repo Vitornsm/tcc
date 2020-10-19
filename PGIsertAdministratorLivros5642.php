@@ -65,11 +65,25 @@
 				<input type="submit" value="Inserir" name="cadastrarlivro" class="butom">&nbsp &nbsp &nbsp
 				<input type="reset" value="Limpar" name="" class="butom">
 
+				<h1>Deletar Livro</h1>
+
+				<table>
+					<tr>
+						<td>Código</td>
+						<td><input type="text" name="txtdelcodlivro" class="txtbox3"></td>
+					</tr>
+				</table>
+
+				<input type="submit" value="Deletar" name="deletarlivro" class="butom">&nbsp &nbsp &nbsp
+				
+
+
 				<?php
 				
 					include "conexao.php";
 
 					$botao= filter_input(INPUT_POST, 'cadastrarlivro' , FILTER_SANITIZE_STRING);
+					$botao2= filter_input(INPUT_POST, 'deletarlivro' , FILTER_SANITIZE_STRING);
 
 					$codlivro= filter_input(INPUT_POST, 'txtcodlivro',FILTER_SANITIZE_STRING);
 					$nomelivro= filter_input(INPUT_POST, 'txtnomelivro',FILTER_SANITIZE_STRING);
@@ -79,6 +93,8 @@
 					$editoralivro= filter_input(INPUT_POST, 'txteditorlivro',FILTER_SANITIZE_STRING);
 					$locallivro= filter_input(INPUT_POST, 'txtlocallivro',FILTER_SANITIZE_STRING);
 					$anolivro= filter_input(INPUT_POST, 'txtanolivro',FILTER_SANITIZE_STRING);
+
+					$delcodlivro= filter_input(INPUT_POST, 'txtdelcodlivro',FILTER_SANITIZE_STRING);
 					
 
 					if ($botao == "Inserir") 
@@ -118,8 +134,33 @@
 							echo '<h3 style="color: red;">';
 							echo 'Preencha todos os campos';
 							echo '</h3>';
+						}						
+					}
+
+					if ($botao2 =="Deletar") 
+					{
+						if($delcodlivro != null)
+						{
+							$sql_code ="DELETE FROM `tb_livros` WHERE `tb_livros`.`COD_LIVRO` = '$delcodlivro'";
+
+								if(mysqli_query($conn, $sql_code))
+								{
+									
+									echo "<script>alert('Arquivo Deletado com susesso');</script>";
+								}
+								else
+								{
+									echo '<h3 style="color: red;">';
+									echo 'Código não existe';
+									echo '</h3>';
+								}	
 						}
-												
+						else
+						{
+							echo '<h3 style="color: red;">';
+							echo 'Preencha o campo';
+							echo '</h3>';
+						}	
 					}
 				?>
 			</div>
