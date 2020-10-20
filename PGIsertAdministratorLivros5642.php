@@ -17,7 +17,7 @@
 
 			</center>
 
-			<div class="espaco_esquerdo">
+			<div>
 
 				<h1>Inserir Livro</h1>
 
@@ -65,25 +65,12 @@
 				<input type="submit" value="Inserir" name="cadastrarlivro" class="butom">&nbsp &nbsp &nbsp
 				<input type="reset" value="Limpar" name="" class="butom">
 
-				<h1>Deletar Livro</h1>
-
-				<table>
-					<tr>
-						<td>Código</td>
-						<td><input type="text" name="txtdelcodlivro" class="txtbox3"></td>
-					</tr>
-				</table>
-
-				<input type="submit" value="Deletar" name="deletarlivro" class="butom">&nbsp &nbsp &nbsp
-				
-
-
 				<?php
 				
 					include "conexao.php";
 
 					$botao= filter_input(INPUT_POST, 'cadastrarlivro' , FILTER_SANITIZE_STRING);
-					$botao2= filter_input(INPUT_POST, 'deletarlivro' , FILTER_SANITIZE_STRING);
+					
 
 					$codlivro= filter_input(INPUT_POST, 'txtcodlivro',FILTER_SANITIZE_STRING);
 					$nomelivro= filter_input(INPUT_POST, 'txtnomelivro',FILTER_SANITIZE_STRING);
@@ -93,8 +80,6 @@
 					$editoralivro= filter_input(INPUT_POST, 'txteditorlivro',FILTER_SANITIZE_STRING);
 					$locallivro= filter_input(INPUT_POST, 'txtlocallivro',FILTER_SANITIZE_STRING);
 					$anolivro= filter_input(INPUT_POST, 'txtanolivro',FILTER_SANITIZE_STRING);
-
-					$delcodlivro= filter_input(INPUT_POST, 'txtdelcodlivro',FILTER_SANITIZE_STRING);
 					
 
 					if ($botao == "Inserir") 
@@ -136,7 +121,26 @@
 							echo '</h3>';
 						}						
 					}
+					echo"</div>";
+				?>
+				<div>
+				<h1>Deletar Livro</h1>
 
+				<table>
+					<tr>
+						<td>Código</td>
+						<td><input type="text" name="txtdelcodlivro" class="txtbox3"></td>
+					</tr>
+				</table>
+
+				<input type="submit" value="Deletar" name="deletarlivro" class="butom">&nbsp &nbsp &nbsp
+
+				<?php
+					include "conexao.php";
+					$botao2= filter_input(INPUT_POST, 'deletarlivro' , FILTER_SANITIZE_STRING);
+					$delcodlivro= filter_input(INPUT_POST, 'txtdelcodlivro',FILTER_SANITIZE_STRING);
+
+					
 					if ($botao2 =="Deletar") 
 					{
 						if($delcodlivro != null)
@@ -164,6 +168,7 @@
 					}
 				?>
 			</div>
+
 		</form>
 
 	</body>
