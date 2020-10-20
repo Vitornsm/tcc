@@ -21,7 +21,7 @@ $email = $_POST['txtemail'];
 
       include "senhaEmail.php";  
       $para = $email; 
-      $de = 'vitornsm@gmail.com';
+      $de = 'laurindoguimaraestec@gmail.com';
       $de_nome = 'Laurindo Guimarães';
       $corpo = "Redefinir Senha"; 
 
@@ -54,7 +54,7 @@ $email = $_POST['txtemail'];
       //o nome do email que envia a mensagem, o Assunto da mensagem e por último a variável com o corpo do email.
       $Vai    = "Nome: $nome\n\nE-mail: $email\n\nLink: $mensagem\n\n$corpo";
 
-       if (smtpmailer($email, 'vitornsm@gmail.com', 'Laurindo Guimarães', 'Redefinir Senha', $Vai)) {
+       if (smtpmailer($email, 'laurindoguimaraestec@gmail.com', 'Laurindo Guimarães', 'Redefinir Senha', $Vai)) {
 
         echo "<script> alert ('Sucesso enviado, Mensagem enviada!') </script>";
         echo ('<meta http-equiv="refresh"content=0;"PGcodLogAdministrator5241.php">'); // Redireciona para uma página de obrigado.
