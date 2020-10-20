@@ -13,7 +13,7 @@ $email = $_POST['txtemail'];
     {
       
       $Categoria = "Definir nova senha";
-      $mensagem = "URL que não defini";
+      $mensagem = "http://localhost/tcc/NSAdministratoresquesi5241.php";
       $data_envio = date('d/m/Y');
       $hora_envio = date('H:i:s'); 
 
