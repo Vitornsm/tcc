@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 05-Out-2020 às 01:05
+-- Tempo de geração: 21-Out-2020 às 00:25
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.3.21
 
@@ -32,16 +32,19 @@ CREATE TABLE IF NOT EXISTS `login` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `USUARIO` varchar(70) NOT NULL,
   `SENHA` varchar(70) NOT NULL,
+  `EMAIL` varchar(30) NOT NULL,
   PRIMARY KEY (`ID`),
-  UNIQUE KEY `SENHA` (`SENHA`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  UNIQUE KEY `SENHA` (`SENHA`),
+  UNIQUE KEY `EMAIL` (`EMAIL`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `login`
 --
 
-INSERT INTO `login` (`ID`, `USUARIO`, `SENHA`) VALUES
-(3, 'laurindo123', '5a604af97ca378e3ebfee6a27b30bad2');
+INSERT INTO `login` (`ID`, `USUARIO`, `SENHA`, `EMAIL`) VALUES
+(3, 'laurindo123', 'bcec378dc9b7b470ff2bbe527518ad37', 'laurindoguimaraestec@gmail.com'),
+(5, 'eu', 'cd1588101203f13f872131b33cb1a3cf', 'eu@eu.com');
 
 -- --------------------------------------------------------
 
@@ -94,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `tb_livros` (
   UNIQUE KEY `COD_LIVRO` (`COD_LIVRO`),
   UNIQUE KEY `COD_AUTOR_LIVRO` (`COD_AUTOR_LIVRO`),
   KEY `GEN_LIVRO` (`GEN_LIVRO`)
-) ENGINE=MyISAM AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_livros`
