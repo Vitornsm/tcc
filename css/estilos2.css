@@ -66,6 +66,17 @@
 	box-shadow: 1px 1px 10px #000000;
 	border:none;
 }
+.txtboxtextarea{
+	width: 100%;
+	border:none;
+	padding: 10px;
+    box-shadow: 1px 1px 5px #1F1F1F;
+    
+}
+.txtboxtextarea:hover{
+	box-shadow: 1px 1px 10px #000000;
+	border:none;
+}
 .espaco_esquerdo{
 	padding-left: 5%;
 }
