@@ -56,7 +56,7 @@ $email = $_POST['txtemail'];
 
        if (smtpmailer($email, 'laurindoguimaraestec@gmail.com', 'Laurindo Guimarães', 'Redefinir Senha', $Vai)) {
 
-        echo "<script> alert ('Sucesso enviado, Mensagem enviada!') </script>";
+        echo "<script> alert ('Mensagem enviada com sucesso!') </script>";
         echo ('<meta http-equiv="refresh"content=0;"PGcodLogAdministrator5241.php">'); // Redireciona para uma página de obrigado.
 
       }
