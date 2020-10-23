@@ -121,9 +121,9 @@
 							echo '</h3>';
 						}						
 					}
-					echo"</div>";
 				?>
-				<div>
+			</div>
+			<div>
 				<h1>Deletar Livro</h1>
 
 				<table>
