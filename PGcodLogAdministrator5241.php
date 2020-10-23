@@ -9,7 +9,6 @@
 		<center>	
 			<h1>Pagina Adiministrador</h1>	
 			</select><br><br>
-			<div class="texto">
 				Usuario<br>
 				<input type="text" name="txtusuario" class="txtbox2"><br><br>
 				Senha<br>
@@ -18,9 +17,6 @@
 				<input value="Login" type="submit" name="btnenviar" class="butom">
 				<input value="Limpar" type="reset"  class="butom"><br><br>
 				<a href="PGcodLogAdministratoresqueci5241.html" class="esqueci">Esqueceu a senha?</a>
-
-				
-			</div>
 		</center>	
 		<?php
 			include('conexao.php');
