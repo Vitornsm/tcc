@@ -97,6 +97,49 @@
 
 					?>
 			</div>
+			<div>
+				<h1>Delatar Mídias</h1>
+				<table>
+					<tr>
+						<td>Código</td>
+						<td><input type="text" name="txtdeletarmidia" class="txtbox3"></td>
+					</tr>
+				</table>
+				<input type="submit" value="Deletar" name="btndeletarmidia" class="butom">
+				<?php
+
+					$botao2 = filter_input(INPUT_POST, 'btndeletarmidia' , FILTER_SANITIZE_STRING);
+
+					$delatarmidia = filter_input(INPUT_POST, 'txtdeletarmidia' , FILTER_SANITIZE_STRING);
+
+					if($botao2 == "Deletar")
+					{
+						if($delatarmidia != null)
+						{
+							$sql_code ="DELETE FROM `tb_midias` WHERE `tb_midias`.`COD_MIDIA` = '$delatarmidia'";
+
+								if(mysqli_query($conn, $sql_code))
+								{
+									
+									echo "<script>alert('Arquivo Deletado com susesso');</script>";
+								}
+								else
+								{
+									echo '<h3 style="color: red;">';
+									echo 'Numero não existe';
+									echo '</h3>';
+								}
+						}
+						else
+						{
+							echo '<h3 style="color: red;">';
+							echo 'Preencha o campo';
+							echo '</h3>';
+						}
+					}
+
+				?>
+			</div>
 		</form>
 	</body>
 </html>
