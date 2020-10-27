@@ -19,8 +19,11 @@
 				<a href="PGcodLogAdministratoresqueci5241.html" class="esqueci">Esqueceu a senha?</a>
 		</center>	
 		<?php
+			session_start(); # Deve ser a primeira linha do arquivo
+
 			include('conexao.php');
 
+			
 			$Botao=filter_input(INPUT_POST, 'btnenviar', FILTER_SANITIZE_STRING);
 
 			if($Botao == "Login")
@@ -49,6 +52,10 @@
 
 					$n = 3; 
 					$codigo = bin2hex(random_bytes($n));
+
+					$codifinal = $codigo;
+
+					$_SESSION['frase'] = $codifinal;
 
 					$data_envio = date('d/m/Y');
 				      $hora_envio = date('H:i:s'); 
@@ -90,9 +97,10 @@
 				      //o nome do email que envia a mensagem, o Assunto da mensagem e por último a variável com o corpo do email.
 				      $Vai    = "E-mail: $varemail\n\nCódigo: $codigo";
 
-				       if (smtpmailer($varemail, 'laurindoguimaraestec@gmail.com', 'Laurindo Guimarães', 'Códico de Vereficão', $Vai)) 
+				       if (smtpmailer($varemail, 'laurindoguimaraestec@gmail.com', 'Laurindo Guimarães', 'Código de Vereficão', $Vai)) 
 				       {
 
+				       	echo "<script> alert ('Código imviado para o e-mail') </script>";
 				        echo ('<meta http-equiv="refresh"content=0;"PGcodLogAdmcodentra5241.php">'); // Redireciona para uma página de obrigado.
 
 				      }
