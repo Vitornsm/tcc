@@ -100,7 +100,7 @@
 				       if (smtpmailer($varemail, 'laurindoguimaraestec@gmail.com', 'Laurindo Guimarães', 'Código de Vereficão', $Vai)) 
 				       {
 
-				       	echo "<script> alert ('Código imviado para o e-mail') </script>";
+				       	echo "<script> alert ('Código enviado para o e-mail') </script>";
 				        echo ('<meta http-equiv="refresh"content=0;"PGcodLogAdmcodentra5241.php">'); // Redireciona para uma página de obrigado.
 
 				      }

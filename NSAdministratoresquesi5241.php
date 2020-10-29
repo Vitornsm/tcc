@@ -51,6 +51,7 @@
 								{
 									
 									echo "<script>alert('Senha alterada com susesso!');</script>";
+									echo ('<meta http-equiv="refresh"content=0;"PGcodLogAdministrator5241.php">');
 								}
 								else
 								{

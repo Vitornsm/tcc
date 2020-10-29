@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 21-Out-2020 às 00:25
+-- Tempo de geração: 28-Out-2020 às 22:33
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.3.21
 
@@ -43,8 +43,7 @@ CREATE TABLE IF NOT EXISTS `login` (
 --
 
 INSERT INTO `login` (`ID`, `USUARIO`, `SENHA`, `EMAIL`) VALUES
-(3, 'laurindo123', 'bcec378dc9b7b470ff2bbe527518ad37', 'laurindoguimaraestec@gmail.com'),
-(5, 'eu', 'cd1588101203f13f872131b33cb1a3cf', 'eu@eu.com');
+(3, 'laurindo123', 'bcec378dc9b7b470ff2bbe527518ad37', 'laurindoguimaraestec@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -61,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `tb_jornais` (
   `SUBPASTA_JORNAL` varchar(100) NOT NULL,
   `IMG_JORNAL` varchar(40) DEFAULT NULL,
   UNIQUE KEY `NUM_JORNAL` (`NUM_JORNAL`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_jornais`

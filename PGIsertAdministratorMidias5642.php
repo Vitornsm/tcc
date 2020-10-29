@@ -12,7 +12,7 @@
 
 				<a href="PGIsertAdministratorLivros5642.php" class="butom">Livros</a>
 				<a href="PGIsertAdministratorJornais5642.php" class="butom">Jornais</a>
-				<a href="PGIsertAdministratorMidias5642.php" class="celecionado">Mídias</a>
+				<a href="PGIsertAdministratorMidias5642.php" class="selecionado">Mídias</a>
 				<a href="PGIsertAdministratorRevistas5642.php" class="butom">Revistas</a><br><br>
 
 			</center>
