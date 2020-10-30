@@ -23,7 +23,7 @@
 	outline: 0;
 }
 .butom:hover{
-
+	text-decoration:none;
 	cursor: pointer;
 	color: black;
 	background-color: transparent;
@@ -60,6 +60,7 @@
     -moz-border-radius: 5px;
 }
 .selecionado:hover{
+	text-decoration:none;
 	cursor: pointer;
 	color: black;
 	background-color: transparent;
