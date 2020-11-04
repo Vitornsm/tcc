@@ -172,7 +172,10 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">BIBLIOTECA</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item" href="#"><a>Consulta Acervo</a></li>
+                    <li><a href="livros.php" class="dropdown-item">Livros</a></li>
+                    <li><a href="jornais.php" class="dropdown-item">Jornais</a></li>
+                    <li><a href="midias.php" class="dropdown-item">Mídias</a></li>
+                    <li><a href="revistas.php" class="dropdown-item">Revistas</a></li>
                     <li class="dropdown-item" href="#"><a>Leitura para Vestibular</a></li>   
                       <li class="dropdown-item dropdown">
                         <a class="dropdown-toggle" id="dropdown1-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">TCC</a>
