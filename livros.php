@@ -35,7 +35,7 @@ include_once "conexao.php";
   <!-- Parallax  efeito de parallax de imagens-->
   <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
 
-
+<link rel="sortcut icon" href="img/etlg.ico" type="image/x-icon" />;
 
 </head>
 <body>
@@ -72,14 +72,14 @@ include_once "conexao.php";
 
 
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item"><a>Histórico</a></li>
-                    <li class="dropdown-item"><a href="#">Patrono</a></li>   
-                    <li class="dropdown-item"><a href="#">APM</a></li>
-                    <li class="dropdown-item"><a href="missao.html" target="_blank">Diretoria</a></li>
-                    <li class="dropdown-item" href="#"><a>Colaboradores</a></li>
-                    <li class="dropdown-item" href="#"><a>Infraestrutura</a></li>
-                    <li class="dropdown-item" href="#"><a>Conselho Escolar</a></li>
-                     <li class="dropdown-item"><a href="missao.html" target="_blank">Missão</a></li>
+                    <li class="dropdown-item"><a style="color: #F00">Histórico</a></li>
+                    <li class="dropdown-item"><a href="#" style="color: #F00">Patrono</a></li>   
+                    <li class="dropdown-item"><a href="apm.html" style="color: #F00">APM</a></li>
+                    <li class="dropdown-item"><a href="diretor.html" style="color: #F00" >Diretoria</a></li>
+                    <li class="dropdown-item" href="#"><a style="color: #F00">Colaboradores</a></li>
+                    <li class="dropdown-item" href="#"><a style="color: #F00">Infraestrutura</a></li>
+                    <li class="dropdown-item" ><a href="conselho.html" style="color: #F00">Conselho Escolar</a></li>
+                     <li class="dropdown-item"><a href="missao.html" style="color: #F00">Missão</a></li>
 
                     <li class="dropdown-item dropdown"> 
 
