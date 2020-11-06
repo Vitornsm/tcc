@@ -163,7 +163,7 @@
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SECRETARIA</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
                     <li class="dropdown-item" href="#"><a>Contato</a></li>
-                    <li class="dropdown-item" href="#"><a>Solicitação Documentação</a></li>   
+                    <li><a href="secretariacontato.html" class="dropdown-item">Solicitação Documentação</a></li>    
                 </ul>
             </li>
 
@@ -278,7 +278,7 @@
 				</table><br>
 
 				<input type="submit" value="Inserir" name="cadastrarjosnal" class="butom">&nbsp &nbsp &nbsp
-				<input type="reset" value="Limpar" name="" class="butom">
+				<input type="reset" value="Limpar" name="" class="butom"><br>
 
 				<?php
 
@@ -340,7 +340,7 @@
 						<td><input type="text" name="txtdeletarjornal" class="txtbox3"></td>
 					</tr>
 				</table>
-				<input type="submit" value="Deletar" name="btndeletarjornal" class="butom">
+				<input type="submit" value="Deletar" name="btndeletarjornal" class="butom"><br>
 				<?php
 
 					$botao2 = filter_input(INPUT_POST, 'btndeletarjornal' , FILTER_SANITIZE_STRING);

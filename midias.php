@@ -166,7 +166,7 @@ include_once "conexao.php";
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SECRETARIA</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
                     <li class="dropdown-item" href="#"><a>Contato</a></li>
-                    <li class="dropdown-item" href="#"><a>Solicitação Documentação</a></li>   
+                    <li><a href="secretariacontato.html" class="dropdown-item">Solicitação Documentação</a></li>    
                 </ul>
             </li>
 
@@ -291,7 +291,7 @@ include_once "conexao.php";
 					echo '</tr>';
 
 				}
-				echo '</table></center>';
+				echo '</table><br></center>';
 			}
 
 		?>
