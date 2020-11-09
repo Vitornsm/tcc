@@ -220,7 +220,7 @@ include_once "conexao.php";
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CONTATO</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item" href="#"><a>Contato</a></li>
+                    <li><a class="dropdown-item" href="ContatoSuport.html">Contato</a></li>
                 </li>
                   </ul>
             </li>
@@ -295,7 +295,7 @@ include_once "conexao.php";
 				}
 				echo '</table><br></center>';
 			}
-
 		?>
+   
 	</body>
 </html>
