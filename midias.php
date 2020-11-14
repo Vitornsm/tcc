@@ -48,7 +48,7 @@ include_once "conexao.php";
 <div class="container" id="nav-container"> 
      
       <nav class="navbar navbar-expand-lg fixed-top navbar-dark">  
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
           <img id="logo" src="img/etlg2.jpeg" alt="ETLG"> 
         </a>
 
@@ -60,7 +60,7 @@ include_once "conexao.php";
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">HOME<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php">HOME<span class="sr-only">(current)</span></a>
             </li>
 
            
@@ -165,7 +165,6 @@ include_once "conexao.php";
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SECRETARIA</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item" href="#"><a>Contato</a></li>
                     <li><a href="secretariacontato.html" class="dropdown-item">Solicitação Documentação</a></li>    
                 </ul>
             </li>

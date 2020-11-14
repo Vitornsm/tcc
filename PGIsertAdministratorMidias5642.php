@@ -45,7 +45,7 @@
 <div class="container" id="nav-container"> 
      
       <nav class="navbar navbar-expand-lg fixed-top navbar-dark">  
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
           <img id="logo" src="img/etlg2.jpeg" alt="ETLG"> 
         </a>
 
@@ -57,7 +57,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">HOME<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php">HOME<span class="sr-only">(current)</span></a>
             </li>
 
            
@@ -162,7 +162,6 @@
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SECRETARIA</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item" href="#"><a>Contato</a></li>
                     <li><a href="secretariacontato.html" class="dropdown-item">Solicitação Documentação</a></li>    
                 </ul>
             </li>
@@ -253,7 +252,7 @@
 
 			</center>
 
-			<div class="espaco_esquerdo">
+			<div class="espaco_esquerdo" style="display: inline-block">
 
 				<h1>Isserir Mídias</h1>
 
@@ -333,7 +332,7 @@
 
 					?>
 			</div>
-			<div>
+			<div class="empurrar">
 				<h1>Delatar Mídias</h1>
 				<table>
 					<tr>
@@ -352,11 +351,19 @@
 					{
 						if($delatarmidia != null)
 						{
+                $sql_consultaimg = "SELECT IMG_MIDIAS FROM tb_midias WHERE COD_MIDIA LIKE '$delatarmidia'";
+
+                $resultado_consultaimg = mysqli_query($conn, $sql_consultaimg);
+
+                $row_consultaimg = mysqli_fetch_assoc($resultado_consultaimg);
+
+                $img_cod = $row_consultaimg['IMG_MIDIAS'];
+
 							$sql_code ="DELETE FROM `tb_midias` WHERE `tb_midias`.`COD_MIDIA` = '$delatarmidia'";
 
 								if(mysqli_query($conn, $sql_code))
 								{
-									
+									unlink ("upload/" . $img_cod );
 									echo "<script>alert('Arquivo Deletado com susesso');</script>";
 								}
 								else

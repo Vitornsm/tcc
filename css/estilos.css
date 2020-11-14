@@ -76,5 +76,15 @@ tr {
 input{
    
     outline: 0;
-} 
+}
+.txtbox3{
+	padding: 10px;
+	border-radius: 5px;
+    -moz-border-radius: 5px;	
+    border:solid 1px;
+    border-color: #7c7d7f;
+  
+}
+.txtbox3:hover{
+}
 
