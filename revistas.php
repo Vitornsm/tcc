@@ -197,21 +197,7 @@ include_once "conexao.php";
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">EVENTOS / NOTICIAS</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item" href="#"><a>Histórico</a></li>
-                    <li class="dropdown-item" href="#"><a>Patrono</a></li>   
-                    <li class="dropdown-item" href="#"><a>APM</a></li>
-                    <li class="dropdown-item dropdown">
-
-
-                        <a class="dropdown-toggle" id="dropdown1-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Principios</a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdown1-1">
-                            <li class="dropdown-item" href="#"><a>Missão</a></li>
-                            <li class="dropdown-item" href="#"><a>Visão</a></li>
-                            <li class="dropdown-item" href="#"><a>Valores</a></li>
-                            <li class="dropdown-item dropdown">
-
-                        </ul>
-                    </li>
+                    <li><a class="dropdown-item" href="noticias.php">Notícias</a></li>
                 </ul>
             </li>
 
