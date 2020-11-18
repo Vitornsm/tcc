@@ -230,6 +230,31 @@ include_once "conexao.php";
       <center>
         <br><br><br><br><br>
         <h1>Notícias</h1>
+<<<<<<< HEAD
+
+        <?php
+
+          $query = "SELECT * FROM noticia";
+
+          $queryexecute = mysqli_query($conn, $query);
+
+          echo '<table>';
+
+          while ($row_noticia = mysqli_fetch_assoc($queryexecute))
+          { 
+            $IMGNT = $row_noticia['IMG_NOTCIA'];
+
+            echo '<tr>';
+            echo '<td>' . $row_noticia['TITULO'] . '<br>';
+            echo '<img src ="IMGnoticias/' . $IMGNT . '" width="88px" height="88px"></td>';
+            echo '<td>' . $row_noticia['TEXTO'] .'</td>';
+            echo '<td>' . $row_noticia['ALTOR'] .'</td>';
+            echo '</tr>';
+          }
+          echo '</table><br>';
+
+        ?>
+
       </center>
 
     </form>
