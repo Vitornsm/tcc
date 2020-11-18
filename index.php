@@ -257,6 +257,11 @@ include_once "conexao.php";
         <div class="carousel-inner">
           <a href="#">
             <div class="carousel-item active">
+              <?php
+
+                $query = "";
+
+              ?>
               <img src="img/banner4.jpg" class="d-block w-100" alt="qualidade de ensino">
               <div class="carousel-caption d-md-block">
             </div>
