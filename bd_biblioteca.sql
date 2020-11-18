@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 28-Out-2020 às 22:33
+-- Tempo de geração: 18-Nov-2020 às 16:08
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.3.21
 
@@ -44,6 +44,27 @@ CREATE TABLE IF NOT EXISTS `login` (
 
 INSERT INTO `login` (`ID`, `USUARIO`, `SENHA`, `EMAIL`) VALUES
 (3, 'laurindo123', 'bcec378dc9b7b470ff2bbe527518ad37', 'laurindoguimaraestec@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `noticia`
+--
+
+DROP TABLE IF EXISTS `noticia`;
+CREATE TABLE IF NOT EXISTS `noticia` (
+  `TITULO` varchar(150) NOT NULL,
+  `TEXTO` mediumtext NOT NULL,
+  `ALTOR` varchar(30) NOT NULL,
+  `IMG_NOTCIA` varchar(40) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `noticia`
+--
+
+INSERT INTO `noticia` (`TITULO`, `TEXTO`, `ALTOR`, `IMG_NOTCIA`) VALUES
+('nois', 'putiz', 'Vitor', 'masoiagz');
 
 -- --------------------------------------------------------
 
