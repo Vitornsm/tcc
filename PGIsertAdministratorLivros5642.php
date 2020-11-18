@@ -32,7 +32,7 @@
   <!-- Parallax  efeito de parallax de imagens-->
   <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
 
-
+<link rel="sortcut icon" href="img/etlg.ico" type="image/x-icon" />;
 
 </head>
 <body>
@@ -45,7 +45,7 @@
 <div class="container" id="nav-container"> 
      
       <nav class="navbar navbar-expand-lg fixed-top navbar-dark">  
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
           <img id="logo" src="img/etlg2.jpeg" alt="ETLG"> 
         </a>
 
@@ -57,7 +57,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">HOME<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php">HOME<span class="sr-only">(current)</span></a>
             </li>
 
            
@@ -69,14 +69,14 @@
 
 
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item"><a>Histórico</a></li>
-                    <li class="dropdown-item"><a href="#">Patrono</a></li>   
-                    <li class="dropdown-item"><a href="#">APM</a></li>
-                    <li class="dropdown-item"><a href="missao.html" target="_blank">Diretoria</a></li>
-                    <li class="dropdown-item" href="#"><a>Colaboradores</a></li>
-                    <li class="dropdown-item" href="#"><a>Infraestrutura</a></li>
-                    <li class="dropdown-item" href="#"><a>Conselho Escolar</a></li>
-                     <li class="dropdown-item"><a href="missao.html" target="_blank">Missão</a></li>
+                    <li class="dropdown-item"><a style="color: #F00">Histórico</a></li>
+                    <li class="dropdown-item"><a href="#" style="color: #F00">Patrono</a></li>   
+                    <li class="dropdown-item"><a href="apm.html" style="color: #F00">APM</a></li>
+                    <li class="dropdown-item"><a href="diretor.html" style="color: #F00" >Diretoria</a></li>
+                    <li class="dropdown-item" href="#"><a style="color: #F00">Colaboradores</a></li>
+                    <li class="dropdown-item" href="#"><a style="color: #F00">Infraestrutura</a></li>
+                    <li class="dropdown-item" ><a href="conselho.html" style="color: #F00">Conselho Escolar</a></li>
+                     <li class="dropdown-item"><a href="missao.html" style="color: #F00">Missão</a></li>
 
                     <li class="dropdown-item dropdown"> 
 
@@ -162,8 +162,7 @@
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SECRETARIA</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item" href="#"><a>Contato</a></li>
-                    <li class="dropdown-item" href="#"><a>Solicitação Documentação</a></li>   
+                    <li><a href="secretariacontato.html" class="dropdown-item">Solicitação Documentação</a></li>    
                 </ul>
             </li>
 
@@ -195,21 +194,7 @@
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">EVENTOS / NOTICIAS</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item" href="#"><a>Histórico</a></li>
-                    <li class="dropdown-item" href="#"><a>Patrono</a></li>   
-                    <li class="dropdown-item" href="#"><a>APM</a></li>
-                    <li class="dropdown-item dropdown">
-
-
-                        <a class="dropdown-toggle" id="dropdown1-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Principios</a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdown1-1">
-                            <li class="dropdown-item" href="#"><a>Missão</a></li>
-                            <li class="dropdown-item" href="#"><a>Visão</a></li>
-                            <li class="dropdown-item" href="#"><a>Valores</a></li>
-                            <li class="dropdown-item dropdown">
-
-                        </ul>
-                    </li>
+                    <li><a class="dropdown-item" href="noticias.php">Notícias</a></li>
                 </ul>
             </li>
 
@@ -217,7 +202,7 @@
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CONTATO</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item" href="#"><a>Contato</a></li>
+                    <li><a class="dropdown-item" href="ContatoSuport.html">Contato</a></li>
                 </li>
                   </ul>
             </li>
@@ -252,7 +237,7 @@
 
 			</center>
 
-			<div>
+			<div class="espaco_esquerdo" style="display: inline-block">
 
 				<h1>Inserir Livro</h1>
 
@@ -298,7 +283,7 @@
 				</table><br>
 
 				<input type="submit" value="Inserir" name="cadastrarlivro" class="butom">&nbsp &nbsp &nbsp
-				<input type="reset" value="Limpar" name="" class="butom">
+				<input type="reset" value="Limpar" name="" class="butom"><br>
 
 				<?php
 				
@@ -358,7 +343,7 @@
 					}
 				?>
 			</div>
-			<div>
+			<div class="empurrar">
 				<h1>Deletar Livro</h1>
 
 				<table>
@@ -368,7 +353,7 @@
 					</tr>
 				</table>
 
-				<input type="submit" value="Deletar" name="deletarlivro" class="butom">&nbsp &nbsp &nbsp
+				<input type="submit" value="Deletar" name="deletarlivro" class="butom">&nbsp &nbsp &nbsp<br>
 
 				<?php
 					include "conexao.php";
@@ -380,11 +365,20 @@
 					{
 						if($delcodlivro != null)
 						{
+              $sql_consultaimg = "SELECT IMG_LIVRO FROM tb_livros WHERE COD_LIVRO LIKE '$delcodlivro'";
+
+              $resultado_consultaimg = mysqli_query($conn, $sql_consultaimg);
+
+              $row_consultaimg = mysqli_fetch_assoc($resultado_consultaimg);
+
+              $img_cod = $row_consultaimg['IMG_LIVRO'];
+
+
 							$sql_code ="DELETE FROM `tb_livros` WHERE `tb_livros`.`COD_LIVRO` = '$delcodlivro'";
 
 								if(mysqli_query($conn, $sql_code))
 								{
-									
+									unlink ("upload/" . $img_cod );
 									echo "<script>alert('Arquivo Deletado com susesso');</script>";
 								}
 								else
@@ -405,6 +399,5 @@
 			</div>
 
 		</form>
-
 	</body>
 </html>

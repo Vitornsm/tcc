@@ -35,7 +35,7 @@ include_once "conexao.php";
   <!-- Parallax  efeito de parallax de imagens-->
   <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
 
-
+<link rel="sortcut icon" href="img/etlg.ico" type="image/x-icon" />;
 
 </head>
 <body>
@@ -48,7 +48,7 @@ include_once "conexao.php";
 <div class="container" id="nav-container"> 
      
       <nav class="navbar navbar-expand-lg fixed-top navbar-dark">  
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
           <img id="logo" src="img/etlg2.jpeg" alt="ETLG"> 
         </a>
 
@@ -60,7 +60,7 @@ include_once "conexao.php";
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">HOME<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php">HOME<span class="sr-only">(current)</span></a>
             </li>
 
            
@@ -72,14 +72,14 @@ include_once "conexao.php";
 
 
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item"><a>Histórico</a></li>
-                    <li class="dropdown-item"><a href="#">Patrono</a></li>   
-                    <li class="dropdown-item"><a href="#">APM</a></li>
-                    <li class="dropdown-item"><a href="missao.html" target="_blank">Diretoria</a></li>
-                    <li class="dropdown-item" href="#"><a>Colaboradores</a></li>
-                    <li class="dropdown-item" href="#"><a>Infraestrutura</a></li>
-                    <li class="dropdown-item" href="#"><a>Conselho Escolar</a></li>
-                     <li class="dropdown-item"><a href="missao.html" target="_blank">Missão</a></li>
+                    <li class="dropdown-item"><a style="color: #F00">Histórico</a></li>
+                    <li class="dropdown-item"><a href="#" style="color: #F00">Patrono</a></li>   
+                    <li class="dropdown-item"><a href="apm.html" style="color: #F00">APM</a></li>
+                    <li class="dropdown-item"><a href="diretor.html" style="color: #F00" >Diretoria</a></li>
+                    <li class="dropdown-item" href="#"><a style="color: #F00">Colaboradores</a></li>
+                    <li class="dropdown-item" href="#"><a style="color: #F00">Infraestrutura</a></li>
+                    <li class="dropdown-item" ><a href="conselho.html" style="color: #F00">Conselho Escolar</a></li>
+                     <li class="dropdown-item"><a href="missao.html" style="color: #F00">Missão</a></li>
 
                     <li class="dropdown-item dropdown"> 
 
@@ -165,8 +165,7 @@ include_once "conexao.php";
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SECRETARIA</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item" href="#"><a>Contato</a></li>
-                    <li class="dropdown-item" href="#"><a>Solicitação Documentação</a></li>   
+                    <li><a href="secretariacontato.html" class="dropdown-item">Solicitação Documentação</a></li>   
                 </ul>
             </li>
 
@@ -198,21 +197,7 @@ include_once "conexao.php";
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">EVENTOS / NOTICIAS</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item" href="#"><a>Histórico</a></li>
-                    <li class="dropdown-item" href="#"><a>Patrono</a></li>   
-                    <li class="dropdown-item" href="#"><a>APM</a></li>
-                    <li class="dropdown-item dropdown">
-
-
-                        <a class="dropdown-toggle" id="dropdown1-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Principios</a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdown1-1">
-                            <li class="dropdown-item" href="#"><a>Missão</a></li>
-                            <li class="dropdown-item" href="#"><a>Visão</a></li>
-                            <li class="dropdown-item" href="#"><a>Valores</a></li>
-                            <li class="dropdown-item dropdown">
-
-                        </ul>
-                    </li>
+                    <li><a class="dropdown-item" href="noticias.php">Notícias</a></li>
                 </ul>
             </li>
 
@@ -220,7 +205,7 @@ include_once "conexao.php";
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CONTATO</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item" href="#"><a>Contato</a></li>
+                    <li><a class="dropdown-item" href="ContatoSuport.html">Contato</a></li>
                 </li>
                   </ul>
             </li>
@@ -293,9 +278,9 @@ include_once "conexao.php";
 					echo '</tr>';
 					
 				}
-				echo '</table></center>';
+				echo '</table><br></center>';
 			}
-
 		?>
+   
 	</body>
 </html>
