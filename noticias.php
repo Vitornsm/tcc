@@ -230,6 +230,7 @@ include_once "conexao.php";
       <center>
         <br><br><br><br><br>
         <h1>Notícias</h1>
+<<<<<<< HEAD
 
         <?php
 
