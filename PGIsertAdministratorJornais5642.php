@@ -231,13 +231,14 @@
 				<a href="PGIsertAdministratorLivros5642.php" class="butom">Livros</a>
 				<a href="PGIsertAdministratorJornais5642.php" class="selecionado">Jornais</a>
 				<a href="PGIsertAdministratorMidias5642.php" class="butom">Mídias</a>
-				<a href="PGIsertAdministratorRevistas5642.php" class="butom">Revistas</a><br><br>
+				<a href="PGIsertAdministratorRevistas5642.php" class="butom">Revistas</a>
+        <a href="PGIsertAdministratorNoticia5642.php" class="butom">Notícia</a><br><br>
 
 			</center>
 
 			<div class="espaco_esquerdo" style="display: inline-block">
 
-				<h1>Isserir Jornal</h1>
+				<h1>Inserir Jornal</h1>
 
 				<table>
 					<tr>

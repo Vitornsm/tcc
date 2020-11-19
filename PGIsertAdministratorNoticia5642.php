@@ -1,47 +1,44 @@
-<?php
-include_once "conexao.php";
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  
-  	<link rel ="stylesheet" type="text/css" href="css/estilos.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA_Compatible" content="ie=edge">
-    <title>Escola Técnica Laurindo Guimarães</title>
+	<link rel ="stylesheet" type="text/css" href="css/estilos2.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA_Compatible" content="ie=edge">
+  <title>ADM</title>
 
-    <!-- Fonte usada no site-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+  <!-- Fonte usada no site-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
 
-    <!-- Estilos CSS e Bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/styles.css">
-
-
-    <!-- Scripts (jQuery do Boostrap) -->
-     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-    <!-- Font Awesome fornece icones para o html -->
-    <script src="https://kit.fontawesome.com/bf7e05c402.js" crossorigin="anonymous"></script>
+  <!-- Estilos CSS e Bootstrap-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/styles.css">
 
 
+  <!-- Scripts (jQuery do Boostrap) -->
+   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    <!-- Progress Bar -->
-    <script src="js/progressbar.min.js"></script>
+  <!-- Font Awesome fornece icones para o html -->
+  <script src="https://kit.fontawesome.com/bf7e05c402.js" crossorigin="anonymous"></script>
 
-    <!-- Parallax  efeito de parallax de imagens-->
-    <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
 
-    <link rel="sortcut icon" href="img/etlg.ico" type="image/x-icon" />;
-  
+
+  <!-- Progress Bar -->
+  <script src="js/progressbar.min.js"></script>
+
+  <!-- Parallax  efeito de parallax de imagens-->
+  <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+
+<link rel="sortcut icon" href="img/etlg.ico" type="image/x-icon" />;
+
 </head>
 <body>
-<div class="teamplate">
-<header> <!-- Criação do Cabeçalho do site -->
+
+
+  <header> <!-- Criação do Cabeçalho do site -->
 
      <!---  Menu -->
 
@@ -165,7 +162,7 @@ include_once "conexao.php";
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SECRETARIA</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li><a href="secretariacontato.html" class="dropdown-item">Solicitação Documentação</a></li>   
+                    <li><a href="secretariacontato.html" class="dropdown-item">Solicitação Documentação</a></li>    
                 </ul>
             </li>
 
@@ -226,9 +223,48 @@ include_once "conexao.php";
 </div>
 
   </header>
-    <form enctype="multipart/form-data" method="POST" action="" class="texto">
-      <center>  
+
+			<br><br><br><br><br>
+
+      <form accept-charset="utf-8" method="POST" class="texto" enctype="multipart/form-data">
+      <center>
+
+        <h1>Adicionar a biblioteca</h1>
+
+        <a href="PGIsertAdministratorLivros5642.php" class="butom">Livros</a>
+        <a href="PGIsertAdministratorJornais5642.php" class="butom">Jornais</a>
+        <a href="PGIsertAdministratorMidias5642.php" class="butom">Mídias</a>
+        <a href="PGIsertAdministratorRevistas5642.php" class="butom">Revistas</a>
+        <a href="PGIsertAdministratorNoticia5642.php" class="selecionado">Notícia</a><br><br>
+      
       </center>
+
+      <div class="espaco_esquerdo" style="display: inline-block">
+
+      <h1>Inserir Notícia</h1>
+
+      <table>
+        <tr>
+          <td>Titulo</td>
+          <td><input type="text" name="" class="txtbox3"></td>
+        </tr>
+        <tr>
+          <td>Texto</td>
+          <td><input type="text" name="" class="txtbox3"></td>
+        </tr>
+        <tr>
+          <td>Altor</td>
+          <td><input type="text" name="" class="txtbox3"></td>
+        </tr>
+        <tr>
+          <td>Imagen da Notícia</td>
+          <td><textarea ROWS="10" COLS="50" name="txtobser" class="txtboxtextarea"></textarea></td>
+        </tr>
+      </table><br>
+      <input type="submit" value="Enviar" name="btnenviar" class="butom">&nbsp &nbsp &nbsp
+      <input type="reset" value="Limpar" name="" class="butom"><br><br>
+
+      
     </form>
-    </body>
-  </html>
+  </body>
+</html>
