@@ -220,8 +220,6 @@ include_once "conexao.php";
         </form>
 
 
-
-
     </div>
 </div>
 
@@ -230,7 +228,7 @@ include_once "conexao.php";
       <center>
         <br><br><br><br><br>
         <h1>Notícias</h1>
-<<<<<<< HEAD
+        <br>
 
         <?php
 
@@ -238,23 +236,17 @@ include_once "conexao.php";
 
           $queryexecute = mysqli_query($conn, $query);
 
-          echo '<table>';
 
           while ($row_noticia = mysqli_fetch_assoc($queryexecute))
           { 
             $IMGNT = $row_noticia['IMG_NOTCIA'];
 
-            echo '<tr>';
-            echo '<td>' . $row_noticia['TITULO'] . '<br>';
-            echo '<img src ="IMGnoticias/' . $IMGNT . '" width="88px" height="88px"></td>';
-            echo '<td>' . $row_noticia['TEXTO'] .'</td>';
-            echo '<td>' . $row_noticia['ALTOR'] .'</td>';
-            echo '</tr>';
+            echo '<img src="IMGnoticias/' . $IMGNT . '" width="700px" height="500px"> <br><br>';
+
+            echo '<h4>'. $row_noticia['TEXTO'] . '</h4><br><br><br><br>';
           }
-          echo '</table><br>';
 
-        ?>
-
+        ?> 
       </center>
 
     </form>
