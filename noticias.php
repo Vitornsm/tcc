@@ -241,9 +241,12 @@ include_once "conexao.php";
           { 
             $IMGNT = $row_noticia['IMG_NOTCIA'];
 
-            echo '<img src="IMGnoticias/' . $IMGNT . '" width="700px" height="500px"> <br><br>';
+            echo '<table width="70%" height="30%" style="box-shadow: 1px 1px 5px #7E7E7E;border-radius: 5px;">';
+            echo '<tr><td><center><h2>'. $row_noticia['TITULO'] . '</h2></center></td></tr>';
+            echo '<tr><td><center><img src="IMGnoticias/' . $IMGNT . '" width="640" height="360"></center></td></tr>';
+            echo '<tr><td><center><h4>'. $row_noticia['TEXTO'] . '</h4></center></td></tr>';
 
-            echo '<h4>'. $row_noticia['TEXTO'] . '</h4><br><br><br><br>';
+            echo'</table><br><br> ';
           }
 
         ?> 
