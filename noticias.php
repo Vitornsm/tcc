@@ -239,7 +239,7 @@ include_once "conexao.php";
 
           while ($row_noticia = mysqli_fetch_assoc($queryexecute))
           { 
-            $IMGNT = $row_noticia['IMG_NOTCIA'];
+            $IMGNT = $row_noticia['IMG_NOTICIA'];
 
             echo '<table width="70%" height="30%" style="box-shadow: 1px 1px 5px #7E7E7E;border-radius: 5px;">';
             echo '<tr><td><center><h2>'. $row_noticia['TITULO'] . '</h2></center></td></tr>';

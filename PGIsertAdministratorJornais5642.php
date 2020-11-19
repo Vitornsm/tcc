@@ -226,7 +226,7 @@
 			<br><br><br><br><br>
       <form accept-charset="utf-8" method="POST" class="texto" enctype="multipart/form-data">
       <center>
-				<h1>Adicionar a biblioteca</h1>
+				<h1>Adicionar</h1>
 
 				<a href="PGIsertAdministratorLivros5642.php" class="butom">Livros</a>
 				<a href="PGIsertAdministratorJornais5642.php" class="selecionado">Jornais</a>

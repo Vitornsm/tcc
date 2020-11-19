@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 18-Nov-2020 às 16:08
+-- Tempo de geração: 19-Nov-2020 às 23:24
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.3.21
 
@@ -55,16 +55,11 @@ DROP TABLE IF EXISTS `noticia`;
 CREATE TABLE IF NOT EXISTS `noticia` (
   `TITULO` varchar(150) NOT NULL,
   `TEXTO` mediumtext NOT NULL,
-  `ALTOR` varchar(30) NOT NULL,
-  `IMG_NOTCIA` varchar(40) NOT NULL
+  `AUTOR` varchar(30) NOT NULL,
+  `IMG_NOTICIA` varchar(100) NOT NULL,
+  UNIQUE KEY `IMG_NOTICIA` (`IMG_NOTICIA`),
+  UNIQUE KEY `TITULO` (`TITULO`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `noticia`
---
-
-INSERT INTO `noticia` (`TITULO`, `TEXTO`, `ALTOR`, `IMG_NOTCIA`) VALUES
-('nois', 'putiz', 'Vitor', 'masoiagz');
 
 -- --------------------------------------------------------
 

@@ -229,7 +229,7 @@
       <form accept-charset="utf-8" method="POST" class="texto" enctype="multipart/form-data">
       <center>
 
-        <h1>Adicionar a biblioteca</h1>
+        <h1>Adicionar</h1>
 
         <a href="PGIsertAdministratorLivros5642.php" class="butom">Livros</a>
         <a href="PGIsertAdministratorJornais5642.php" class="butom">Jornais</a>
@@ -241,30 +241,134 @@
 
       <div class="espaco_esquerdo" style="display: inline-block">
 
-      <h1>Inserir Notícia</h1>
+        <h1>Inserir Notícia</h1>
 
-      <table>
-        <tr>
-          <td>Titulo</td>
-          <td><input type="text" name="" class="txtbox3"></td>
-        </tr>
-        <tr>
-          <td>Texto</td>
-          <td><input type="text" name="" class="txtbox3"></td>
-        </tr>
-        <tr>
-          <td>Altor</td>
-          <td><input type="text" name="" class="txtbox3"></td>
-        </tr>
-        <tr>
-          <td>Imagen da Notícia</td>
-          <td><textarea ROWS="10" COLS="50" name="txtobser" class="txtboxtextarea"></textarea></td>
-        </tr>
-      </table><br>
-      <input type="submit" value="Enviar" name="btnenviar" class="butom">&nbsp &nbsp &nbsp
-      <input type="reset" value="Limpar" name="" class="butom"><br><br>
+        <table>
+          <tr>
+            <td>Titulo</td>
+            <td><input type="text" name="txttitulonoticia" class="txtbox3"></td>
+          </tr>
+          <tr>
+            <td>Autor</td>
+            <td><input type="text" name="txtaltornoticia" class="txtbox3"></td>
+          </tr>
+          <tr>
+            <td>Texto</td>
+            <td><textarea ROWS="10" COLS="50" name="txttextonoticia" class="txtboxtextarea"></textarea></td>
+          </tr>
+          <tr>
+            <td>Imagen da Notícia</td>
+            <td><input type="file"  name="imgboxnoticia" class="txtbox3"></td>
+          </tr>
+        </table><br>
+        <input type="submit" value="Enviar" name="btnenviarnoticia" class="butom">&nbsp &nbsp &nbsp
+        <input type="reset" value="Limpar" name="" class="butom"><br><br>
 
-      
+        <?php
+          
+            include "conexao.php";
+
+            $botao= filter_input(INPUT_POST, 'btnenviarnoticia' , FILTER_SANITIZE_STRING);
+            
+
+            $Titulonoticia= filter_input(INPUT_POST, 'txttitulonoticia',FILTER_SANITIZE_STRING);
+            $Altornoticia= filter_input(INPUT_POST, 'txtaltornoticia',FILTER_SANITIZE_STRING);
+            $Textonoticia= filter_input(INPUT_POST, 'txttextonoticia',FILTER_SANITIZE_STRING);
+            
+
+            if ($botao == "Enviar") 
+            {
+              if($Titulonoticia && $Altornoticia && $Textonoticia != null)
+              {   
+                $_UP['pasta'] = 'IMGnoticias/';  
+
+                if(isset($_FILES['imgboxnoticia']));
+                {
+                  $arquivo = $_FILES['imgboxnoticia'];
+                  $extensao = pathinfo($arquivo['name'], PATHINFO_EXTENSION);
+                  $novo_nome = md5(uniqid($arquivo['name'])).".".$extensao;
+
+                  move_uploaded_file($_FILES['imgboxnoticia']['tmp_name'], $_UP['pasta'].$novo_nome);
+
+                  $sql_code ="INSERT INTO `noticia`(`TITULO`, `TEXTO`, `AUTOR`, `IMG_NOTICIA`) VALUES ('$Titulonoticia','$Textonoticia','$Altornoticia','$novo_nome')";
+
+                  if(mysqli_query($conn, $sql_code))
+                  {
+                    
+                    echo "<script>alert('Arquivo enviado com susesso');</script>";
+                  }
+                  else
+                  {
+                    echo '<h3 style="color: red;">';
+                    echo 'Dados já cadastrados';
+                    echo '</h3>';
+                  }   
+                }
+              }
+              else
+              {
+                echo '<h3 style="color: red;">';
+                echo 'Preencha todos os campos';
+                echo '</h3>';
+              }           
+            }
+          ?>
+      </div>
+      <div class="empurrar">
+        <h1>Deletar Notícia</h1>
+
+        <table>
+          <tr>
+            <td>Titulo</td>
+            <td><input type="text" name="txtdelnoticia" class="txtbox3"></td>
+          </tr>
+        </table>
+
+        <input type="submit" value="Deletar" name="deletarnoticia" class="butom">&nbsp &nbsp &nbsp<br>
+
+        <?php
+
+          include "conexao.php";
+          $botao2= filter_input(INPUT_POST, 'deletarnoticia' , FILTER_SANITIZE_STRING);
+          $delcodlivro= filter_input(INPUT_POST, 'txtdelnoticia',FILTER_SANITIZE_STRING);
+
+          
+          if ($botao2 =="Deletar") 
+          {
+            if($delcodlivro != null)
+            {
+              $sql_consultaimg = "SELECT IMG_NOTICIA FROM noticia WHERE TITULO LIKE '$delcodlivro'";
+
+              $resultado_consultaimg = mysqli_query($conn, $sql_consultaimg);
+
+              $row_consultaimg = mysqli_fetch_assoc($resultado_consultaimg);
+
+              $img_cod = $row_consultaimg['IMG_NOTICIA'];
+
+
+              $sql_code ="DELETE FROM `noticia` WHERE `noticia`.`TITULO` = '$delcodlivro'";
+
+                if(mysqli_query($conn, $sql_code))
+                {
+                  unlink ("IMGnoticias/" . $img_cod );
+                  echo "<script>alert('Arquivo Deletado com susesso');</script>";
+                }
+                else
+                {
+                  echo '<h3 style="color: red;">';
+                  echo 'Código não existe';
+                  echo '</h3>';
+                } 
+            }
+            else
+            {
+              echo '<h3 style="color: red;">';
+              echo 'Preencha o campo';
+              echo '</h3>';
+            } 
+          }
+        ?>
+      </div>
     </form>
   </body>
 </html>
