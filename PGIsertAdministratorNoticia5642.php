@@ -260,6 +260,10 @@
             <td>Imagen da Notícia</td>
             <td><input type="file"  name="imgboxnoticia" class="txtbox3"></td>
           </tr>
+          <tr>
+            <td>Fonte da Imagen</td>
+            <td><input type="text" name="txtfonteimagemnoticia" class="txtbox3"></td>
+          </tr>
         </table><br>
         <input type="submit" value="Enviar" name="btnenviarnoticia" class="butom">&nbsp &nbsp &nbsp
         <input type="reset" value="Limpar" name="" class="butom"><br><br>
@@ -274,6 +278,8 @@
             $Titulonoticia= filter_input(INPUT_POST, 'txttitulonoticia',FILTER_SANITIZE_STRING);
             $Altornoticia= filter_input(INPUT_POST, 'txtaltornoticia',FILTER_SANITIZE_STRING);
             $Textonoticia= filter_input(INPUT_POST, 'txttextonoticia',FILTER_SANITIZE_STRING);
+            $Fonteimagemnoticia= filter_input(INPUT_POST, 'txtfonteimagemnoticia',FILTER_SANITIZE_STRING);
+            
             
 
             if ($botao == "Enviar") 
@@ -290,7 +296,7 @@
 
                   move_uploaded_file($_FILES['imgboxnoticia']['tmp_name'], $_UP['pasta'].$novo_nome);
 
-                  $sql_code ="INSERT INTO `noticia`(`TITULO`, `TEXTO`, `AUTOR`, `IMG_NOTICIA`) VALUES ('$Titulonoticia','$Textonoticia','$Altornoticia','$novo_nome')";
+                  $sql_code ="INSERT INTO `noticia`(`TITULO`, `TEXTO`, `AUTOR`, `IMG_NOTICIA`,HORA_NOTICIA,FONTE_IMG) VALUES ('$Titulonoticia','$Textonoticia','$Altornoticia','$novo_nome', NOW(),'$Fonteimagemnoticia')";
 
                   if(mysqli_query($conn, $sql_code))
                   {
@@ -330,14 +336,14 @@
 
           include "conexao.php";
           $botao2= filter_input(INPUT_POST, 'deletarnoticia' , FILTER_SANITIZE_STRING);
-          $delcodlivro= filter_input(INPUT_POST, 'txtdelnoticia',FILTER_SANITIZE_STRING);
+          $delcodnoticia= filter_input(INPUT_POST, 'txtdelnoticia',FILTER_SANITIZE_STRING);
 
           
           if ($botao2 =="Deletar") 
           {
-            if($delcodlivro != null)
+            if($delcodnoticia != null)
             {
-              $sql_consultaimg = "SELECT IMG_NOTICIA FROM noticia WHERE TITULO LIKE '$delcodlivro'";
+              $sql_consultaimg = "SELECT IMG_NOTICIA FROM noticia WHERE TITULO LIKE '$delcodnoticia'";
 
               $resultado_consultaimg = mysqli_query($conn, $sql_consultaimg);
 
@@ -346,7 +352,7 @@
               $img_cod = $row_consultaimg['IMG_NOTICIA'];
 
 
-              $sql_code ="DELETE FROM `noticia` WHERE `noticia`.`TITULO` = '$delcodlivro'";
+              $sql_code ="DELETE FROM `noticia` WHERE `noticia`.`TITULO` = '$delcodnoticia'";
 
                 if(mysqli_query($conn, $sql_code))
                 {

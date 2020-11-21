@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 19-Nov-2020 às 23:24
+-- Tempo de geração: 21-Nov-2020 às 04:36
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.3.21
 
@@ -53,13 +53,22 @@ INSERT INTO `login` (`ID`, `USUARIO`, `SENHA`, `EMAIL`) VALUES
 
 DROP TABLE IF EXISTS `noticia`;
 CREATE TABLE IF NOT EXISTS `noticia` (
-  `TITULO` varchar(150) NOT NULL,
+  `TITULO` varchar(200) NOT NULL,
   `TEXTO` mediumtext NOT NULL,
-  `AUTOR` varchar(30) NOT NULL,
-  `IMG_NOTICIA` varchar(100) NOT NULL,
+  `AUTOR` varchar(200) NOT NULL,
+  `IMG_NOTICIA` varchar(200) NOT NULL,
+  `HORA_NOTICIA` datetime NOT NULL,
+  `FONTE_IMG` varchar(200) NOT NULL,
   UNIQUE KEY `IMG_NOTICIA` (`IMG_NOTICIA`),
   UNIQUE KEY `TITULO` (`TITULO`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `noticia`
+--
+
+INSERT INTO `noticia` (`TITULO`, `TEXTO`, `AUTOR`, `IMG_NOTICIA`, `HORA_NOTICIA`, `FONTE_IMG`) VALUES
+('Manifestantes fazem protesto contra morte em Porto Alegre e loja do Carrefour é invadida em SP', 'A 17ª Marcha da Consciência Negra em São Paulo, que nesta sexta-feira (20) pediu justiça pela morte de João Alberto em Porto Alegre, terminou em quebra-quebra e invasão e uma unidade do Carrefour da rua Pamplona no bairro dos Jardins, Zona Sul da capital paulista.\r\n\r\nApós o fim do ato pacífico, um pequeno grupo de manifestantes usou pedras e paus para atacar a loja e quebrar vidraças da unidade, que fica dentro de um shopping da região.', 'Por G1 SP — São Paulo', '3c5a99fc8b22bb98ab8eebe326b22f0a.jpg', '2020-11-21 01:32:14', 'G1');
 
 -- --------------------------------------------------------
 

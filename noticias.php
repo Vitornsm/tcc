@@ -222,36 +222,39 @@ include_once "conexao.php";
 
     </div>
 </div>
-
   </header>
-    <form enctype="multipart/form-data" method="POST" action="" class="texto">
-      <center>
-        <br><br><br><br><br>
-        <h1>Notícias</h1>
-        <br>
 
-        <?php
+  <form enctype="multipart/form-data" method="POST" action="" class="texto">
+    <center>
+      <br><br><br><br><br>
+      <h1>Notícias</h1>
+      <br>
 
-          $query = "SELECT * FROM noticia";
+    </center>
 
-          $queryexecute = mysqli_query($conn, $query);
+    <?php
+
+      $query = "SELECT * ,date_format(HORA_NOTICIA,'%d / %m / %Y    ') as HORA_NOTICIA FROM `noticia`";
+
+      $queryexecute = mysqli_query($conn, $query);
 
 
-          while ($row_noticia = mysqli_fetch_assoc($queryexecute))
-          { 
-            $IMGNT = $row_noticia['IMG_NOTICIA'];
+      while ($row_noticia = mysqli_fetch_assoc($queryexecute))
+      { 
+        $IMGNT = $row_noticia['IMG_NOTICIA'];
 
-            echo '<table width="70%" height="30%" style="box-shadow: 1px 1px 5px #7E7E7E;border-radius: 5px;">';
-            echo '<tr><td><center><h2>'. $row_noticia['TITULO'] . '</h2></center></td></tr>';
-            echo '<tr><td><center><img src="IMGnoticias/' . $IMGNT . '" width="640" height="360"></center></td></tr>';
-            echo '<tr><td><center><h4>'. $row_noticia['TEXTO'] . '</h4></center></td></tr>';
+        echo '<center><table width="70%" height="30%" style="box-shadow: 1px 1px 5px #7E7E7E;border-radius: 5px;">';
+        echo '<tr><td><center><h2>'. $row_noticia['TITULO'] . '</h2></center></td></tr>';
+        echo '<tr><td style="padding-left: 100px">' . $row_noticia['AUTOR'] .'<td><tr>';
+        echo '<tr><td><center style="color: #4f4f4f;font-size: 13px">' . $row_noticia['HORA_NOTICIA'] . '<br>';
+        echo'<img src="IMGnoticias/' . $IMGNT . '" width="80%" height="80%"><br>';
+        echo '<div style="color: #6f6f6f;font-size: 13px"">' . $row_noticia['FONTE_IMG'] . '</div></center></td></tr>';
+        echo '<tr><td><center><h5>'. $row_noticia['TEXTO'] . '</h5></center></td></tr>';
 
-            echo'</table><br><br> ';
-          }
+        echo'</table></center><br><br> ';
+      }
 
-        ?> 
-      </center>
-
-    </form>
+    ?> 
+  </form>
 </booy>
 </html>
