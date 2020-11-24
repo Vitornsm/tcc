@@ -442,7 +442,7 @@ include_once "conexao.php";
         <div class="container">
             <div class="row">
               <p>Ficou com duvidas , contate-nos</p>
-              <button class="-btn" id="call-btn">Clique</button>
+              <a href="ContatoSuport.html"><button class="-btn" id="call-btn">Clique</button></a>
             </div>
           </div>
       </div>
