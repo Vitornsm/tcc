@@ -237,33 +237,43 @@ include_once "conexao.php";
           <li data-target="#mainSlider" data-slide-to="0" class="active"></li>
           <li data-target="#mainSlider" data-slide-to="1"></li>
           <li data-target="#mainSlider" data-slide-to="2"></li>
+          <li data-target="#mainSlider" data-slide-to="3"></li>
         </ol>
-
-
         <div class="carousel-inner">
-          <a href="#">
+          <a href="noticias.php">
             <div class="carousel-item active">
-              <img src="img/banner4.jpg" class="d-block w-100" alt="qualidade de ensino">
-              <div class="carousel-caption d-md-block">
-            </div>
-          </a>
-        </div>
+              <img src="img/Abrirnoticia" class="d-block w-100" alt="qualidade de ensino" width="100%" height="100%">
+                <div class="carousel-caption d-md-block">
+                </div>
+              </a>
+             </div>
+        <?php
 
-          <a href="#">
-          <div class="carousel-item">
-            <img src="img/banner5.png" class="d-block w-100" alt="fazer curso tecnico">
-            <div class="carousel-caption d-md-block">
-            </div>
-          </a>
-          </div>
+          include_once "conexao.php";
 
-          <a href="#">
-          <div class="carousel-item">
-            <img src="img/banner6.jpg" class="d-block w-100" alt="Estudar na ETLG">
-            <div class="carousel-caption d-md-block">
-            </div>
-            </a>
-          </div>
+          $querybaner = "SELECT * FROM noticia `noticia` ORDER BY `noticia`.`NUMERO`  DESC";
+
+          $queryexecute = mysqli_query($conn, $querybaner);
+
+
+
+
+          while ($row_noticia = mysqli_fetch_assoc($queryexecute))
+          { 
+            $IMGNT = $row_noticia['IMG_NOTICIA'];
+              
+            echo '<a href="noticias.php">
+                    <div class="carousel-item">
+                      <img src="IMGnoticias/' . $IMGNT . '" class="d-block w-100" alt="fazer curso tecnico" width="100%" height="140%">
+                      <div class="carousel-caption d-md-block">
+                        <h1 style="-webkit-text-stroke-width: 2px; -webkit-text-stroke-color: #fff; text-shadow: 0px 5px 5px #000;">' . $row_noticia['TITULO'] . '</h1>
+                      </div>
+                    </a>
+                    </div>';
+          }
+
+        ?>
+
         </div>
 
 
@@ -427,20 +437,6 @@ include_once "conexao.php";
           </div>
         </div>
       </div>
-
-      <!-- Newsletter -->
-      <div id="news-area">
-        <div class="container">
-          <div class="col-md-12">
-            <h3 class="main-title">Atento as nossas novidades</h3>
-          </div>
-          <p>Receba novidades sobre concurso , cursos , cadastre seu e-mail</p>
-          <form action="">
-            <input type="text" class="form-control" id="email-input" name="email" placeholder="Seu melhor e-mail">
-            <input type="submit" id="news-btn" value="Inscrever">
-          </form>
-        </div>
-      </div>
       <!-- Contato1-->
       <div id="call-area">
         <div class="container">
@@ -472,17 +468,6 @@ include_once "conexao.php";
             <div class="col-md-4 contact-box">
               <i class="fas fa-map-marker-alt"></i>
               <p><span class="contact-tile">Localização:</span> Rua Lorem Ipsum - 9999</p>
-            </div>
-            <div class="col-md-6" id="msg-box">
-              <p>Deixe uma mensagem:</p>
-            </div>
-            <div class="col-md-6" id="contact-form">
-              <form action="">
-                <input type="text" class="form-control" placeholder="E-mail" name="email">
-                <input type="text" class="form-control" placeholder="Assunto" name="subject">
-                <textarea class="form-control" rows="3" placeholder="Sua mensagem..." name="message"></textarea>
-                <input type="submit" class="main-btn">
-              </form>
             </div>
           </div>
       </div>

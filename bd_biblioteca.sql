@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 21-Nov-2020 às 04:36
+-- Tempo de geração: 24-Nov-2020 às 02:06
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.3.21
 
@@ -59,16 +59,20 @@ CREATE TABLE IF NOT EXISTS `noticia` (
   `IMG_NOTICIA` varchar(200) NOT NULL,
   `HORA_NOTICIA` datetime NOT NULL,
   `FONTE_IMG` varchar(200) NOT NULL,
+  `NUMERO` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`NUMERO`),
   UNIQUE KEY `IMG_NOTICIA` (`IMG_NOTICIA`),
   UNIQUE KEY `TITULO` (`TITULO`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `noticia`
 --
 
-INSERT INTO `noticia` (`TITULO`, `TEXTO`, `AUTOR`, `IMG_NOTICIA`, `HORA_NOTICIA`, `FONTE_IMG`) VALUES
-('Manifestantes fazem protesto contra morte em Porto Alegre e loja do Carrefour é invadida em SP', 'A 17ª Marcha da Consciência Negra em São Paulo, que nesta sexta-feira (20) pediu justiça pela morte de João Alberto em Porto Alegre, terminou em quebra-quebra e invasão e uma unidade do Carrefour da rua Pamplona no bairro dos Jardins, Zona Sul da capital paulista.\r\n\r\nApós o fim do ato pacífico, um pequeno grupo de manifestantes usou pedras e paus para atacar a loja e quebrar vidraças da unidade, que fica dentro de um shopping da região.', 'Por G1 SP — São Paulo', '3c5a99fc8b22bb98ab8eebe326b22f0a.jpg', '2020-11-21 01:32:14', 'G1');
+INSERT INTO `noticia` (`TITULO`, `TEXTO`, `AUTOR`, `IMG_NOTICIA`, `HORA_NOTICIA`, `FONTE_IMG`, `NUMERO`) VALUES
+('Manifestantes fazem protesto contra morte em Porto Alegre e loja do Carrefour é invadida em SP', 'A 17ª Marcha da Consciência Negra em São Paulo, que nesta sexta-feira (20) pediu justiça pela morte de João Alberto em Porto Alegre, terminou em quebra-quebra e invasão e uma unidade do Carrefour da rua Pamplona no bairro dos Jardins, Zona Sul da capital paulista.\r\n\r\nApós o fim do ato pacífico, um pequeno grupo de manifestantes usou pedras e paus para atacar a loja e quebrar vidraças da unidade, que fica dentro de um shopping da região.', 'Por G1 SP — São Paulo', '3c5a99fc8b22bb98ab8eebe326b22f0a.jpg', '2020-11-21 01:32:14', 'G1', 1),
+('&#39;Me sinto de alma lavada&#39;, diz pai de João Alberto sobre a repercussão da morte do filho', 'O pai de João Alberto Silveira de Freitas, espancado e morto por dois seguranças em um supermercado de Porto Alegre, se sente de &#39;alma lavada&#39; em relação a repercussão da morte do filho, na última quinta-feira (19).\r\n\r\n&#34;Eu posso te dizer que me sinto de alma lavada, porque não imaginei que fosse ter uma repercussão tão grande assim. Mas se é em favor da sociedade é bem-vindo&#34;, disse João Batista Rodrigues Freitas à reportagem da RBS TV, durante o velório do filho, na manhã deste sábado (21), na Zona Norte da Capital gaúcha.', 'Por Tiago Guedes, RBS TV e G1 RS', 'eb9fea1bcf70ceca95e9ebe082698c81.jpg', '2020-11-21 18:48:34', 'João Batista Rodrigues Freitas, pai de João Alberto — Foto: Reprodução / RBS TV', 2),
+('Corpo de João Alberto, morto após ser espancado em unidade do Carrefour, é enterrado em Porto Alegre', 'O corpo de João Alberto Silveira Freitas, de 40 anos, espancado e morto em uma unidade do supermercado Carrefour, foi enterrado na manhã deste sábado (21) no Cemitério São João, na Zona Norte de Porto Alegre.\r\n\r\n&#39;Ele pediu: Milena, me ajuda&#39;, diz mulher de homem negro morto\r\nAnálise inicial aponta para asfixia como causa da morte\r\nFOTOS: Veja imagens das manifestações pela morte de João Alberto\r\nMuito abalada, a mulher de João Alberto, Milena Borges Alves pediu justiça. &#34;Eu não tenho nada pra falar. Só quero justiça, quero que paguem&#34;.\r\n\r\nUma das filhas dele, Taís Amaral Freitas, agradeceu o apoio que a família tem recebido. &#34;A gente até se sente confortável por isso, mas mesmo assim, não traz a vida de volta. Não tem muito o que falar, depois de ver aquelas imagens, horrível&#34;.\r\n\r\nAmigo próximo do soldador, Noé Fernando Pithan também prestou uma última homenagem.\r\n\r\n&#34;Brincalhão, divertido, parceiro mesmo, até eu tenho camisa de clube que ele me deu, e gostava de andar de boné, camisa de clube. Não tem como aceitar uma coisa dessa, não tem como, ninguém vai te explicar isso daí&#34;, desabafa.\r\n\r\nBeto, como era conhecido, começou a ser velado às 8h e o enterro aconteceu às 12h.', 'Por G1 RS e RBS TV', 'f11bddfec1bcf633602a8fb26c1a4bf5.jpeg', '2020-11-21 18:50:54', 'Velório de João Alberto Freitas, morto em unidade do Carrefour em Porto Alegre — Foto: Tiago Guedes / RBS TV', 3);
 
 -- --------------------------------------------------------
 

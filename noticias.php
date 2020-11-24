@@ -234,7 +234,7 @@ include_once "conexao.php";
 
     <?php
 
-      $query = "SELECT * ,date_format(HORA_NOTICIA,'%d / %m / %Y    ') as HORA_NOTICIA FROM `noticia`";
+      $query = "SELECT * ,date_format(HORA_NOTICIA,'%d / %m / %Y    ') as HORA_NOTICIA FROM `noticia` ORDER BY `noticia`.`NUMERO`  DESC";
 
       $queryexecute = mysqli_query($conn, $query);
 
