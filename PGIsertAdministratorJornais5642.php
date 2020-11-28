@@ -1,3 +1,15 @@
+<?php
+  session_start();
+
+
+  if(empty($_SESSION['adm']))
+  {
+    echo ('<meta http-equiv="refresh"content=0;"index.php">');
+  }
+  else
+  {
+    
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -208,17 +220,6 @@
             </li>
       </ul>
 
-      
-
-        <!-- Pesquisa do site-->
-        <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-        </form>
-
-
-
-
     </div>
 </div>
 
@@ -289,14 +290,14 @@
 								$extensao = pathinfo($arquivo['name'], PATHINFO_EXTENSION);
 								$novo_nome = md5(uniqid($arquivo['name'])).".".$extensao;
 
-								move_uploaded_file($_FILES['imgboxjornal']['tmp_name'], $_UP['pasta'].$novo_nome);
+								
 
 								$sql_code ="INSERT INTO `tb_jornais` (`NOME_JORNAL`, `ASSUNTO_JORNAL`, `DATA_JORNAL`, `SUBPASTA_JORNAL`, `IMG_JORNAL`) VALUES ('$nomejornal', '$asuntojornal', '$datajornal', 
 								'$subpastajornal', '$novo_nome')";
 
 								if(mysqli_query($conn, $sql_code))
 								{
-									
+									move_uploaded_file($_FILES['imgboxjornal']['tmp_name'], $_UP['pasta'].$novo_nome);
 									echo "<script>alert('Arquivo enviado com susesso');</script>";
 								}
 								else
@@ -336,27 +337,47 @@
 					{
 						if($delatarjornal != null)
 						{
-              $sql_consultaimg = "SELECT IMG_JORNAL FROM tb_jornais WHERE NUM_JORNAL LIKE '$delatarjornal'";
+              $sql_consultanum = "SELECT NUM_JORNAL FROM tb_jornais WHERE NUM_JORNAL LIKE '$delatarjornal'";
 
-              $resultado_consultaimg = mysqli_query($conn, $sql_consultaimg);
+              $resultado_consultanum = mysqli_query($conn, $sql_consultanum);
 
-              $row_consultaimg = mysqli_fetch_assoc($resultado_consultaimg);
+              $row_consultanum = mysqli_fetch_assoc($resultado_consultanum);
 
-              $img_cod = $row_consultaimg['IMG_JORNAL'];
+              $num_consultado = $row_consultanum['NUM_JORNAL'];
 
-							$sql_code ="DELETE FROM `tb_jornais` WHERE `tb_jornais`.`NUM_JORNAL` = '$delatarjornal'";
+
+              if($num_consultado != null)
+              {
+                $sql_consultaimg = "SELECT IMG_JORNAL FROM tb_jornais WHERE NUM_JORNAL LIKE '$delatarjornal'";
+
+                $resultado_consultaimg = mysqli_query($conn, $sql_consultaimg);
+
+                $row_consultaimg = mysqli_fetch_assoc($resultado_consultaimg);
+
+                $img_cod = $row_consultaimg['IMG_JORNAL'];
+
+  							$sql_code ="DELETE FROM `tb_jornais` WHERE `tb_jornais`.`NUM_JORNAL` = '$delatarjornal'";
 
 								if(mysqli_query($conn, $sql_code))
 								{
-									unlink ("upload/" . $img_cod );
+									if(file_exists("upload/" . $img_cod))
+                  {
+                    unlink ("upload/" . $img_cod ) ;
+                  }
+                  else
+                  {
+                    echo"";
+                  }
+
 									echo "<script>alert('Arquivo Deletado com susesso');</script>";
-								}
-								else
-								{
-									echo '<h3 style="color: red;">';
-									echo 'Numero não existe';
-									echo '</h3>';
-								}
+								}		
+              }
+              else
+              {
+                echo '<h3 style="color: red;">';
+                echo 'Numero não existe';
+                echo '</h3>';
+              }
 						}
 						else
 						{
@@ -365,7 +386,7 @@
 							echo '</h3>';
 						}
 					}
-
+        }
 				?>
 			</div>
 		</form>

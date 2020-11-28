@@ -60,7 +60,12 @@ $obser = $_POST['txtobser'];
         echo ('<meta http-equiv="refresh"content=0;"secretariacontato.html">'); // Redireciona para uma página de obrigado.
 
       }
-      if (!empty($error)) echo $error;
+      else
+      {
+        echo'<center><h1 style="color: red;font-family: Arial;">';
+        echo 'Falha na conexão com o servidor';
+        echo '</h3></center>'; 
+      }
     }
     else
     {

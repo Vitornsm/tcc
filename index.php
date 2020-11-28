@@ -211,17 +211,6 @@ include_once "conexao.php";
             </li>
       </ul>
 
-      
-
-        <!-- Pesquisa do site-->
-        <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-        </form>
-
-
-
-
     </div>
 </div>
 
@@ -417,22 +406,34 @@ include_once "conexao.php";
               <button class="main-btn filter-btn" id="elr-btn">Eletro</button>
             </div>
             <div class="col-md-4 project-box ifo">
-              <img src="img/proj1.jpg" class="img-fluid" alt="Projeto 1">
+              <div class="zoom">
+                <img src="img/proj1.jpg" class="img-fluid" alt="Projeto 1">
+              </div>
             </div>
             <div class="col-md-4 project-box ifo">
-              <img src="img/proj2.jpg" class="img-fluid" alt="Projeto 2">
+              <div class="zoom">
+                <img src="img/proj2.jpg" class="img-fluid" alt="Projeto 2">
+              </div>
             </div>
             <div class="col-md-4 project-box elr">
-              <img src="img/proj3.jpg" class="img-fluid" alt="Projeto 3">
+              <div class="zoom">
+                <img src="img/proj3.jpg" class="img-fluid" alt="Projeto 3">
+              </div>
             </div>
             <div class="col-md-4 project-box elr">
-              <img src="img/proj4.jpg" class="img-fluid" alt="Projeto 4">
+              <div class="zoom">
+                <img src="img/proj4.jpg" class="img-fluid" alt="Projeto 4">
+              </div>
             </div>
             <div class="col-md-4 project-box adm">
-              <img src="img/proj5.jpg" class="img-fluid" alt="Projeto 5">
+              <div class="zoom">
+                <img src="img/proj5.jpg" class="img-fluid" alt="Projeto 5">
+              </div>
             </div>
             <div class="col-md-4 project-box adm">
-              <img src="img/proj6.jpg" class="img-fluid" alt="Projeto 6">
+              <div class="zoom">
+                <img src="img/proj6.jpg" class="img-fluid" alt="Projeto 6">
+              </div>
             </div>
           </div>
         </div>
@@ -458,16 +459,16 @@ include_once "conexao.php";
             </div>
             <div class="col-md-4 contact-box">
               <i class="fas fa-phone"></i>
-              <p><span class="contact-tile">Fone:</span> (11)99999-9999</p>
+              <p><span class="contact-tile">Fone:</span> (11)94442-3496</p>
               <p><span class="contact-tile">Horários:</span> 8:00 - 19:00</p>
             </div>
             <div class="col-md-4 contact-box">
               <i class="fas fa-envelope"></i>
-              <p><span class="contact-tile">Envie um email:</span> contato@etlg.edu.br</p>
+              <p><span class="contact-tile">Envie um email:</span> laurindoguimaraestec@gmail.com</p>
             </div>
             <div class="col-md-4 contact-box">
               <i class="fas fa-map-marker-alt"></i>
-              <p><span class="contact-tile">Localização:</span> Rua Lorem Ipsum - 9999</p>
+              <p><span class="contact-tile">Localização:</span> Rua dos Czares - nº1249</p>
             </div>
           </div>
       </div>

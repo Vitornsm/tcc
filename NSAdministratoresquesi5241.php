@@ -41,39 +41,55 @@
 				if($emaildaconta && $senhaum && $senhadois != null)
 				{
 					if($senhaum == $senhadois)
-					{
-						$query1="SELECT SENHA FROM login WHERE EMAIL LIKE '$emaildaconta'";
-						$senhaantiga= mysqli_query($conn, $query1);
-						
-						$row_senhaantiga = mysqli_fetch_assoc($senhaantiga);
-						$senhaantigamd5 = $row_senhaantiga['SENHA'] ;
-						$senhaummd5 = md5($senhaum);
-
-						if($senhaantigamd5!= $senhaummd5)
-						{
-							$query2 ="UPDATE `login` SET `SENHA` = md5('$senhaum') WHERE `login`.`EMAIL` LIKE '$emaildaconta';";
-
+					{	
+						$query1="SELECT EMAIL FROM login WHERE EMAIL LIKE '$emaildaconta'";
+							$consultaemail= mysqli_query($conn, $query1);
 							
-								if(mysqli_query($conn, $query2))
-								{
-									
-									echo "<script>alert('Senha alterada com susesso!');</script>";
-									echo ('<meta http-equiv="refresh"content=0;"PGcodLogAdministrator5241.php">');
-								}
-								else
-								{
-									echo '<h3 style="color: red;">';
-									echo 'Problema na conexão';
-									echo '</h3>';
-								}
+							$row_consultaemail = mysqli_fetch_assoc($consultaemail);
+							$email_consultado = $row_consultaemail['EMAIL'] ;
+							
 
+						if($email_consultado == $emaildaconta)
+						{
+							$query1="SELECT SENHA FROM login WHERE EMAIL LIKE '$emaildaconta'";
+							$senhaantiga= mysqli_query($conn, $query1);
+							
+							$row_senhaantiga = mysqli_fetch_assoc($senhaantiga);
+							$senhaantigamd5 = $row_senhaantiga['SENHA'] ;
+							$senhaummd5 = md5($senhaum);
+
+							if($senhaantigamd5!= $senhaummd5)
+							{
+								$query2 ="UPDATE `login` SET `SENHA` = md5('$senhaum') WHERE `login`.`EMAIL` LIKE '$emaildaconta';";
+
+								
+									if(mysqli_query($conn, $query2))
+									{
+										
+										echo "<script>alert('Senha alterada com susesso!');</script>";
+										echo ('<meta http-equiv="refresh"content=0;"PGcodLogAdministrator5241.php">');
+									}
+									else
+									{
+										echo '<h3 style="color: red;">';
+										echo 'Problema na conexão';
+										echo '</h3>';
+									}
+
+							}
+							else
+							{
+								echo '<center><h3 style="color: red;">';
+								echo 'A senha é igual a antiga';
+								echo '</h3></center>';
+							}
 						}
 						else
-						{
-							echo '<center><h3 style="color: red;">';
-							echo 'A senha é igual a antiga';
-							echo '</h3></center>';
-						}
+			            {
+			              echo '<br><center><h3 style="color: red;">';
+			              echo 'Este email não possui cadastro';
+			              echo '</h3></center>';
+			            }
 
 					}
 					else

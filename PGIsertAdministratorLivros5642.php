@@ -1,3 +1,15 @@
+<?php
+  session_start();
+
+
+  if(empty($_SESSION['adm']))
+  {
+    echo ('<meta http-equiv="refresh"content=0;"index.php">');
+  }
+  else
+  {
+   
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -32,7 +44,7 @@
   <!-- Parallax  efeito de parallax de imagens-->
   <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
 
-<link rel="sortcut icon" href="img/etlg.ico" type="image/x-icon" />;
+<link rel="sortcut icon" href="img/etlg.ico" type="image/x-icon" />
 
 </head>
 <body>
@@ -208,17 +220,6 @@
             </li>
       </ul>
 
-      
-
-        <!-- Pesquisa do site-->
-        <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-        </form>
-
-
-
-
     </div>
 </div>
 
@@ -287,7 +288,8 @@
 				<input type="reset" value="Limpar" name="" class="butom"><br>
 
 				<?php
-				
+
+				  
 					include "conexao.php";
 
 					$botao= filter_input(INPUT_POST, 'cadastrarlivro' , FILTER_SANITIZE_STRING);
@@ -315,7 +317,7 @@
 								$extensao = pathinfo($arquivo['name'], PATHINFO_EXTENSION);
 								$novo_nome = md5(uniqid($arquivo['name'])).".".$extensao;
 
-								move_uploaded_file($_FILES['imgboxlivro']['tmp_name'], $_UP['pasta'].$novo_nome);
+							
 
 								$sql_code ="INSERT INTO `tb_livros`(`COD_LIVRO`, `NOME_LIVRO`, `GEN_LIVRO`, `COD_AUTOR_LIVRO`, 
 								`NOME_AUTOR_LIVRO`, `EDITORA_LIVRO`, `LOCAL_LIVRO`, `ANO_LIVRO`, `IMG_LIVRO`) VALUES ('$codlivro',
@@ -324,7 +326,7 @@
 
 								if(mysqli_query($conn, $sql_code))
 								{
-									
+									move_uploaded_file($_FILES['imgboxlivro']['tmp_name'], $_UP['pasta'].$novo_nome);
 									echo "<script>alert('Arquivo enviado com susesso');</script>";
 								}
 								else
@@ -366,28 +368,48 @@
 					{
 						if($delcodlivro != null)
 						{
-              $sql_consultaimg = "SELECT IMG_LIVRO FROM tb_livros WHERE COD_LIVRO LIKE '$delcodlivro'";
+              $sql_consultacod = "SELECT COD_LIVRO FROM tb_livros WHERE COD_LIVRO LIKE '$delcodlivro'";
 
-              $resultado_consultaimg = mysqli_query($conn, $sql_consultaimg);
+              $resultado_consultacod = mysqli_query($conn, $sql_consultacod);
 
-              $row_consultaimg = mysqli_fetch_assoc($resultado_consultaimg);
+              $row_consultacod = mysqli_fetch_assoc($resultado_consultacod);
 
-              $img_cod = $row_consultaimg['IMG_LIVRO'];
+              $cod_consultado = $row_consultacod['COD_LIVRO'];
 
 
-							$sql_code ="DELETE FROM `tb_livros` WHERE `tb_livros`.`COD_LIVRO` = '$delcodlivro'";
+              if($cod_consultado != null)
+              {
+                $sql_consultaimg = "SELECT IMG_LIVRO FROM tb_livros WHERE COD_LIVRO LIKE '$delcodlivro'";
 
-								if(mysqli_query($conn, $sql_code))
+                $resultado_consultaimg = mysqli_query($conn, $sql_consultaimg);
+
+                $row_consultaimg = mysqli_fetch_assoc($resultado_consultaimg);
+
+                $img_cod = $row_consultaimg['IMG_LIVRO'];
+
+
+  							$sql_code ="DELETE FROM `tb_livros` WHERE `tb_livros`.`COD_LIVRO` = '$delcodlivro'";
+
+  							if(mysqli_query($conn, $sql_code))
 								{
-									unlink ("upload/" . $img_cod );
+									if(file_exists("upload/" . $img_cod))
+                  {
+                    unlink ("upload/" . $img_cod ) ;
+                  }
+                  else
+                  {
+                    echo"";
+                  }
 									echo "<script>alert('Arquivo Deletado com susesso');</script>";
 								}
-								else
-								{
-									echo '<h3 style="color: red;">';
-									echo 'Código não existe';
-									echo '</h3>';
-								}	
+              }
+              else
+              {
+                echo '<h3 style="color: red;">';
+                echo 'Código não existe';
+                echo '</h3>';
+              }
+
 						}
 						else
 						{
@@ -396,6 +418,7 @@
 							echo '</h3>';
 						}	
 					}
+        }
 				?>
 			</div>
 

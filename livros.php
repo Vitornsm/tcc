@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "conexao.php";
 ?>
 <!DOCTYPE html>
@@ -207,22 +208,59 @@ include_once "conexao.php";
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
                     <li><a class="dropdown-item" href="ContatoSuport.html">Contato</a></li>
                 </li>
-                  </ul>
+                </ul>
             </li>
-      </ul>
+     
 
-      
+      <?php
 
-        <!-- Pesquisa do site-->
-        <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-        </form>
+        
+        if(empty($_SESSION['adm']))
+        {
+          echo"";
+        }
+        else
+        {
+            $usuariofiltrado = $_SESSION['filtro'];
 
+            $queryadmfoto="SELECT * FROM login  WHERE USUARIO LIKE '$usuariofiltrado' ";
 
+            $excutequeryadm = mysqli_query($conn, $queryadmfoto);
 
+            $row_adm = mysqli_fetch_assoc($excutequeryadm);
 
-    </div>
+            $IMGadm = $row_adm['IMG_ADM'];
+
+              ?>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ADMINISTRADOR</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown1">
+                    <li><a class="dropdown-item" href="PGIsertAdministratorLivros5642.php">Administrador</a></li>
+                </li>
+                </ul>
+            </li>
+           </ul>
+
+            
+
+            <?php
+            
+
+            $Botaosir=filter_input(INPUT_POST, 'btnsair', FILTER_SANITIZE_STRING);
+
+            if($Botaosir == "Sair") 
+            {
+              echo ('<meta http-equiv="refresh"content=0;"index.php">');
+            }
+
+            
+            echo '<center><a href="index.php" style="text-decoration:none;"><img src ="PerfilADM/' . $IMGadm . '" width="30%" height="30%" style=" border-radius: 50%; margin-left: 1.5%;">';
+            echo '<h6 style="color: #fff ;font-family: Arial Black;margin-left: 1.5%;">' . $row_adm['NOME_ADM'] . '</h6></a></center>';       
+            }
+          ?>
+
+        
+   </div>
 </div>
 
   </header>
@@ -250,7 +288,6 @@ include_once "conexao.php";
 			{
 				if ($Caixa == "LG_COD_ACCESS_5241")
 				{
-					echo "<script> alert ('Bem vindo a página do adiministrador') </script>";
 					echo ('<meta http-equiv="refresh"content=0;"PGcodLogAdministrator5241.php">');
 				}
 				else

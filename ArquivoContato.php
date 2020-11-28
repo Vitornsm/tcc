@@ -60,7 +60,12 @@ $email = $_POST['txtemail'];
         echo ('<meta http-equiv="refresh"content=0;"PGcodLogAdministrator5241.php">'); // Redireciona para uma página de obrigado.
 
       }
-      if (!empty($error)) echo $error;
+      else
+      {
+        echo '<center><h1 style="color: red;font-family: Arial;">';
+        echo 'Erro ao encontrar o e-mail';
+        echo '</h1></center>';
+      }
     }
     else
     {

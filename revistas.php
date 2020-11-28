@@ -210,18 +210,7 @@ include_once "conexao.php";
                   </ul>
             </li>
       </ul>
-
       
-
-        <!-- Pesquisa do site-->
-        <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-        </form>
-
-
-
-
     </div>
 </div>
 

@@ -1,3 +1,10 @@
+<?php
+  session_start();
+
+  if(empty($_SESSION['adm']))
+  {
+  
+    ?>
 <html lang="pt-br">
 <head>
 	<meta charset="utf-8">
@@ -26,7 +33,7 @@
 				<a href="PGcodLogAdministratoresqueci5241.html" class="esqueci">Esqueceu a senha?</a>
 		</center>	
 		<?php
-			session_start(); # Deve ser a primeira linha do arquivo
+				
 
 			include('conexao.php');
 
@@ -35,91 +42,117 @@
 
 			if($Botao == "Login")
 			{
+
 				$MetodoUsuari = mysqli_real_escape_string($conn, $_POST['txtusuario']);
 
 				$MetodoSenha = mysqli_real_escape_string($conn, $_POST['txtsenha']);
 
-				$query = "SELECT * FROM login WHERE USUARIO = '{$MetodoUsuari}' AND SENHA = md5('{$MetodoSenha}')";
-
-				$result = mysqli_query($conn, $query);
-
-				$row = mysqli_num_rows($result);
-
-				if($row == 1)
+				if($MetodoSenha && $MetodoUsuari != null)
 				{
-					$Usuarioemail=filter_input(INPUT_POST, 'txtusuario', FILTER_SANITIZE_STRING);
 
-					$queryverificacao = "SELECT`EMAIL` FROM `login` WHERE USUARIO = '$Usuarioemail'";
+					$query = "SELECT * FROM login WHERE USUARIO = '{$MetodoUsuari}' AND SENHA = md5('{$MetodoSenha}')";
 
-					$executequery = mysqli_query($conn, $queryverificacao);
+					$result = mysqli_query($conn, $query);
 
-					$row_verificacao = mysqli_fetch_assoc($executequery);
+					$row = mysqli_num_rows($result);
+					
+					if($row == 1)
+					{
+						$Usuarioemail=filter_input(INPUT_POST, 'txtusuario', FILTER_SANITIZE_STRING);
 
-					$varemail= $row_verificacao['EMAIL'];
+						$queryverificacao = "SELECT`EMAIL` FROM `login` WHERE USUARIO = '$Usuarioemail'";
 
-					$n = 3; 
-					$codigo = bin2hex(random_bytes($n));
+						$executequery = mysqli_query($conn, $queryverificacao);
 
-					$codifinal = $codigo;
+						$row_verificacao = mysqli_fetch_assoc($executequery);
 
-					$_SESSION['frase'] = $codifinal;
+						$varemail= $row_verificacao['EMAIL'];
 
-					$data_envio = date('d/m/Y');
-				      $hora_envio = date('H:i:s'); 
+						$n = 3; 
+						$codigo = bin2hex(random_bytes($n));
 
-				      require_once("phpmailer/class.phpmailer.php");
+						$codifinal = $codigo;
 
-				      include "senhaEmail.php";  
-				      $para = $varemail; 
-				      $de = 'laurindoguimaraestec@gmail.com';
-				      $de_nome = 'Laurindo Guimarães';
-				      $corpo = "Redefinir Senha"; 
+						$_SESSION['frase'] = $codifinal;
 
-				      function smtpmailer($para, $de, $de_nome, $assunto, $corpo) { 
-				        global $error;
-				        $mail = new PHPMailer();
-				        $mail->CharSet = "UTF-8"; // UTF-8
-				        $mail->IsSMTP();    // Ativar SMTP
-				        $mail->SMTPDebug = 0;   // Debugar: 1 = erros e mensagens, 2 = mensagens apenas
-				        $mail->SMTPAuth = true;   // Autenticação ativada
-				        $mail->SMTPSecure = 'ssl';  // Padrão de segurança
-				        $mail->Host = 'smtp.gmail.com'; // SMTP utilizado
-				        $mail->Port = 465;      // A porta 587 deverá estar aberta em seu servidor
-				        $mail->Username = USER;
-				        $mail->Password = PWD;
-				        $mail->SetFrom($de, $de_nome);
-				        $mail->Subject = $assunto;
-				        $mail->Body = $corpo;
-				        $mail->AddAddress($para);
-				        if(!$mail->Send()) {
-				          $error = 'Mail error: '.$mail->ErrorInfo; 
-				          return false;
-				        } else {
-				          $error = '';
-				          return true;
-				        }
-				      }
+						//Metodo de filtrar conta
 
-				      // Insira abaixo o email que irá receber a mensagem, o email que irá enviar (o mesmo da variável GUSER), 
-				      //o nome do email que envia a mensagem, o Assunto da mensagem e por último a variável com o corpo do email.
-				      $Vai    = "E-mail: $varemail\n\nCódigo: $codigo";
+						$filtroUsuario = $MetodoUsuari ;
+						
+						$_SESSION['filtro'] = $filtroUsuario;
 
-				       if (smtpmailer($varemail, 'laurindoguimaraestec@gmail.com', 'Laurindo Guimarães', 'Código de Vereficão', $Vai)) 
-				       {
 
-				       	echo "<script> alert ('Código enviado para o e-mail') </script>";
-				        echo ('<meta http-equiv="refresh"content=0;"PGcodLogAdmcodentra5241.php">'); // Redireciona para uma página de obrigado.
+						$data_envio = date('d/m/Y');
+					      $hora_envio = date('H:i:s'); 
 
-				      }
-				      if (!empty($error)) echo $error;
+					      require_once("phpmailer/class.phpmailer.php");
+
+					      include "senhaEmail.php";  
+					      $para = $varemail; 
+					      $de = 'laurindoguimaraestec@gmail.com';
+					      $de_nome = 'Laurindo Guimarães';
+					      $corpo = "Redefinir Senha"; 
+
+					      function smtpmailer($para, $de, $de_nome, $assunto, $corpo) { 
+					        global $error;
+					        $mail = new PHPMailer();
+					        $mail->CharSet = "UTF-8"; // UTF-8
+					        $mail->IsSMTP();    // Ativar SMTP
+					        $mail->SMTPDebug = 0;   // Debugar: 1 = erros e mensagens, 2 = mensagens apenas
+					        $mail->SMTPAuth = true;   // Autenticação ativada
+					        $mail->SMTPSecure = 'ssl';  // Padrão de segurança
+					        $mail->Host = 'smtp.gmail.com'; // SMTP utilizado
+					        $mail->Port = 465;      // A porta 587 deverá estar aberta em seu servidor
+					        $mail->Username = USER;
+					        $mail->Password = PWD;
+					        $mail->SetFrom($de, $de_nome);
+					        $mail->Subject = $assunto;
+					        $mail->Body = $corpo;
+					        $mail->AddAddress($para);
+					        if(!$mail->Send()) {
+					          $error = 'Mail error: '.$mail->ErrorInfo; 
+					          return false;
+					        } else {
+					          $error = '';
+					          return true;
+					        }
+					      }
+
+					      // Insira abaixo o email que irá receber a mensagem, o email que irá enviar (o mesmo da variável GUSER), 
+					      //o nome do email que envia a mensagem, o Assunto da mensagem e por último a variável com o corpo do email.
+					      $Vai    = "E-mail: $varemail\n\nCódigo: $codigo";
+
+					       if (smtpmailer($varemail, 'laurindoguimaraestec@gmail.com', 'Laurindo Guimarães', 'Código de Vereficão', $Vai)) 
+					       {
+
+					       	echo "<script> alert ('Código enviado para o e-mail') </script>";
+					        echo ('<meta http-equiv="refresh"content=0;"PGcodLogAdmcodentra5241.php">'); // Redireciona para uma página de obrigado.
+
+					      }
+					      if (!empty($error)) echo'<center><h3 style="color: red;">';
+											echo 'Falha na conexão com o servidor';
+											echo '</h3></center>';
+					}
+					else
+					{
+						echo '<center><h3 style="color: red;">';
+						echo 'Usuário uo senha incorretos';
+						echo '</h3></center>';
+					}
 				}
 				else
 				{
 					echo '<center><h3 style="color: red;">';
-					echo 'Usuário uo senha incorretos';
+					echo 'Preencha todos os campos';
 					echo '</h3></center>';
 				}
 			}
+		}
+	  	else
+	  	{
+	  		echo ('<meta http-equiv="refresh"content=0;"livros.php">');
+	  	}
+
 		?>
 	</form>	
 

@@ -1,3 +1,15 @@
+<?php
+  session_start();
+
+
+  if(empty($_SESSION['adm']))
+  {
+    echo ('<meta http-equiv="refresh"content=0;"index.php">');
+  }
+  else
+  {
+    
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -208,17 +220,6 @@
             </li>
       </ul>
 
-      
-
-        <!-- Pesquisa do site-->
-        <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-        </form>
-
-
-
-
     </div>
 </div>
 
@@ -280,8 +281,6 @@
             $Textonoticia= filter_input(INPUT_POST, 'txttextonoticia',FILTER_SANITIZE_STRING);
             $Fonteimagemnoticia= filter_input(INPUT_POST, 'txtfonteimagemnoticia',FILTER_SANITIZE_STRING);
             
-            
-
             if ($botao == "Enviar") 
             {
               if($Titulonoticia && $Altornoticia && $Textonoticia != null)
@@ -294,13 +293,13 @@
                   $extensao = pathinfo($arquivo['name'], PATHINFO_EXTENSION);
                   $novo_nome = md5(uniqid($arquivo['name'])).".".$extensao;
 
-                  move_uploaded_file($_FILES['imgboxnoticia']['tmp_name'], $_UP['pasta'].$novo_nome);
+                  
 
                   $sql_code ="INSERT INTO `noticia`(`TITULO`, `TEXTO`, `AUTOR`, `IMG_NOTICIA`,HORA_NOTICIA,FONTE_IMG) VALUES ('$Titulonoticia','$Textonoticia','$Altornoticia','$novo_nome', NOW(),'$Fonteimagemnoticia')";
 
                   if(mysqli_query($conn, $sql_code))
                   {
-                    
+                    move_uploaded_file($_FILES['imgboxnoticia']['tmp_name'], $_UP['pasta'].$novo_nome);
                     echo "<script>alert('Arquivo enviado com susesso');</script>";
                   }
                   else
@@ -343,28 +342,47 @@
           {
             if($delcodnoticia != null)
             {
-              $sql_consultaimg = "SELECT IMG_NOTICIA FROM noticia WHERE TITULO LIKE '$delcodnoticia'";
+              $sql_consultatitulo = "SELECT TITULO FROM noticia WHERE TITULO LIKE '$delcodnoticia'";
 
-              $resultado_consultaimg = mysqli_query($conn, $sql_consultaimg);
+              $resultado_consultatitulo = mysqli_query($conn, $sql_consultatitulo);
 
-              $row_consultaimg = mysqli_fetch_assoc($resultado_consultaimg);
+              $row_consultatitulo = mysqli_fetch_assoc($resultado_consultatitulo);
 
-              $img_cod = $row_consultaimg['IMG_NOTICIA'];
+              $titulo_consultado = $row_consultatitulo['TITULO'];
 
 
-              $sql_code ="DELETE FROM `noticia` WHERE `noticia`.`TITULO` = '$delcodnoticia'";
+              if($titulo_consultado != null)
+              {
+                $sql_consultaimg = "SELECT IMG_NOTICIA FROM noticia WHERE TITULO LIKE '$delcodnoticia'";
+
+                $resultado_consultaimg = mysqli_query($conn, $sql_consultaimg);
+
+                $row_consultaimg = mysqli_fetch_assoc($resultado_consultaimg);
+
+                $img_cod = $row_consultaimg['IMG_NOTICIA'];
+
+
+                $sql_code ="DELETE FROM `noticia` WHERE `noticia`.`TITULO` = '$delcodnoticia'";
 
                 if(mysqli_query($conn, $sql_code))
                 {
-                  unlink ("IMGnoticias/" . $img_cod );
+                  if(file_exists("upload/" . $img_cod))
+                  {
+                    unlink ("upload/" . $img_cod ) ;
+                  }
+                  else
+                  {
+                    echo"";
+                  }
                   echo "<script>alert('Arquivo Deletado com susesso');</script>";
                 }
-                else
-                {
-                  echo '<h3 style="color: red;">';
-                  echo 'Código não existe';
-                  echo '</h3>';
-                } 
+              }
+              else
+              {
+                echo '<h3 style="color: red;">';
+                echo 'Título não existe';
+                echo '</h3>';
+              } 
             }
             else
             {
@@ -373,6 +391,7 @@
               echo '</h3>';
             } 
           }
+        }
         ?>
       </div>
     </form>
