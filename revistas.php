@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "conexao.php";
 ?>
 <!DOCTYPE html>
@@ -165,7 +166,7 @@ include_once "conexao.php";
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SECRETARIA</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li><a href="secretariacontato.html" class="dropdown-item">Solicitação Documentação</a></li>    
+                    <li><a href="secretariacontato.php" class="dropdown-item">Solicitação Documentação</a></li>    
                 </ul>
             </li>
 
@@ -205,13 +206,16 @@ include_once "conexao.php";
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CONTATO</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li><a class="dropdown-item" href="ContatoSuport.html">Contato</a></li>
+                    <li><a class="dropdown-item" href="ContatoSuport.php">Contato</a></li>
                 </li>
                   </ul>
             </li>
-      </ul>
-      
-    </div>
+     
+            <?php
+              include "ADMadministratorPerfil5241.php";
+            ?>
+  
+   </div>
 </div>
 
   </header>

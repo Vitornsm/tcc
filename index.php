@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "conexao.php";
 ?>
 <!DOCTYPE html>
@@ -76,23 +77,18 @@ include_once "conexao.php";
                     <li class="dropdown-item"><a href="#" style="color: #F00">Patrono</a></li>   
                     <li class="dropdown-item"><a href="apm.html" style="color: #F00">APM</a></li>
                     <li class="dropdown-item"><a href="diretor.html" style="color: #F00" >Diretoria</a></li>
-                    <li class="dropdown-item" href="#"><a style="color: #F00">Colaboradores</a></li>
-                    <li class="dropdown-item" href="#"><a style="color: #F00">Infraestrutura</a></li>
+                    <li class="dropdown-item"><a  href="#" style="color: #F00">Colaboradores</a></li>
+                    <li class="dropdown-item" ><a href="#" style="color: #F00">Infraestrutura</a></li>
                     <li class="dropdown-item" ><a href="conselho.html" style="color: #F00">Conselho Escolar</a></li>
                      <li class="dropdown-item"><a href="missao.html" style="color: #F00">Missão</a></li>
+                     <li class="dropdown-item"><a href="missao.html" style="color: #F00">Missão</a></li>
+                            <li class="dropdown-item"><a href="visao.html" style="color: #F00">Visão</a></li>
+                            <li class="dropdown-item"><a href="valores.html" style="color: #F00">Valores</a></li>
+
 
                     <li class="dropdown-item dropdown"> 
 
-                  <a class="dropdown-toggle" id="dropdown1-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Principios</a>
-
-                        <ul class="dropdown-menu" aria-labelledby="dropdown1-1">
-
-                            <li class="dropdown-item"><a href="missao.html" target="_blank">Missão</a></li>
-                            <li class="dropdown-item"><a href="visao.html">Visão</a></li>
-                            <li class="dropdown-item"><a href="valores.html">Valores</a></li>
-
-
-                          </ul>
+                 
                     </li>
                 </ul>
             </li>
@@ -102,34 +98,13 @@ include_once "conexao.php";
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CURSOS</a>
+
                 <ul class="dropdown-menu" aria-labelledby="dropdown2">
-                  
+                  <li class="dropdown-item"><a href="#" style="color: #F00">Ensino Médio Integrado Técnico</a></li>
+                    <li class="dropdown-item"><a href="#" style="color: #F00">Ensino Técnico</a></li>   
+                    <li class="dropdown-item"><a href="#" style="color: #F00">Ensino Médio</a></li>
                        <li class="dropdown-item dropdown">
-                        <a class="dropdown-toggle" id="dropdown2-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ensino Médio Integrado Técnico</a>
-                              <ul class="dropdown-menu" aria-labelledby="dropdown2-1">
-                                 <li class="dropdown-item" href="#visao.html"><a href="visao.html">Curso1</a></li>
-                                 <li class="dropdown-item" href="#"><a>Curso2</a></li>
-                                 <li class="dropdown-item" href="#"><a>Curso3</a></li>
-                            </ul>
-
-                               <li class="dropdown-item dropdown">
-                                 <a class="dropdown-toggle" id="dropdown3-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ensino Técnico</a>
-                                  <ul class="dropdown-menu" aria-labelledby="dropdown3-1">
-                                     <li class="dropdown-item" href="#"><a>Curso1</a></li>
-                                     <li class="dropdown-item" href="#"><a>Curso2</a></li>
-                                     <li class="dropdown-item" href="#"><a>Curso3</a></li>
-                                   </ul>
-                                 
-
-                                    <li class="dropdown-item dropdown">
-                                 <a class="dropdown-toggle" id="dropdown4-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ensino Médio</a>
-                                  <ul class="dropdown-menu" aria-labelledby="dropdown4-1">
-                                 <li class="dropdown-item" href="#"><a>Curso1</a></li>
-                                 <li class="dropdown-item" href="#"><a>Curso2</a></li>
-                                 <li class="dropdown-item" href="#"><a>Curso3</a></li>
-                                 </ul>
-                               </li>
-                             </li>
+                              
                            </li>
                         </ul>
                             
@@ -137,26 +112,11 @@ include_once "conexao.php";
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ALUNOS</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item" href="missao.html"><a href="missao.html">Calendario Escolar</a></li>
-                    <li class="dropdown-item" href="#"><a>Cursos Extra Curricular</a></li>   
-                    <li class="dropdown-item" href="#"><a>Manual do Aluno</a></li>
-                    <li class="dropdown-item" href="#"><a>Horário de Aulas</a></li>
-                    <li class="dropdown-item" href="#"><a>Regimento Escolar</a></li>
+                    <li class="dropdown-item" href="missao.html"><a href="missao.html" style="color: #F00">Calendario Escolar</a></li>
+                    <li class="dropdown-item" ><a href="#" style="color: #F00">Cursos Extra Curricular</a></li>   
+                    <li class="dropdown-item" ><a href="#" style="color: #F00">Manual do Aluno</a></li>
+                    <li class="dropdown-item" ><a href="#" style="color: #F00">Horário de Aulas</a></li>
                     <li class="dropdown-item dropdown">
-
-
-                        <a class="dropdown-toggle" id="dropdown1-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Downloads</a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdown1-1">
-                            <li class="dropdown-item" href="#"><a>Modelo TCC </a></li>
-                            <li class="dropdown-item dropdown">
-                                <a class="dropdown-toggle" id="dropdown1-1-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Formulario Vale Transporte</a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdown1-1-1">
-                                    <li class="dropdown-item" href="#"><a>EMTU A</a></li>
-                                    <li class="dropdown-item" href="#"><a>Bilhete Único</a></li>
-                                    
-                                </ul>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </li>
@@ -165,7 +125,7 @@ include_once "conexao.php";
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SECRETARIA</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li><a href="secretariacontato.html" class="dropdown-item">Solicitação Documentação</a></li>   
+                    <li><a href="secretariacontato.php" class="dropdown-item" style="color: #F00">Solicitação Documentação</a></li>   
                 </ul>
             </li>
 
@@ -174,30 +134,17 @@ include_once "conexao.php";
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">BIBLIOTECA</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li><a href="livros.php" class="dropdown-item">Livros</a></li>
-                    <li><a href="jornais.php" class="dropdown-item">Jornais</a></li>
-                    <li><a href="midias.php" class="dropdown-item">Mídias</a></li>
-                    <li><a href="revistas.php" class="dropdown-item">Revistas</a></li>
-                    <li class="dropdown-item" href="#"><a>Leitura para Vestibular</a></li>   
-                      <li class="dropdown-item dropdown">
-                        <a class="dropdown-toggle" id="dropdown1-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">TCC</a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdown1-1">
-                            <li class="dropdown-item" href="#"><a>Normas ABNT</a></li>
-                            <li class="dropdown-item" href="#"><a>Dicas TCC</a></li>
-                            <li class="dropdown-item" href="#"><a>O que é plagio</a></li>
-                            <li class="dropdown-item" href="#"><a>Modelo TCC</a></li>
-
-                        </ul>
-                    </li>
-                </ul>
+                    <li><a href="livros.php" style="color: #F00" class="dropdown-item">Livros</a></li>
+                    <li><a href="jornais.php" style="color: #F00" class="dropdown-item">Jornais</a></li>
+                    <li><a href="midias.php" class="dropdown-item" style="color: #F00">Mídias</a></li>
+                    <li><a href="revistas.php" class="dropdown-item" style="color: #F00">Revistas</a></li>
+                    </ul>
             </li>
-
-
 
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">EVENTOS / NOTICIAS</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li><a class="dropdown-item" href="noticias.php">Notícias</a></li>
+                    <li><a class="dropdown-item" href="noticias.php" style="color: #F00">Notícias</a></li>
                 </ul>
             </li>
 
@@ -205,13 +152,16 @@ include_once "conexao.php";
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CONTATO</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li><a class="dropdown-item" href="ContatoSuport.html">Contato</a></li>
+                    <li><a class="dropdown-item" href="ContatoSuport.php" style="color: #F00">Contato</a></li>
                 </li>
                   </ul>
             </li>
-      </ul>
-
-    </div>
+     
+            <?php
+              include "ADMadministratorPerfil5241.php";
+            ?>
+        
+   </div>
 </div>
 
   </header>
@@ -317,33 +267,33 @@ include_once "conexao.php";
             </div>
             <div class="col-md-4 curs-box">
               <i class="fas fa-microchip"></i>
-              <h4>Eletronica</h4>
-              <p>ULorem ipsum dolor sit amet</p>
+              <h4>Eletrônica</h4>
+              <p>Estuda a forma de controlar a energia elétrica por meios elétricos</p>
             </div>
             <div class="col-md-4 curs-box">
               <i class="fas fa-file-code"></i>
               <h4>Informática</h4>
-              <p>Lorem ipsum dolor sit amet.</p>
+              <p> Estudo e o desenvolvimento das tecnologias de informação</p>
             </div>
             <div class="col-md-4 curs-box">
               <i class="fas fa-sitemap"></i>
               <h4>Administação</h4>
-              <p>Lorem ipsum dolor sit amet</p>
+              <p>Administrar ou gerir negócios, pessoas ou recursos, com o objetivo de alcançar metas definidas.</p>
             </div>
             <div class="col-md-4 curs-box">
               <i class="fab fa-google"></i>
-              <h4>Desenvolvimento </h4>
-              <p>Lorem ipsum dolor sit amet.</p>
+              <h4>Gestão de Pessoas</h4>
+              <p> Práticas que visa o desenvolvimento do capital humano nas empresas</p>
             </div>
             <div class="col-md-4 curs-box">
               <i class="fas fa-shipping-fast"></i>
               <h4>Logistica</h4>
-              <p>Lorem ipsum dolor sit amet</p>
+              <p>Planejamento e execução do eficiente transporte e armazenamento de mercadorias</p>
             </div>
             <div class="col-md-4 curs-box">
               <i class="fas fa-atom"></i>
               <h4>Quimica</h4>
-              <p>Lorem ipsum dolor sit amet.</p>
+              <p>Estuda a composição, estrutura, propriedades da matéria</p>
             </div>
           </div>
         </div>
@@ -400,39 +350,42 @@ include_once "conexao.php";
               <h3 class="main-title">Nossos Cursos</h3>
             </div>
             <div class="col-md-12" id="filter-btn-box">
-              <button class="main-btn filter-btn active" id="all-btn">Todos</button>
+              <button class="main-btn filter-btn" id="all">Todos</button>
               <button class="main-btn filter-btn" id="adm-btn">Administração</button>
-              <button class="main-btn filter-btn" id="ifo-btn">informatica</button>
-              <button class="main-btn filter-btn" id="elr-btn">Eletro</button>
+              <button class="main-btn filter-btn" id="ifo-btn">Informática</button>
+              <button class="main-btn filter-btn" id="elr-btn">Eletrônica</button>
+              <button class="main-btn filter-btn" id="qui-btn">Química</button>
+              <button class="main-btn filter-btn" id="log-btn">Logistica</button>
+              <button class="main-btn filter-btn" id="gp-btn">Gestão Pessoas</button>
             </div>
-            <div class="col-md-4 project-box ifo">
+            <div class="col-md-4 project-box adm">
               <div class="zoom">
-                <img src="img/proj1.jpg" class="img-fluid" alt="Projeto 1">
+                <img src="img/adm.jpg" class="img-fluid" alt="Administração">
               </div>
             </div>
             <div class="col-md-4 project-box ifo">
               <div class="zoom">
-                <img src="img/proj2.jpg" class="img-fluid" alt="Projeto 2">
+                <img src="img/proj2.jpg" class="img-fluid" alt="Informática">
               </div>
             </div>
             <div class="col-md-4 project-box elr">
               <div class="zoom">
-                <img src="img/proj3.jpg" class="img-fluid" alt="Projeto 3">
+                <img src="img/proj3.jpg" class="img-fluid" alt="Eletrônica">
               </div>
             </div>
-            <div class="col-md-4 project-box elr">
+            <div class="col-md-4 project-box gp">
               <div class="zoom">
-                <img src="img/proj4.jpg" class="img-fluid" alt="Projeto 4">
+                <img src="img/gestao.jpg" class="img-fluid" alt="Gestão">
               </div>
             </div>
-            <div class="col-md-4 project-box adm">
+            <div class="col-md-4 project-box qui">
               <div class="zoom">
-                <img src="img/proj5.jpg" class="img-fluid" alt="Projeto 5">
+                <img src="img/quimica3.jpg" class="img-fluid" alt="Química">
               </div>
             </div>
-            <div class="col-md-4 project-box adm">
+            <div class="col-md-4 project-box log">
               <div class="zoom">
-                <img src="img/proj6.jpg" class="img-fluid" alt="Projeto 6">
+                <img src="img/logistica.jpg" class="img-fluid" alt="Logistica">
               </div>
             </div>
           </div>
@@ -443,7 +396,7 @@ include_once "conexao.php";
         <div class="container">
             <div class="row">
               <p>Ficou com duvidas , contate-nos</p>
-              <a href="ContatoSuport.html"><button class="-btn" id="call-btn">Clique</button></a>
+              <a href="ContatoSuport.php"><button class="-btn" id="call-btn">Clique</button></a>
             </div>
           </div>
       </div>
