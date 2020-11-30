@@ -1,23 +1,14 @@
 <?php
-  session_start();
-
-
-  if(empty($_SESSION['adm']))
-  {
-    echo ('<meta http-equiv="refresh"content=0;"index.php">');
-  }
-  else
-  {
-    
+session_start();
+include_once "conexao.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<link rel ="stylesheet" type="text/css" href="css/estilos2.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA_Compatible" content="ie=edge">
-  <title>ADM</title>
+  <title>Escola Técnica Laurindo Guimarães</title>
 
   <!-- Fonte usada no site-->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
@@ -43,8 +34,8 @@
 
   <!-- Parallax  efeito de parallax de imagens-->
   <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
-
 <link rel="sortcut icon" href="img/etlg.ico" type="image/x-icon" />;
+
 
 </head>
 <body>
@@ -166,180 +157,74 @@
      
             <?php
               include "ADMadministratorPerfil5241.php";
-            ?>
-        
-   </div>
+            ?>       
+    </div>
 </div>
 
   </header>
-		
-			<br><br><br><br><br>
-
-      <form accept-charset="utf-8" method="POST" class="texto" enctype="multipart/form-data">
-      <center>
-
-				<h1>Adicionar</h1>
-
-				<a href="PGIsertAdministratorLivros5642.php" class="butom">Livros</a>
-				<a href="PGIsertAdministratorJornais5642.php" class="butom">Jornais</a>
-				<a href="PGIsertAdministratorMidias5642.php" class="selecionado">Mídias</a>
-				<a href="PGIsertAdministratorRevistas5642.php" class="butom">Revistas</a>
-        <a href="PGIsertAdministratorNoticia5642.php" class="butom">Notícia</a><br><br>
-
-			</center>
-
-			<div class="espaco_esquerdo" style="display: inline-block">
-
-				<h1>Inserir Mídias</h1>
-
-				<table>
-					<tr>
-						<td>Código</td>
-						<td><input type="text" name="txtcodmidia" class="txtbox3"></td>
-					</tr>
-					<tr>
-						<td>Nome</td>
-						<td><input type="text" name="txtnomemidia" class="txtbox3"></td>
-					</tr>
-					<tr>
-						<td>Duraçâo</td>
-						<td><input type="time" name="txtduracaomidia" class="txtbox3"></td>
-					</tr>
-					<tr>
-						<td>Empresa</td>
-						<td><input type="text" name="txtempresamidia" class="txtbox3"></td>
-					</tr>
-					<tr>
-						<td>Imagem da Mídias</td>
-						<td><input type="file"  name="imgboxmidia" class="txtbox3"></td>
-					</tr>
-				</table><br>
-
-				<input type="submit" value="Inserir" name="cadastrarmidia" class="butom">&nbsp &nbsp &nbsp
-				<input type="reset" value="Limpar" name="" class="butom"><br>
-
-					<?php
-
-						include "conexao.php";
-
-						$botao= filter_input(INPUT_POST, 'cadastrarmidia' , FILTER_SANITIZE_STRING);
-
-						$codmidia= filter_input(INPUT_POST, 'txtcodmidia' , FILTER_SANITIZE_STRING);
-						$nomemidia= filter_input(INPUT_POST, 'txtnomemidia' , FILTER_SANITIZE_STRING);
-						$duracaomidia= filter_input(INPUT_POST, 'txtduracaomidia' , FILTER_SANITIZE_STRING);
-						$empresamidia= filter_input(INPUT_POST, 'txtempresamidia' , FILTER_SANITIZE_STRING);
-
-						if($botao == "Inserir")
-						{
-							if($codmidia && $nomemidia && $duracaomidia && $empresamidia !=null)
-							{
-								$_UP['pasta'] = 'upload/';	
-
-								if(isset($_FILES['imgboxmidia']));
-								{
-									$arquivo = $_FILES['imgboxmidia'];
-									$extensao = pathinfo($arquivo['name'], PATHINFO_EXTENSION);
-									$novo_nome = md5(uniqid($arquivo['name'])).".".$extensao;
-
-									
-
-									$sql_code ="INSERT INTO `tb_midias` (`COD_MIDIA`, `NOME_MIDIA`, `DURACAO_MIDIA`, `EMPRESA_MIDIA`, `IMG_MIDIAS`) VALUES ('$codmidia', '$nomemidia', '$duracaomidia', '$empresamidia', '$novo_nome')";
-
-									if(mysqli_query($conn, $sql_code))
-									{
-										move_uploaded_file($_FILES['imgboxmidia']['tmp_name'], $_UP['pasta'].$novo_nome);
-										echo "<script>alert('Arquivo enviado com susesso');</script>";
-									}
-									else
-									{
-										echo '<h3 style="color: red;">';
-										echo 'Dados já cadastrados';
-										echo '</h3>';
-									}
-								}
-							}
-							else
-							{
-								echo '<h3 style="color: red;">';
-								echo 'Preencha todos os campos';
-								echo '</h3>';
-							}
-						}
-
-					?>
-			</div>
-			<div class="empurrar">
-				<h1>Delatar Mídias</h1>
-				<table>
-					<tr>
-						<td>Código</td>
-						<td><input type="text" name="txtdeletarmidia" class="txtbox3"></td>
-					</tr>
-				</table>
-				<input type="submit" value="Deletar" name="btndeletarmidia" class="butom"><br>
-				<?php
-
-					$botao2 = filter_input(INPUT_POST, 'btndeletarmidia' , FILTER_SANITIZE_STRING);
-
-					$delatarmidia = filter_input(INPUT_POST, 'txtdeletarmidia' , FILTER_SANITIZE_STRING);
-
-					if($botao2 == "Deletar")
-					{
-						if($delatarmidia != null)
-						{
-              $sql_consultacod = "SELECT COD_MIDIA FROM tb_midias WHERE COD_MIDIA LIKE '$delatarmidia'";
-
-              $resultado_consultacod = mysqli_query($conn, $sql_consultacod);
-
-              $row_consultacod = mysqli_fetch_assoc($resultado_consultacod);
-
-              $cod_consultado = $row_consultacod['COD_MIDIA'];
 
 
-              if($cod_consultado != null)
-              {
-                $sql_consultaimg = "SELECT IMG_MIDIAS FROM tb_midias WHERE COD_MIDIA LIKE '$delatarmidia'";
 
-                $resultado_consultaimg = mysqli_query($conn, $sql_consultaimg);
+  <main>
+    
+     <!-- imagem legenda -->
+      
+      <figure class="legenda">
+          
+            <img src="img/etlg2.jpg"  class="d-block w-100" alt="qualidade de ensino"/>
+            <div class="carousel-caption d-md-block">
+                               </figure>
 
-                $row_consultaimg = mysqli_fetch_assoc($resultado_consultaimg);
+<div class="alinhar1" >
+<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ensino Médio </h1><br><br>
+<p>Uma boa educação exige um ambiente acolhedor, familiar e seguro. Na ETLG, essas características nos acompanham há mais de 50 anos de história. Aqui, nossos alunos aprendem, vivenciam experiências significativas, adquirem valores e tornam-se jovens preparados para todos os desafios da vida. Na ETLG, não temos apenas alunos, temos família! </p><br><br>
 
-                $img_cod = $row_consultaimg['IMG_MIDIAS'];
+<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FORMANDO O HOJE E SONHANDO O FUTURO</h4>
 
-							   $sql_code ="DELETE FROM `tb_midias` WHERE `tb_midias`.`COD_MIDIA` = '$delatarmidia'";
+<p>
+No Ensino Médio é hora de pensar o futuro! Nosso projeto pedagógico é desenvolvido para que o aluno tenha bases sólidas de conhecimento para enfrentar os próximos desafios, como processos seletivos e o mercado de trabalho, e para formarmos jovens autônomos e protagonistas de suas próprias histórias </p><br><br>
 
-								if(mysqli_query($conn, $sql_code))
-								{
-									if(file_exists("upload/" . $img_cod))
-                  {
-                    unlink ("upload/" . $img_cod ) ;
-                  }
-                  else
-                  {
-                    echo"";
-                  }
-                  
-									echo "<script>alert('Arquivo Deletado com susesso');</script>";
-								}
-								
-              }
-              else
-              {
-                echo '<h3 style="color: red;">';
-                echo 'Código não existe';
-                echo '</h3>';
-              }
-						}
-						else
-						{
-							echo '<h3 style="color: red;">';
-							echo 'Preencha o campo';
-							echo '</h3>';
-						}
-					}
-        }
-				?>
-			</div>
-		</form>
-	</body>
+<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEM-ESTAR EM TODOS OS ESPAÇOS</h4>
+
+<p>A ETLG conta com dois prédios, de estrutura moderna, segura e inovadora, que atende à todas as necessidades de nossos alunos, desde os pequenos até os jovens. Aqui, cada espaço é como se fosse em casa</p><br><br><br>
+
+<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A RELAÇÃO ESCOLA E FAMÍLIA QUE ENRIQUECE A EXPERIÊNCIA ESCOLAR</h4>
+
+<p>A presença da família na trajetória escolar dos alunos gera diversos benefícios para o processo educativo delas. Além de melhorar o rendimento escolar, elas se sentem mais motivadas e a experiência educativa é muito mais rica. Por esse motivo, a ETLG valoriza a relação com os pais e incentiva as famílias nessa parceria</p><br><br><br>
+
+
+
+
+   </div>  
+      
+      
+  </main>
+  <!-- Rodapé -->
+  <footer>
+    
+    <div id="copy-area">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+   <p><span class="contact-tile"></span><i class="fas fa-route"></i> &nbsp; R. José Bonifácio, 428 -São Carlos - SP &nbsp; &nbsp;&nbsp; &nbsp;  <i class="fas fa-phone"></i> &nbsp;(16) 94442-3496 &nbsp;&nbsp;&nbsp; &nbsp;<i class="fas fa-envelope-open-text">&nbsp;</i>laurindoguimaraestec@gmail.com</p><br> 
+
+
+            <p>Desenvolvido por <a href="#" target="_blank">Mindplex</a> &copy; 2020</p>
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts do projeto -->
+  <script src="js/scripts.js"></script>
+</body>
 </html>

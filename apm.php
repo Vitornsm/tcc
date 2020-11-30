@@ -1,23 +1,14 @@
 <?php
-  session_start();
-
-
-  if(empty($_SESSION['adm']))
-  {
-    echo ('<meta http-equiv="refresh"content=0;"index.php">');
-  }
-  else
-  {
-    
+session_start();
+include_once "conexao.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<link rel ="stylesheet" type="text/css" href="css/estilos2.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA_Compatible" content="ie=edge">
-  <title>ADM</title>
+  <title>Escola Técnica Laurindo Guimarães</title>
 
   <!-- Fonte usada no site-->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
@@ -43,8 +34,8 @@
 
   <!-- Parallax  efeito de parallax de imagens-->
   <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
-
 <link rel="sortcut icon" href="img/etlg.ico" type="image/x-icon" />;
+
 
 </head>
 <body>
@@ -166,180 +157,84 @@
      
             <?php
               include "ADMadministratorPerfil5241.php";
-            ?>
-        
-   </div>
+            ?>       
+    </div>
 </div>
 
   </header>
-		
-			<br><br><br><br><br>
-
-      <form accept-charset="utf-8" method="POST" class="texto" enctype="multipart/form-data">
-      <center>
-
-				<h1>Adicionar</h1>
-
-				<a href="PGIsertAdministratorLivros5642.php" class="butom">Livros</a>
-				<a href="PGIsertAdministratorJornais5642.php" class="butom">Jornais</a>
-				<a href="PGIsertAdministratorMidias5642.php" class="selecionado">Mídias</a>
-				<a href="PGIsertAdministratorRevistas5642.php" class="butom">Revistas</a>
-        <a href="PGIsertAdministratorNoticia5642.php" class="butom">Notícia</a><br><br>
-
-			</center>
-
-			<div class="espaco_esquerdo" style="display: inline-block">
-
-				<h1>Inserir Mídias</h1>
-
-				<table>
-					<tr>
-						<td>Código</td>
-						<td><input type="text" name="txtcodmidia" class="txtbox3"></td>
-					</tr>
-					<tr>
-						<td>Nome</td>
-						<td><input type="text" name="txtnomemidia" class="txtbox3"></td>
-					</tr>
-					<tr>
-						<td>Duraçâo</td>
-						<td><input type="time" name="txtduracaomidia" class="txtbox3"></td>
-					</tr>
-					<tr>
-						<td>Empresa</td>
-						<td><input type="text" name="txtempresamidia" class="txtbox3"></td>
-					</tr>
-					<tr>
-						<td>Imagem da Mídias</td>
-						<td><input type="file"  name="imgboxmidia" class="txtbox3"></td>
-					</tr>
-				</table><br>
-
-				<input type="submit" value="Inserir" name="cadastrarmidia" class="butom">&nbsp &nbsp &nbsp
-				<input type="reset" value="Limpar" name="" class="butom"><br>
-
-					<?php
-
-						include "conexao.php";
-
-						$botao= filter_input(INPUT_POST, 'cadastrarmidia' , FILTER_SANITIZE_STRING);
-
-						$codmidia= filter_input(INPUT_POST, 'txtcodmidia' , FILTER_SANITIZE_STRING);
-						$nomemidia= filter_input(INPUT_POST, 'txtnomemidia' , FILTER_SANITIZE_STRING);
-						$duracaomidia= filter_input(INPUT_POST, 'txtduracaomidia' , FILTER_SANITIZE_STRING);
-						$empresamidia= filter_input(INPUT_POST, 'txtempresamidia' , FILTER_SANITIZE_STRING);
-
-						if($botao == "Inserir")
-						{
-							if($codmidia && $nomemidia && $duracaomidia && $empresamidia !=null)
-							{
-								$_UP['pasta'] = 'upload/';	
-
-								if(isset($_FILES['imgboxmidia']));
-								{
-									$arquivo = $_FILES['imgboxmidia'];
-									$extensao = pathinfo($arquivo['name'], PATHINFO_EXTENSION);
-									$novo_nome = md5(uniqid($arquivo['name'])).".".$extensao;
-
-									
-
-									$sql_code ="INSERT INTO `tb_midias` (`COD_MIDIA`, `NOME_MIDIA`, `DURACAO_MIDIA`, `EMPRESA_MIDIA`, `IMG_MIDIAS`) VALUES ('$codmidia', '$nomemidia', '$duracaomidia', '$empresamidia', '$novo_nome')";
-
-									if(mysqli_query($conn, $sql_code))
-									{
-										move_uploaded_file($_FILES['imgboxmidia']['tmp_name'], $_UP['pasta'].$novo_nome);
-										echo "<script>alert('Arquivo enviado com susesso');</script>";
-									}
-									else
-									{
-										echo '<h3 style="color: red;">';
-										echo 'Dados já cadastrados';
-										echo '</h3>';
-									}
-								}
-							}
-							else
-							{
-								echo '<h3 style="color: red;">';
-								echo 'Preencha todos os campos';
-								echo '</h3>';
-							}
-						}
-
-					?>
-			</div>
-			<div class="empurrar">
-				<h1>Delatar Mídias</h1>
-				<table>
-					<tr>
-						<td>Código</td>
-						<td><input type="text" name="txtdeletarmidia" class="txtbox3"></td>
-					</tr>
-				</table>
-				<input type="submit" value="Deletar" name="btndeletarmidia" class="butom"><br>
-				<?php
-
-					$botao2 = filter_input(INPUT_POST, 'btndeletarmidia' , FILTER_SANITIZE_STRING);
-
-					$delatarmidia = filter_input(INPUT_POST, 'txtdeletarmidia' , FILTER_SANITIZE_STRING);
-
-					if($botao2 == "Deletar")
-					{
-						if($delatarmidia != null)
-						{
-              $sql_consultacod = "SELECT COD_MIDIA FROM tb_midias WHERE COD_MIDIA LIKE '$delatarmidia'";
-
-              $resultado_consultacod = mysqli_query($conn, $sql_consultacod);
-
-              $row_consultacod = mysqli_fetch_assoc($resultado_consultacod);
-
-              $cod_consultado = $row_consultacod['COD_MIDIA'];
 
 
-              if($cod_consultado != null)
-              {
-                $sql_consultaimg = "SELECT IMG_MIDIAS FROM tb_midias WHERE COD_MIDIA LIKE '$delatarmidia'";
 
-                $resultado_consultaimg = mysqli_query($conn, $sql_consultaimg);
+  <main>
+    
+     <!-- imagem legenda -->
+      
+      <figure class="legenda">
+          
+            <img src="img/salaapm.jpg"  class="d-block w-100" alt="qualidade de ensino"/>
+            <div class="carousel-caption d-md-block">
+              <div class="texto"> APM </div>
+                  </figure>
 
-                $row_consultaimg = mysqli_fetch_assoc($resultado_consultaimg);
+<div class="alinhar">
+<h1>Associação de Pais e Mestres</h1>
+<p>A APM é uma entidade jurídica de direito privado, criada com a finalidade de colaborar para o aperfeiçoamento do processo educacional, para a assistência ao escolar e para a integração escola-comunidade. Atualmente, sua principal função é atuar, em conjunto com o Conselho de Escola, na gestão da unidade escolar, participando das decisões relativas à organização e funcionamento escolar nos aspectos administrativos, pedagógicos e financeiros.
 
-                $img_cod = $row_consultaimg['IMG_MIDIAS'];
+<h1>Existe algum regulamento para a APM?</h1>
+<p>Através do Decreto n.º 12.983, de 15 de dezembro de 1978, alterado pelo Decreto n.º 48,408, de 06 de Janeiro de 2004, foi estabelecido o Estatuto Padrão das Associações de Pais e Mestres, e este é o instrumento que dispõe sobre as finalidades, atribuições e deveres para seu funcionamento como instituição. Para obter a lei, consulte o site: www.imesp.com.br</p>
 
-							   $sql_code ="DELETE FROM `tb_midias` WHERE `tb_midias`.`COD_MIDIA` = '$delatarmidia'";
+<h1>Quando e como deverá ser constituída a APM?</h1>
+<p>O mandato da Diretoria da APM é de um ano, devendo o Diretor da Escola, ao final do mesmo, convocar a equipe escolar (vice-diretor, coordenador pedagógico, pessoal administrativo e professores), pais dos alunos e os alunos maiores de 18 (dezoito) anos, para a Assembléia Geral que será presidida pelo mesmo. Compete à Assembléia Geral eleger o Conselho Deliberativo e o Conselho Fiscal. Cabe ao Conselho Deliberativo eleger os membros da Diretoria Executiva e divulgar os nomes dos escolhidos a todos os associados.</p>
 
-								if(mysqli_query($conn, $sql_code))
-								{
-									if(file_exists("upload/" . $img_cod))
-                  {
-                    unlink ("upload/" . $img_cod ) ;
-                  }
-                  else
-                  {
-                    echo"";
-                  }
-                  
-									echo "<script>alert('Arquivo Deletado com susesso');</script>";
-								}
-								
-              }
-              else
-              {
-                echo '<h3 style="color: red;">';
-                echo 'Código não existe';
-                echo '</h3>';
-              }
-						}
-						else
-						{
-							echo '<h3 style="color: red;">';
-							echo 'Preencha o campo';
-							echo '</h3>';
-						}
-					}
-        }
-				?>
-			</div>
-		</form>
-	</body>
+<h1>Qual a finalidade da APM?</h1>
+<p>A APM tem por finalidade colaborar no aprimoramento do processo educacional, na assistência ao escolar e na integração família / escola / comunidade. Os objetivos da APM são de natureza social e educativa, sem caráter político, racial ou religioso e sem finalidades lucrativas.</p>
+
+<h1>Quem administra a APM?</h1>
+<p>A APM é administrada pelos seguintes órgãos: Assembléia Geral – constituída por todos os associados. Conselho Deliberativo – constituído de, no mínimo, 11 (onze) membros, sendo o Diretor da Escola o seu presidente nato, e os demais componentes distribuídos na seguinte proporção: 30% dos membros serão professores, 40% dos membros serão pais de alunos, 20% dos membros serão alunos maiores de 18 (dezoito) anos, 10% dos membros serão sócios admitidos Diretoria Executiva – constituída por: Diretor Executivo, Vice-diretor Executivo, Secretário, Diretor Financeiro, Vice-diretor Financeiro, Diretor Cultural, Diretor de Esportes, Diretor Social, Diretor de Patrimônio. Obs. O Diretor Financeiro deverá ser, obrigatoriamente, pai ou mãe de aluno. Conselho Fiscal – será constituído de 3 (três) elementos, sendo 2 (dois) pais de alunos e 1 (um) representante do quadro administrativo ou docente da Escola.</p>
+
+<h1>Qual a função do Diretor de Escola na APM?</h1>
+<p>O Diretor de Escola é o presidente nato do Conselho Deliberativo da APM, devendo acompanhar todas as reuniões, sem direito a voto.</p>
+
+<h1>O Diretor de Escola pode participar das reuniões?</h1>
+<p>Conforme o disposto no Art. 37 do Estatuto Padrão da Associação de Pais e Mestres: ” O Diretor da Escola poderá participar das reuniões da Diretoria Executiva da APM, intervindo nos debates, prestando orientação ou esclarecimento ou fazendo registrar em atas seus pontos de vista, mas sem direito a voto.</p>
+
+<h1>A APM deve ter Plano de Trabalho?</h1>
+<p>Sim. A APM deve elaborar o seu Plano Anual de Trabalho, do qual devem constar as atividades de assistência ao escolar, a programação de atividades culturais e de lazer, a previsão de recursos para conservação e manutenção do prédio, dos equipamentos e das instalações, a aplicação dos recursos financeiros. O Plano Anual de Trabalho é parte integrante do Plano Escolar e deverá ser elaborado pela diretoria executiva da Associação de Pais e Mestres, com a participação do Conselho Fiscal e aprovação do Conselho Deliberativo.</p>
+
+<h1>O pagamento de taxa de APM é obrigatório?</h1>
+<p>A contribuição financeira para a APM é sempre facultativa. No início de cada ano letivo e após o encerramento do período de matrículas, serão fixadas a forma e a época para a campanha de arrecadação das contribuições dos sócios.</p>
+   </div>  
+      
+      
+
+      
+  </main>
+  <!-- Rodapé -->
+  <footer>
+    
+    <div id="copy-area">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+   <p><span class="contact-tile"></span><i class="fas fa-route"></i> &nbsp; R. José Bonifácio, 428 -São Carlos - SP &nbsp; &nbsp;&nbsp; &nbsp;  <i class="fas fa-phone"></i> &nbsp;(16) 94442-3496 &nbsp;&nbsp;&nbsp; &nbsp;<i class="fas fa-envelope-open-text">&nbsp;</i>laurindoguimaraestec@gmail.com</p><br> 
+
+
+            <p>Desenvolvido por <a href="#" target="_blank">Mindplex</a> &copy; 2020</p>
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts do projeto -->
+  <script src="js/scripts.js"></script>
+</body>
 </html>

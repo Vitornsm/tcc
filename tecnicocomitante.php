@@ -1,23 +1,14 @@
 <?php
-  session_start();
-
-
-  if(empty($_SESSION['adm']))
-  {
-    echo ('<meta http-equiv="refresh"content=0;"index.php">');
-  }
-  else
-  {
-    
+session_start();
+include_once "conexao.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<link rel ="stylesheet" type="text/css" href="css/estilos2.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA_Compatible" content="ie=edge">
-  <title>ADM</title>
+  <title>Escola Técnica Laurindo Guimarães</title>
 
   <!-- Fonte usada no site-->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
@@ -43,8 +34,8 @@
 
   <!-- Parallax  efeito de parallax de imagens-->
   <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
-
 <link rel="sortcut icon" href="img/etlg.ico" type="image/x-icon" />;
+
 
 </head>
 <body>
@@ -166,180 +157,114 @@
      
             <?php
               include "ADMadministratorPerfil5241.php";
-            ?>
-        
-   </div>
+            ?>       
+    </div>
 </div>
-
   </header>
-		
-			<br><br><br><br><br>
-
-      <form accept-charset="utf-8" method="POST" class="texto" enctype="multipart/form-data">
-      <center>
-
-				<h1>Adicionar</h1>
-
-				<a href="PGIsertAdministratorLivros5642.php" class="butom">Livros</a>
-				<a href="PGIsertAdministratorJornais5642.php" class="butom">Jornais</a>
-				<a href="PGIsertAdministratorMidias5642.php" class="selecionado">Mídias</a>
-				<a href="PGIsertAdministratorRevistas5642.php" class="butom">Revistas</a>
-        <a href="PGIsertAdministratorNoticia5642.php" class="butom">Notícia</a><br><br>
-
-			</center>
-
-			<div class="espaco_esquerdo" style="display: inline-block">
-
-				<h1>Inserir Mídias</h1>
-
-				<table>
-					<tr>
-						<td>Código</td>
-						<td><input type="text" name="txtcodmidia" class="txtbox3"></td>
-					</tr>
-					<tr>
-						<td>Nome</td>
-						<td><input type="text" name="txtnomemidia" class="txtbox3"></td>
-					</tr>
-					<tr>
-						<td>Duraçâo</td>
-						<td><input type="time" name="txtduracaomidia" class="txtbox3"></td>
-					</tr>
-					<tr>
-						<td>Empresa</td>
-						<td><input type="text" name="txtempresamidia" class="txtbox3"></td>
-					</tr>
-					<tr>
-						<td>Imagem da Mídias</td>
-						<td><input type="file"  name="imgboxmidia" class="txtbox3"></td>
-					</tr>
-				</table><br>
-
-				<input type="submit" value="Inserir" name="cadastrarmidia" class="butom">&nbsp &nbsp &nbsp
-				<input type="reset" value="Limpar" name="" class="butom"><br>
-
-					<?php
-
-						include "conexao.php";
-
-						$botao= filter_input(INPUT_POST, 'cadastrarmidia' , FILTER_SANITIZE_STRING);
-
-						$codmidia= filter_input(INPUT_POST, 'txtcodmidia' , FILTER_SANITIZE_STRING);
-						$nomemidia= filter_input(INPUT_POST, 'txtnomemidia' , FILTER_SANITIZE_STRING);
-						$duracaomidia= filter_input(INPUT_POST, 'txtduracaomidia' , FILTER_SANITIZE_STRING);
-						$empresamidia= filter_input(INPUT_POST, 'txtempresamidia' , FILTER_SANITIZE_STRING);
-
-						if($botao == "Inserir")
-						{
-							if($codmidia && $nomemidia && $duracaomidia && $empresamidia !=null)
-							{
-								$_UP['pasta'] = 'upload/';	
-
-								if(isset($_FILES['imgboxmidia']));
-								{
-									$arquivo = $_FILES['imgboxmidia'];
-									$extensao = pathinfo($arquivo['name'], PATHINFO_EXTENSION);
-									$novo_nome = md5(uniqid($arquivo['name'])).".".$extensao;
-
-									
-
-									$sql_code ="INSERT INTO `tb_midias` (`COD_MIDIA`, `NOME_MIDIA`, `DURACAO_MIDIA`, `EMPRESA_MIDIA`, `IMG_MIDIAS`) VALUES ('$codmidia', '$nomemidia', '$duracaomidia', '$empresamidia', '$novo_nome')";
-
-									if(mysqli_query($conn, $sql_code))
-									{
-										move_uploaded_file($_FILES['imgboxmidia']['tmp_name'], $_UP['pasta'].$novo_nome);
-										echo "<script>alert('Arquivo enviado com susesso');</script>";
-									}
-									else
-									{
-										echo '<h3 style="color: red;">';
-										echo 'Dados já cadastrados';
-										echo '</h3>';
-									}
-								}
-							}
-							else
-							{
-								echo '<h3 style="color: red;">';
-								echo 'Preencha todos os campos';
-								echo '</h3>';
-							}
-						}
-
-					?>
-			</div>
-			<div class="empurrar">
-				<h1>Delatar Mídias</h1>
-				<table>
-					<tr>
-						<td>Código</td>
-						<td><input type="text" name="txtdeletarmidia" class="txtbox3"></td>
-					</tr>
-				</table>
-				<input type="submit" value="Deletar" name="btndeletarmidia" class="butom"><br>
-				<?php
-
-					$botao2 = filter_input(INPUT_POST, 'btndeletarmidia' , FILTER_SANITIZE_STRING);
-
-					$delatarmidia = filter_input(INPUT_POST, 'txtdeletarmidia' , FILTER_SANITIZE_STRING);
-
-					if($botao2 == "Deletar")
-					{
-						if($delatarmidia != null)
-						{
-              $sql_consultacod = "SELECT COD_MIDIA FROM tb_midias WHERE COD_MIDIA LIKE '$delatarmidia'";
-
-              $resultado_consultacod = mysqli_query($conn, $sql_consultacod);
-
-              $row_consultacod = mysqli_fetch_assoc($resultado_consultacod);
-
-              $cod_consultado = $row_consultacod['COD_MIDIA'];
 
 
-              if($cod_consultado != null)
-              {
-                $sql_consultaimg = "SELECT IMG_MIDIAS FROM tb_midias WHERE COD_MIDIA LIKE '$delatarmidia'";
 
-                $resultado_consultaimg = mysqli_query($conn, $sql_consultaimg);
+  <main>
+    
+     <!-- imagem legenda -->
+      
+      <figure class="legenda">
+          
+            <img src="img/tecnicocomitante.jpg"  class="d-block w-100" alt="qualidade de ensino"/>
+            <div class="carousel-caption d-md-block">
+                               </figure>
 
-                $row_consultaimg = mysqli_fetch_assoc($resultado_consultaimg);
+<div class="alinhar1" >
+<h1>&nbsp;&nbsp;&nbsp;Ensino Médio Integrado Técnico</h1><br><br>
+<p>O CURSO TÉCNICO INTEGRADO – São aqueles cursos em que você faz o ensino médio junto com a formação técnica. Por isso, para se candidatar a cursos dessa modalidade, você precisa comprovar a conclusão do ensino fundamental ou equivalente na data da matrícula. 
+<p>Nessa forma de ingresso, você cursa as disciplinas de formação técnica no ETLG enquanto faz o ensino médio em outra instituição. Ou, se você já tiver concluído o ensino médio, faz apenas as disciplinas técnicas no instituto. </p>
 
-                $img_cod = $row_consultaimg['IMG_MIDIAS'];
 
-							   $sql_code ="DELETE FROM `tb_midias` WHERE `tb_midias`.`COD_MIDIA` = '$delatarmidia'";
+<p>O ensino-aprendizagem nesta modalidade tem como objetivo geral a integração em todos os sentidos entre a Formação Profissional (Ensino Técnico) e a Educação Geral  (Ensino  Médio),  de modo aperfeiçoar o tempo e os esforços de professores e alunos  e  os recursos disponíveis, na    mesma    direção  de trabalhar as competências de formação geral, com as de formação profissional de  tal  modo  que   elas se complementem e se inter-relacionem, nas quais as habilidades, conhecimentos e valores desenvolvidos nos componentes curriculares referentes à formação geral sejam contextualizados e exercitados nas práticas de formação profissional. </p>
 
-								if(mysqli_query($conn, $sql_code))
-								{
-									if(file_exists("upload/" . $img_cod))
-                  {
-                    unlink ("upload/" . $img_cod ) ;
-                  }
-                  else
-                  {
-                    echo"";
-                  }
-                  
-									echo "<script>alert('Arquivo Deletado com susesso');</script>";
-								}
-								
-              }
-              else
-              {
-                echo '<h3 style="color: red;">';
-                echo 'Código não existe';
-                echo '</h3>';
-              }
-						}
-						else
-						{
-							echo '<h3 style="color: red;">';
-							echo 'Preencha o campo';
-							echo '</h3>';
-						}
-					}
-        }
-				?>
-			</div>
-		</form>
-	</body>
+<p>O mercado de trabalho brasileiro sente a falta de trabalhadores qualificados. Nesse sentido, o ensino técnico profissionalizante é o caminho mais curto para o emprego. O Ensino técnico integrado ao ensino médio é um fator favorável para a educação, e tem como objetivo específico a preparação dos discentes, de maneira precoce, para o mercado de trabalho. Ele visa atender aos anseios do mercado, que busca mão de obra qualificada para as novas oportunidades de trabalho que a tecnologia e a comunicação proporcionam.</p>
+
+
+
+   </div>  
+      <!--Nossos Cursos-->
+      <div id="cursos-area">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="main-title">Curso oferecidos</h3>
+            </div>
+            <div class="col-md-12" id="filter-btn-box">
+              <button class="main-btn filter-btn" id="adm-btn">Administração</button>
+              <button class="main-btn filter-btn" id="ifo-btn">Informática</button>
+              <button class="main-btn filter-btn" id="elr-btn">Eletrônica</button>
+              <button class="main-btn filter-btn" id="qui-btn">Química</button>
+              <button class="main-btn filter-btn" id="log-btn">Logistica</button>
+              <button class="main-btn filter-btn" id="gp-btn">Gestão Pessoas</button>
+            </div>
+            <div class="col-md-4 project-box adm">
+              <div class="zoom">
+                <img src="img/adm.jpg" class="img-fluid" alt="Administração">
+              </div>
+            </div>
+            <div class="col-md-4 project-box ifo">
+              <div class="zoom">
+                <img src="img/proj2.jpg" class="img-fluid" alt="Informática">
+              </div>
+            </div>
+            <div class="col-md-4 project-box elr">
+              <div class="zoom">
+                <img src="img/proj3.jpg" class="img-fluid" alt="Eletrônica">
+              </div>
+            </div>
+            <div class="col-md-4 project-box gp">
+              <div class="zoom">
+                <img src="img/gestao.jpg" class="img-fluid" alt="Gestão">
+              </div>
+            </div>
+            <div class="col-md-4 project-box qui">
+              <div class="zoom">
+                <img src="img/quimica3.jpg" class="img-fluid" alt="Química">
+              </div>
+            </div>
+            <div class="col-md-4 project-box log">
+              <div class="zoom">
+                <img src="img/logistica.jpg" class="img-fluid" alt="Logistica">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      
+  </main>
+  <!-- Rodapé -->
+  <footer>
+    
+    <div id="copy-area">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+   <p><span class="contact-tile"></span><i class="fas fa-route"></i> &nbsp; R. José Bonifácio, 428 -São Carlos - SP &nbsp; &nbsp;&nbsp; &nbsp;  <i class="fas fa-phone"></i> &nbsp;(16) 94442-3496 &nbsp;&nbsp;&nbsp; &nbsp;<i class="fas fa-envelope-open-text">&nbsp;</i>laurindoguimaraestec@gmail.com</p><br> 
+
+
+            <p>Desenvolvido por <a href="#" target="_blank">Mindplex</a> &copy; 2020</p>
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts do projeto -->
+  <script src="js/scripts.js"></script>
+</body>
 </html>

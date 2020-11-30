@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 24-Nov-2020 às 02:06
+-- Tempo de geração: 30-Nov-2020 às 13:18
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.3.21
 
@@ -33,17 +33,21 @@ CREATE TABLE IF NOT EXISTS `login` (
   `USUARIO` varchar(70) NOT NULL,
   `SENHA` varchar(70) NOT NULL,
   `EMAIL` varchar(30) NOT NULL,
+  `IMG_ADM` varchar(100) NOT NULL,
+  `NOME_ADM` varchar(20) NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `SENHA` (`SENHA`),
-  UNIQUE KEY `EMAIL` (`EMAIL`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  UNIQUE KEY `EMAIL` (`EMAIL`),
+  UNIQUE KEY `IMG_ADM` (`IMG_ADM`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `login`
 --
 
-INSERT INTO `login` (`ID`, `USUARIO`, `SENHA`, `EMAIL`) VALUES
-(3, 'laurindo123', 'bcec378dc9b7b470ff2bbe527518ad37', 'laurindoguimaraestec@gmail.com');
+INSERT INTO `login` (`ID`, `USUARIO`, `SENHA`, `EMAIL`, `IMG_ADM`, `NOME_ADM`) VALUES
+(3, 'laurindo123', 'bcec378dc9b7b470ff2bbe527518ad37', 'laurindoguimaraestec@gmail.com', '21232f297a57a5a743894a0e4a801fc3.jpeg', 'Laurindo'),
+(6, 'gustavonsm', 'cd1588101203f13f872131b33cb1a3cf', 'gustavo.nogueira1010@gmail.com', '6e11873b9d9d94a44058bef5747735ce', 'Gustavo');
 
 -- --------------------------------------------------------
 
@@ -63,16 +67,18 @@ CREATE TABLE IF NOT EXISTS `noticia` (
   PRIMARY KEY (`NUMERO`),
   UNIQUE KEY `IMG_NOTICIA` (`IMG_NOTICIA`),
   UNIQUE KEY `TITULO` (`TITULO`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `noticia`
 --
 
 INSERT INTO `noticia` (`TITULO`, `TEXTO`, `AUTOR`, `IMG_NOTICIA`, `HORA_NOTICIA`, `FONTE_IMG`, `NUMERO`) VALUES
-('Manifestantes fazem protesto contra morte em Porto Alegre e loja do Carrefour é invadida em SP', 'A 17ª Marcha da Consciência Negra em São Paulo, que nesta sexta-feira (20) pediu justiça pela morte de João Alberto em Porto Alegre, terminou em quebra-quebra e invasão e uma unidade do Carrefour da rua Pamplona no bairro dos Jardins, Zona Sul da capital paulista.\r\n\r\nApós o fim do ato pacífico, um pequeno grupo de manifestantes usou pedras e paus para atacar a loja e quebrar vidraças da unidade, que fica dentro de um shopping da região.', 'Por G1 SP — São Paulo', '3c5a99fc8b22bb98ab8eebe326b22f0a.jpg', '2020-11-21 01:32:14', 'G1', 1),
-('&#39;Me sinto de alma lavada&#39;, diz pai de João Alberto sobre a repercussão da morte do filho', 'O pai de João Alberto Silveira de Freitas, espancado e morto por dois seguranças em um supermercado de Porto Alegre, se sente de &#39;alma lavada&#39; em relação a repercussão da morte do filho, na última quinta-feira (19).\r\n\r\n&#34;Eu posso te dizer que me sinto de alma lavada, porque não imaginei que fosse ter uma repercussão tão grande assim. Mas se é em favor da sociedade é bem-vindo&#34;, disse João Batista Rodrigues Freitas à reportagem da RBS TV, durante o velório do filho, na manhã deste sábado (21), na Zona Norte da Capital gaúcha.', 'Por Tiago Guedes, RBS TV e G1 RS', 'eb9fea1bcf70ceca95e9ebe082698c81.jpg', '2020-11-21 18:48:34', 'João Batista Rodrigues Freitas, pai de João Alberto — Foto: Reprodução / RBS TV', 2),
-('Corpo de João Alberto, morto após ser espancado em unidade do Carrefour, é enterrado em Porto Alegre', 'O corpo de João Alberto Silveira Freitas, de 40 anos, espancado e morto em uma unidade do supermercado Carrefour, foi enterrado na manhã deste sábado (21) no Cemitério São João, na Zona Norte de Porto Alegre.\r\n\r\n&#39;Ele pediu: Milena, me ajuda&#39;, diz mulher de homem negro morto\r\nAnálise inicial aponta para asfixia como causa da morte\r\nFOTOS: Veja imagens das manifestações pela morte de João Alberto\r\nMuito abalada, a mulher de João Alberto, Milena Borges Alves pediu justiça. &#34;Eu não tenho nada pra falar. Só quero justiça, quero que paguem&#34;.\r\n\r\nUma das filhas dele, Taís Amaral Freitas, agradeceu o apoio que a família tem recebido. &#34;A gente até se sente confortável por isso, mas mesmo assim, não traz a vida de volta. Não tem muito o que falar, depois de ver aquelas imagens, horrível&#34;.\r\n\r\nAmigo próximo do soldador, Noé Fernando Pithan também prestou uma última homenagem.\r\n\r\n&#34;Brincalhão, divertido, parceiro mesmo, até eu tenho camisa de clube que ele me deu, e gostava de andar de boné, camisa de clube. Não tem como aceitar uma coisa dessa, não tem como, ninguém vai te explicar isso daí&#34;, desabafa.\r\n\r\nBeto, como era conhecido, começou a ser velado às 8h e o enterro aconteceu às 12h.', 'Por G1 RS e RBS TV', 'f11bddfec1bcf633602a8fb26c1a4bf5.jpeg', '2020-11-21 18:50:54', 'Velório de João Alberto Freitas, morto em unidade do Carrefour em Porto Alegre — Foto: Tiago Guedes / RBS TV', 3);
+('Candidatos com Covid poderão remarcar data do Enem 2020, diz Inep', 'Os candidatos ao Exame Nacional do Ensino Médio (Enem) 2020 que tiverem o diagnóstico confirmado de Covid-19 poderão remarcar a data da prova, de acordo com o Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (Inep).\r\nAlém disso, o Inep também prevê 50% de ocupação das salas para evitar a propagação do coronavírus, e salas especiais para os grupos de risco.\r\nO uso de máscara será obrigatório, desde o início até o fim da aplicação do exame. Caso se recuse, o candidato poderá ser eliminado. O Inep informa que irá disponibilizar álcool em gel nos locais de provas.\r\nPrevisto originalmente para novembro, o exame foi adiado devido à pandemia, e vai ocorrer em 17 e 24 de janeiro (prova impressa) e 31 de janeiro e 7 de fevereiro (prova digital).\r\nCom a aceleração do número de casos, há uma preocupação de que a pandemia não terá diminuído quando o Enem for realizado, pouco mais de duas semanas após as festas de fim de ano.', 'Criado por G1', '8e2a1ca5ccbfbadac41c40b26d80c696.jpg', '2020-11-26 20:03:17', 'Salas de aplicação do Enem serão organizadas para evitar aglomeração, diz Inep — Foto: João Paulo Barbosa', 14),
+('Feira de Robótica', 'Alunos de 151 equipes do Sesi-SP disputarão a Etapa Regional da Olimpíada Brasileira de Robótica. A segunda bateria de competições será realizada dia 14 de junho, na Escola Sesi de Avaré, e terá a participação de uma equipe do Sesi de Santa Cruz do Rio Pardo.\r\nAs últimas provas da etapa serão realizadas em agosto. Então, as 60 melhores equipes de escolas públicas e particulares seguirão para a final da Etapa Estadual, em São Bernardo do Campo, no mês de setembro.', 'Serjo', 'f13c07dc3e91325101e49b3ee7dbc437.jpg', '2020-11-24 20:49:14', 'Sesi', 10),
+('Redes de ensino ainda não sabem se terão permissão para aulas remotas em 2021', 'A pouco mais de um mês do fim do ano, as redes de ensino públicas e privadas, da educação básica e do ensino superior, ainda não sabem se terão permissão para as aulas remotas em 2021.\r\n\r\nO Ministério da Educação (MEC) ainda não homologou a permissão de estender o ensino on-line até dezembro de 2021, conforme havia sido aprovado por unanimidade em outubro pelo Conselho Nacional de Educação (CNE).\r\n\r\nO conselho é responsável por assessorar o MEC nas políticas educacionais do país e conta, inclusive, com membros do ministério.\r\n\r\nA resolução foi feita para regulamentar a Lei 14.040, sancionada pelo presidente Jair Bolsonaro em 18 de agosto, que desobriga as escolas de cumprirem os 200 dias letivos. O texto da lei prevê que o CNE formule as diretrizes nacionais para implementá-la.', 'Por Elida Oliveira, G1', '0a45455f39c5d2459c115e9a6b372f1f.jpg', '2020-11-28 18:18:31', 'Ano letivo em 2021: a pouco mais de um mês do fim do ano, MEC ainda não homologou a permissão de estender as aulas remotas até o fim do ano que vem. — Foto: UFJF/Divulgação', 19),
+('Cursos de Informatica', 'Aprenda a explorar os diversos recursos da tecnologia e mantenha-se atualizado com o dinâmico mundo da informática. Com os cursos a distância do Senac, você aumenta suas chances no mercado de trabalho.', 'Senac', 'c15861a3340fc88a384390764ce4cbb5.jfif', '2020-11-24 11:52:24', 'Senac . SP', 9),
+('UFJF abre inscrições para cursos de graduação a distância', 'A Universidade Federal de Juiz de Fora (UFJF) abriu, nesta sexta-feira (27), o período de inscrições para o Processo de Seleção Complementar dos Cursos de Graduação a Distância.\r\n\r\nSão 164 vagas disponíveis são para os cursos de Pedagogia e Computação. Os interessados têm até a próxima quarta-feira (2) para fazer a inscrição on-line.\r\n\r\nDe acordo com instituição, 90% do total de vagas disponíveis são destinadas aos candidatos que usarem a pontuação do Exame Nacional do Ensino Médio (Enem), considerando as cinco das edições mais recentes do exame.\r\n\r\nO resto das vagas é destinado àqueles que não têm formação em nível superior na área em que atuam. No caso do curso de Pedagogia é necessário ser professor da rede pública de ensino.\r\n\r\nSegundo a UFJF, os polos de apoio presencial da Universidade Aberta do Brasil (UAB) estão distribuídos nas cidades de Bicas, Durandé, Itamonte, Monte Sião e Confins. No momento da inscrição é necessário optar por dois polos, em ordem de preferência. O número de vagas e os cursos variam em relação à cada polo.\r\n\r\nA taxa de inscrição do processo custa R$ 120. O pagamento deve ser feito até as 20h de quarta-feira (2). É possível pedir a isenção do pagamento, somente no momento da inscrição, até este domingo (29).\r\n\r\nSegundo a UFJF, o resultado final do processo de seleção será divulgado no dia 8 de dezembro, a partir das 15h, no site da Coordenação Geral de Processos Seletivos (Copese). Clique aqui para conferir o edital completo. Para mais informações, o contato deve ser feito pelos números (32) 2102-3738 ou (32) 2102-3755.', 'Por G1 Zona da Mata', '639e67f3757a1702ede7b04cd18cf4c9.jpg', '2020-11-28 18:22:37', 'UFJF abre inscrições para cursos de graduação a distância — Foto: UFJF/Divulgação', 20);
 
 -- --------------------------------------------------------
 
@@ -89,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `tb_jornais` (
   `SUBPASTA_JORNAL` varchar(100) NOT NULL,
   `IMG_JORNAL` varchar(40) DEFAULT NULL,
   UNIQUE KEY `NUM_JORNAL` (`NUM_JORNAL`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_jornais`
@@ -125,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `tb_livros` (
   UNIQUE KEY `COD_LIVRO` (`COD_LIVRO`),
   UNIQUE KEY `COD_AUTOR_LIVRO` (`COD_AUTOR_LIVRO`),
   KEY `GEN_LIVRO` (`GEN_LIVRO`)
-) ENGINE=MyISAM AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=90 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_livros`
@@ -164,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `tb_midias` (
   `IMG_MIDIAS` varchar(40) DEFAULT NULL,
   UNIQUE KEY `NUM_MIDIA` (`NUM_MIDIA`),
   UNIQUE KEY `COD_MIDIA` (`COD_MIDIA`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_midias`
@@ -195,7 +201,7 @@ CREATE TABLE IF NOT EXISTS `tb_revistas` (
   `IMG_REVISTA` varchar(40) DEFAULT NULL,
   UNIQUE KEY `NUM_REVISTA` (`NUM_REVISTA`),
   UNIQUE KEY `COD_REVISTA` (`COD_REVISTA`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_revistas`

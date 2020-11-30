@@ -1,23 +1,14 @@
 <?php
-  session_start();
-
-
-  if(empty($_SESSION['adm']))
-  {
-    echo ('<meta http-equiv="refresh"content=0;"index.php">');
-  }
-  else
-  {
-    
+session_start();
+include_once "conexao.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<link rel ="stylesheet" type="text/css" href="css/estilos2.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA_Compatible" content="ie=edge">
-  <title>ADM</title>
+  <title>Escola Técnica Laurindo Guimarães</title>
 
   <!-- Fonte usada no site-->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
@@ -166,180 +157,60 @@
      
             <?php
               include "ADMadministratorPerfil5241.php";
-            ?>
-        
-   </div>
+            ?>       
+    </div>
 </div>
 
   </header>
-		
-			<br><br><br><br><br>
-
-      <form accept-charset="utf-8" method="POST" class="texto" enctype="multipart/form-data">
-      <center>
-
-				<h1>Adicionar</h1>
-
-				<a href="PGIsertAdministratorLivros5642.php" class="butom">Livros</a>
-				<a href="PGIsertAdministratorJornais5642.php" class="butom">Jornais</a>
-				<a href="PGIsertAdministratorMidias5642.php" class="selecionado">Mídias</a>
-				<a href="PGIsertAdministratorRevistas5642.php" class="butom">Revistas</a>
-        <a href="PGIsertAdministratorNoticia5642.php" class="butom">Notícia</a><br><br>
-
-			</center>
-
-			<div class="espaco_esquerdo" style="display: inline-block">
-
-				<h1>Inserir Mídias</h1>
-
-				<table>
-					<tr>
-						<td>Código</td>
-						<td><input type="text" name="txtcodmidia" class="txtbox3"></td>
-					</tr>
-					<tr>
-						<td>Nome</td>
-						<td><input type="text" name="txtnomemidia" class="txtbox3"></td>
-					</tr>
-					<tr>
-						<td>Duraçâo</td>
-						<td><input type="time" name="txtduracaomidia" class="txtbox3"></td>
-					</tr>
-					<tr>
-						<td>Empresa</td>
-						<td><input type="text" name="txtempresamidia" class="txtbox3"></td>
-					</tr>
-					<tr>
-						<td>Imagem da Mídias</td>
-						<td><input type="file"  name="imgboxmidia" class="txtbox3"></td>
-					</tr>
-				</table><br>
-
-				<input type="submit" value="Inserir" name="cadastrarmidia" class="butom">&nbsp &nbsp &nbsp
-				<input type="reset" value="Limpar" name="" class="butom"><br>
-
-					<?php
-
-						include "conexao.php";
-
-						$botao= filter_input(INPUT_POST, 'cadastrarmidia' , FILTER_SANITIZE_STRING);
-
-						$codmidia= filter_input(INPUT_POST, 'txtcodmidia' , FILTER_SANITIZE_STRING);
-						$nomemidia= filter_input(INPUT_POST, 'txtnomemidia' , FILTER_SANITIZE_STRING);
-						$duracaomidia= filter_input(INPUT_POST, 'txtduracaomidia' , FILTER_SANITIZE_STRING);
-						$empresamidia= filter_input(INPUT_POST, 'txtempresamidia' , FILTER_SANITIZE_STRING);
-
-						if($botao == "Inserir")
-						{
-							if($codmidia && $nomemidia && $duracaomidia && $empresamidia !=null)
-							{
-								$_UP['pasta'] = 'upload/';	
-
-								if(isset($_FILES['imgboxmidia']));
-								{
-									$arquivo = $_FILES['imgboxmidia'];
-									$extensao = pathinfo($arquivo['name'], PATHINFO_EXTENSION);
-									$novo_nome = md5(uniqid($arquivo['name'])).".".$extensao;
-
-									
-
-									$sql_code ="INSERT INTO `tb_midias` (`COD_MIDIA`, `NOME_MIDIA`, `DURACAO_MIDIA`, `EMPRESA_MIDIA`, `IMG_MIDIAS`) VALUES ('$codmidia', '$nomemidia', '$duracaomidia', '$empresamidia', '$novo_nome')";
-
-									if(mysqli_query($conn, $sql_code))
-									{
-										move_uploaded_file($_FILES['imgboxmidia']['tmp_name'], $_UP['pasta'].$novo_nome);
-										echo "<script>alert('Arquivo enviado com susesso');</script>";
-									}
-									else
-									{
-										echo '<h3 style="color: red;">';
-										echo 'Dados já cadastrados';
-										echo '</h3>';
-									}
-								}
-							}
-							else
-							{
-								echo '<h3 style="color: red;">';
-								echo 'Preencha todos os campos';
-								echo '</h3>';
-							}
-						}
-
-					?>
-			</div>
-			<div class="empurrar">
-				<h1>Delatar Mídias</h1>
-				<table>
-					<tr>
-						<td>Código</td>
-						<td><input type="text" name="txtdeletarmidia" class="txtbox3"></td>
-					</tr>
-				</table>
-				<input type="submit" value="Deletar" name="btndeletarmidia" class="butom"><br>
-				<?php
-
-					$botao2 = filter_input(INPUT_POST, 'btndeletarmidia' , FILTER_SANITIZE_STRING);
-
-					$delatarmidia = filter_input(INPUT_POST, 'txtdeletarmidia' , FILTER_SANITIZE_STRING);
-
-					if($botao2 == "Deletar")
-					{
-						if($delatarmidia != null)
-						{
-              $sql_consultacod = "SELECT COD_MIDIA FROM tb_midias WHERE COD_MIDIA LIKE '$delatarmidia'";
-
-              $resultado_consultacod = mysqli_query($conn, $sql_consultacod);
-
-              $row_consultacod = mysqli_fetch_assoc($resultado_consultacod);
-
-              $cod_consultado = $row_consultacod['COD_MIDIA'];
 
 
-              if($cod_consultado != null)
-              {
-                $sql_consultaimg = "SELECT IMG_MIDIAS FROM tb_midias WHERE COD_MIDIA LIKE '$delatarmidia'";
 
-                $resultado_consultaimg = mysqli_query($conn, $sql_consultaimg);
+  <main>
+    
+     <!-- imagem legenda -->
+      
+      <figure class="legenda">
+          
+            <img src="img/missao21.jpg"  class="d-block w-100" alt="Missão"/>
+            <div class="carousel-caption d-md-block">
+              <div class="texto">  </div>
+                  </figure>
 
-                $row_consultaimg = mysqli_fetch_assoc($resultado_consultaimg);
+<div class="alinhar">
 
-                $img_cod = $row_consultaimg['IMG_MIDIAS'];
+<p>"Empenho em se tornar um espaço para a produção de conhecimentos culturais, científicos e tecnológicos, capaz de influenciar o avanço econômico e educacional da região, por meio do oferecimento de qualificação e requalificação de jovens e adultos, desenvolvendo competências pessoais e profissionais no educando para que este tenha uma vivência individual/coletiva, autônoma e crítica na sociedade, além deste mesmo espaço se constituir como um referencial de qualidade para o mercado de trabalho."</p>
+   </div>  
+      
+      
 
-							   $sql_code ="DELETE FROM `tb_midias` WHERE `tb_midias`.`COD_MIDIA` = '$delatarmidia'";
+      
+  </main>
+  <!-- Rodapé -->
+  <footer>
+    
+    <div id="copy-area">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12">
 
-								if(mysqli_query($conn, $sql_code))
-								{
-									if(file_exists("upload/" . $img_cod))
-                  {
-                    unlink ("upload/" . $img_cod ) ;
-                  }
-                  else
-                  {
-                    echo"";
-                  }
-                  
-									echo "<script>alert('Arquivo Deletado com susesso');</script>";
-								}
-								
-              }
-              else
-              {
-                echo '<h3 style="color: red;">';
-                echo 'Código não existe';
-                echo '</h3>';
-              }
-						}
-						else
-						{
-							echo '<h3 style="color: red;">';
-							echo 'Preencha o campo';
-							echo '</h3>';
-						}
-					}
-        }
-				?>
-			</div>
-		</form>
-	</body>
+   <p><span class="contact-tile"></span><i class="fas fa-route"></i> &nbsp; R. José Bonifácio, 428 -São Carlos - SP &nbsp; &nbsp;&nbsp; &nbsp;  <i class="fas fa-phone"></i> &nbsp;(16) 94442-3496 &nbsp;&nbsp;&nbsp; &nbsp;<i class="fas fa-envelope-open-text">&nbsp;</i>laurindoguimaraestec@gmail.com</p><br> 
+
+
+            <p>Desenvolvido por <a href="#" target="_blank">Mindplex</a> &copy; 2020</p>
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts do projeto -->
+  <script src="js/scripts.js"></script>
+</body>
 </html>

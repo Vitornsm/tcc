@@ -73,17 +73,16 @@ include_once "conexao.php";
 
 
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item"><a style="color: #F00">Histórico</a></li>
-                    <li class="dropdown-item"><a href="#" style="color: #F00">Patrono</a></li>   
-                    <li class="dropdown-item"><a href="apm.html" style="color: #F00">APM</a></li>
-                    <li class="dropdown-item"><a href="diretor.html" style="color: #F00" >Diretoria</a></li>
-                    <li class="dropdown-item"><a  href="#" style="color: #F00">Colaboradores</a></li>
-                    <li class="dropdown-item" ><a href="#" style="color: #F00">Infraestrutura</a></li>
-                    <li class="dropdown-item" ><a href="conselho.html" style="color: #F00">Conselho Escolar</a></li>
-                     <li class="dropdown-item"><a href="missao.html" style="color: #F00">Missão</a></li>
-                     <li class="dropdown-item"><a href="missao.html" style="color: #F00">Missão</a></li>
-                            <li class="dropdown-item"><a href="visao.html" style="color: #F00">Visão</a></li>
-                            <li class="dropdown-item"><a href="valores.html" style="color: #F00">Valores</a></li>
+                    <li class="dropdown-item"><a href="historico.php" style="color: #F00">Histórico</a></li>
+                    <li class="dropdown-item"><a href="patrono.php" style="color: #F00">Patrono</a></li>   
+                    <li class="dropdown-item"><a href="apm.php" style="color: #F00">APM</a></li>
+                    <li class="dropdown-item"><a href="diretor.php" style="color: #F00" >Diretoria</a></li>
+                    <li class="dropdown-item"><a  href="colaboradores.php" style="color: #F00">Colaboradores</a></li>
+                    <li class="dropdown-item" ><a href="infraestrutura.php" style="color: #F00">Infraestrutura</a></li>
+                    <li class="dropdown-item" ><a href="conselho.php" style="color: #F00">Conselho Escolar</a></li>
+                     <li class="dropdown-item"><a href="missao.php" style="color: #F00">Missão</a></li>
+                            <li class="dropdown-item"><a href="visao.php" style="color: #F00">Visão</a></li>
+                            <li class="dropdown-item"><a href="valores.php" style="color: #F00">Valores</a></li>
 
 
                     <li class="dropdown-item dropdown"> 
@@ -100,9 +99,9 @@ include_once "conexao.php";
                 <a class="nav-link dropdown-toggle" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CURSOS</a>
 
                 <ul class="dropdown-menu" aria-labelledby="dropdown2">
-                  <li class="dropdown-item"><a href="#" style="color: #F00">Ensino Médio Integrado Técnico</a></li>
-                    <li class="dropdown-item"><a href="#" style="color: #F00">Ensino Técnico</a></li>   
-                    <li class="dropdown-item"><a href="#" style="color: #F00">Ensino Médio</a></li>
+                  <li class="dropdown-item"><a href="tecnicocomitante.php" style="color: #F00">Ensino Médio Integrado Técnico</a></li>
+                    <li class="dropdown-item"><a href="Tecnico.php" style="color: #F00">Ensino Técnico</a></li>   
+                    <li class="dropdown-item"><a href="ensinomedio.php" style="color: #F00">Ensino Médio</a></li>
                        <li class="dropdown-item dropdown">
                               
                            </li>
@@ -113,9 +112,9 @@ include_once "conexao.php";
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ALUNOS</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
                     <li class="dropdown-item" href="missao.html"><a href="missao.html" style="color: #F00">Calendario Escolar</a></li>
-                    <li class="dropdown-item" ><a href="#" style="color: #F00">Cursos Extra Curricular</a></li>   
-                    <li class="dropdown-item" ><a href="#" style="color: #F00">Manual do Aluno</a></li>
-                    <li class="dropdown-item" ><a href="#" style="color: #F00">Horário de Aulas</a></li>
+                    <li class="dropdown-item" ><a href="curso.php" style="color: #F00">Cursos Extra Curricular</a></li>   
+                    <li class="dropdown-item" ><a href="manualaluno.php" style="color: #F00">Manual do Aluno</a></li>
+                    <li class="dropdown-item" ><a href="horarioaulas.php" style="color: #F00">Horário de Aulas</a></li>
                     <li class="dropdown-item dropdown">
                     </li>
                 </ul>

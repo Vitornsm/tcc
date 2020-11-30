@@ -10,7 +10,7 @@ include_once "conexao.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA_Compatible" content="ie=edge">
-    <title>Livros - Pesquisar</title>
+    <title>Escola Técnica Laurindo Guimarães</title>
 
     <!-- Fonte usada no site-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
@@ -158,81 +158,125 @@ include_once "conexao.php";
      
             <?php
               include "ADMadministratorPerfil5241.php";
-            ?>
-        
-   </div>
+            ?>       
+    </div>
 </div>
 
   </header>
 
-	<main>
-    <center>
-			<br><br><br><br><br>
-			<h1>Pesquisar Livros</h1>
-			
-				<form enctype="multipart/form-data" method="POST" action="" class="texto">
-					<input type="text" name="nome" placeholder="Digite o nome, autor, ano..." class = "txtbox"><br><br>
-				
-					<input name="SendPesqUser" type="submit" value="Pesquisar"class = "butom"><br><br>
+    <main>
+    
+      <!-- Sobre a ETLG -->
+      <div id="about-area">
+        <div class="container">
+            <div class="row">
+              <div class="col-12"> 
+            
+               <h3 class="main-title" >Gestão de Pessoas</h3><br>
+              </div>
+              <div class="col-md-6">
+                <img class="img-fluid" src="img/gestao1.jpg" alt="ETGL">
+              </div>
+              <div class="col-md-6">
+                <h3 class="about-title"> O quê é? </h3>
+                <p>O TÉCNICO EM GESTÃO DE PESSOAS anuncia vagas de emprego, descrevendo as atribuições do cargo a ser preenchido; aplica testes em processos seletivos; realiza cálculos para determinar os valores que serão descontados no salário dos funcionários, como o Imposto de Renda e a contribuição ao INSS, além de porcentagem referente a benefícios, como vale-transporte, plano de saúde etc.; insere informações no sistema para a geração de demonstrativos de pagamentos (holerites ou contracheques); cuida da documentação necessária para aposentadoria, contratação e demissão de profissionais, inclusive preenchendo informações na carteira de trabalho; organiza e arquiva documentos do setor; registra e controla período de férias e afastamento de funcionários; e auxilia no treinamento e capacitação dos empregados.</p><br><br>
 
-				</form><br><br>
-		</center>
-		
-		<?php
+                
+               
 
-			$Caixa=filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
-			$radionome= filter_input(INPUT_POST, 'radiolivro' , FILTER_SANITIZE_STRING);
-			$botao= filter_input(INPUT_POST, 'SendPesqUser' , FILTER_SANITIZE_STRING);
+                              
+              </div>
+              <br><h2 class="about-title">Onde Trabalhar<h2>
+                <p>No setor de Recursos Humanos ou na área administrativa de empresas públicas e privadas de qualquer segmento, empresas de treinamento e desenvolvimento e agências de emprego.</p>
+               <h2 class="about-title">Pré-Requisitos<h2>
+               <p> Para a modalidade Técnico: Possuir Certificado de Conclusão do Ensino Médio ou declaração que está matrículado na 2ª série do ensino Médio.</p>
 
-			if ($botao == "Pesquisar") 
-			{
-				if ($Caixa == "LG_COD_ACCESS_5241")
-				{
-					echo ('<meta http-equiv="refresh"content=0;"PGcodLogAdministrator5241.php">');
-				}
-				else
-				{
-					$SendPesqUser = filter_input(INPUT_POST, 'SendPesqUser', FILTER_SANITIZE_STRING);
+                <p>Para a modalidade Integrado: Possuir o certificado de conclusão do ensino fundamental nas modalidades: regular ou Educação de Jovens e Adultos – EJA ou Exame Nacional para Certificação de Competências de Jovens e Adultos – ENCCEJA.</p>
+            </div>
+          </div>
+      </div>
 
-					$nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
+      <!-- Cursos -->
+      
+      
+      <!--Nossos Cursos-->
+      <div id="cursos-area">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="main-title">Nossos Cursos</h3>
+            </div>
+            <div class="col-md-12" id="filter-btn-box">
+              <button class="main-btn filter-btn" id="adm-btn">Administração</button>
+              <button class="main-btn filter-btn" id="ifo-btn">Informática</button>
+              <button class="main-btn filter-btn" id="elr-btn">Eletrônica</button>
+              <button class="main-btn filter-btn" id="qui-btn">Química</button>
+              <button class="main-btn filter-btn" id="log-btn">Logistica</button>
+              <button class="main-btn filter-btn" id="gp-btn">Gestão Pessoas</button>
+            </div>
+            <div class="col-md-4 project-box adm">
+              <div class="zoom">
+                <img src="img/adm.jpg" class="img-fluid" alt="Administração">
+              </div>
+            </div>
+            <div class="col-md-4 project-box ifo">
+              <div class="zoom">
+                <img src="img/proj2.jpg" class="img-fluid" alt="Informática">
+              </div>
+            </div>
+            <div class="col-md-4 project-box elr">
+              <div class="zoom">
+                <img src="img/proj3.jpg" class="img-fluid" alt="Eletrônica">
+              </div>
+            </div>
+            <div class="col-md-4 project-box gp">
+              <div class="zoom">
+                <img src="img/gestao.jpg" class="img-fluid" alt="Gestão">
+              </div>
+            </div>
+            <div class="col-md-4 project-box qui">
+              <div class="zoom">
+                <img src="img/quimica3.jpg" class="img-fluid" alt="Química">
+              </div>
+            </div>
+            <div class="col-md-4 project-box log">
+              <div class="zoom">
+                <img src="img/logistica.jpg" class="img-fluid" alt="Logistica">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Contato1-->
+      
+    </div>
+  </main>
+  <!-- Rodapé -->
+  <footer>
+    
+    <div id="copy-area">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12">
 
-						$result_usuario = "SELECT  * FROM tb_livros WHERE COD_LIVRO LIKE '$nome' OR
-																		 NOME_LIVRO  LIKE '%$nome%' OR
-																		 GEN_LIVRO LIKE '%$nome%' OR 
-																		 COD_AUTOR_LIVRO LIKE '$nome' OR
-																		 NOME_AUTOR_LIVRO LIKE '%$nome%' OR 
-																		 EDITORA_LIVRO LIKE '%$nome%' OR
-																		 LOCAL_LIVRO LIKE '%$nome%' OR
-																		 ANO_LIVRO LIKE '$nome'
-																		 ORDER BY NOME_LIVRO ASC";
+   <p><span class="contact-tile"></span><i class="fas fa-route"></i> &nbsp; R. José Bonifácio, 428 -São Carlos - SP &nbsp; &nbsp;&nbsp; &nbsp;  <i class="fas fa-phone"></i> &nbsp;(16) 94442-3496 &nbsp;&nbsp;&nbsp; &nbsp;<i class="fas fa-envelope-open-text">&nbsp;</i>laurindoguimaraestec@gmail.com</p><br> 
 
-						$resultado_usuario = mysqli_query($conn, $result_usuario);
 
- 					
-						echo'<center><table border=2 class="texto">';
+            <p>Desenvolvido por <a href="#" target="_blank">Mindplex</a> &copy; 2020</p>
 
-					while($row_usuario = mysqli_fetch_assoc($resultado_usuario))
-					{
-						
- 						$IMGlivro = $row_usuario['IMG_LIVRO'];
- 						
-						echo '<tr>';
-						echo ('<td>' . $row_usuario['NUM_LIVRO'] . '</td>' );
-						echo '<td><img src ="upload/' . $IMGlivro . '" width="88px" height="88px"></td>';		
-						echo ('<td>' . $row_usuario['NOME_LIVRO'] . '<br><br>' );
-						echo ('' . $row_usuario['NOME_AUTOR_LIVRO'] . '&nbsp&nbsp&nbsp&nbsp&nbsp</td>' );
-						echo ('<td><h4>Código Livro:</h4>' . $row_usuario['COD_LIVRO'] . '</td>' );
-						echo ('<td><h4>Código Autor:</h4>' . $row_usuario['COD_AUTOR_LIVRO'] . '</td>' );
-						echo ('<td>' . $row_usuario['GEN_LIVRO'] . '</td>' );
-						echo ('<td><h4>Editora:</h4>' . $row_usuario['EDITORA_LIVRO'] . '</td>' );
-						echo ('<td>' . $row_usuario['LOCAL_LIVRO'] . '</td>' );
-						echo ('<td>' . $row_usuario['ANO_LIVRO'] . '</td>' );
-						echo '</tr>';
-					}
-					echo '</table><br></cetnter>';
-				}	
-			}
-		?>
 
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts do projeto -->
+  <script src="js/scripts.js"></script>
 </body>
 </html>

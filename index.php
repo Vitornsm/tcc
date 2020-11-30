@@ -73,17 +73,16 @@ include_once "conexao.php";
 
 
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item"><a style="color: #F00">Histórico</a></li>
-                    <li class="dropdown-item"><a href="#" style="color: #F00">Patrono</a></li>   
-                    <li class="dropdown-item"><a href="apm.html" style="color: #F00">APM</a></li>
-                    <li class="dropdown-item"><a href="diretor.html" style="color: #F00" >Diretoria</a></li>
-                    <li class="dropdown-item"><a  href="#" style="color: #F00">Colaboradores</a></li>
-                    <li class="dropdown-item" ><a href="#" style="color: #F00">Infraestrutura</a></li>
-                    <li class="dropdown-item" ><a href="conselho.html" style="color: #F00">Conselho Escolar</a></li>
-                     <li class="dropdown-item"><a href="missao.html" style="color: #F00">Missão</a></li>
-                     <li class="dropdown-item"><a href="missao.html" style="color: #F00">Missão</a></li>
-                            <li class="dropdown-item"><a href="visao.html" style="color: #F00">Visão</a></li>
-                            <li class="dropdown-item"><a href="valores.html" style="color: #F00">Valores</a></li>
+                    <li class="dropdown-item"><a href="historico.php" style="color: #F00">Histórico</a></li>
+                    <li class="dropdown-item"><a href="patrono.php" style="color: #F00">Patrono</a></li>   
+                    <li class="dropdown-item"><a href="apm.php" style="color: #F00">APM</a></li>
+                    <li class="dropdown-item"><a href="diretor.php" style="color: #F00" >Diretoria</a></li>
+                    <li class="dropdown-item"><a  href="colaboradores.php" style="color: #F00">Colaboradores</a></li>
+                    <li class="dropdown-item" ><a href="infraestrutura.php" style="color: #F00">Infraestrutura</a></li>
+                    <li class="dropdown-item" ><a href="conselho.php" style="color: #F00">Conselho Escolar</a></li>
+                     <li class="dropdown-item"><a href="missao.php" style="color: #F00">Missão</a></li>
+                            <li class="dropdown-item"><a href="visao.php" style="color: #F00">Visão</a></li>
+                            <li class="dropdown-item"><a href="valores.php" style="color: #F00">Valores</a></li>
 
 
                     <li class="dropdown-item dropdown"> 
@@ -100,9 +99,9 @@ include_once "conexao.php";
                 <a class="nav-link dropdown-toggle" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CURSOS</a>
 
                 <ul class="dropdown-menu" aria-labelledby="dropdown2">
-                  <li class="dropdown-item"><a href="#" style="color: #F00">Ensino Médio Integrado Técnico</a></li>
-                    <li class="dropdown-item"><a href="#" style="color: #F00">Ensino Técnico</a></li>   
-                    <li class="dropdown-item"><a href="#" style="color: #F00">Ensino Médio</a></li>
+                  <li class="dropdown-item"><a href="tecnicocomitante.php" style="color: #F00">Ensino Médio Integrado Técnico</a></li>
+                    <li class="dropdown-item"><a href="Tecnico.php" style="color: #F00">Ensino Técnico</a></li>   
+                    <li class="dropdown-item"><a href="ensinomedio.php" style="color: #F00">Ensino Médio</a></li>
                        <li class="dropdown-item dropdown">
                               
                            </li>
@@ -113,9 +112,9 @@ include_once "conexao.php";
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ALUNOS</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
                     <li class="dropdown-item" href="missao.html"><a href="missao.html" style="color: #F00">Calendario Escolar</a></li>
-                    <li class="dropdown-item" ><a href="#" style="color: #F00">Cursos Extra Curricular</a></li>   
-                    <li class="dropdown-item" ><a href="#" style="color: #F00">Manual do Aluno</a></li>
-                    <li class="dropdown-item" ><a href="#" style="color: #F00">Horário de Aulas</a></li>
+                    <li class="dropdown-item" ><a href="curso.php" style="color: #F00">Cursos Extra Curricular</a></li>   
+                    <li class="dropdown-item" ><a href="manualaluno.php" style="color: #F00">Manual do Aluno</a></li>
+                    <li class="dropdown-item" ><a href="horarioaulas.php" style="color: #F00">Horário de Aulas</a></li>
                     <li class="dropdown-item dropdown">
                     </li>
                 </ul>
@@ -241,18 +240,16 @@ include_once "conexao.php";
                 <img class="img-fluid" src="img/lab1.jpg" alt="ETGL">
               </div>
               <div class="col-md-6">
-                <h3 class="about-title"> But I must explain to you how all this mistaken idea </h3>
-                <p>Of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth</p>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-                <p>Lorem ipsum dolor sit amet, :</p>
+                <h3 class="about-title"> Escola Laurindo Guimarães , porque estudar aqui ? </h3>
+                <p>Uma escola são focadas não somente em um ótimo ensino, mas, também, em fazer com que os  alunos se desenvolvam de diversas formas diferentes. </p>
+                <p>Dessa forma, estudar na ETLG se torna até mais divertido do que estudar em uma escola convencional. </p>
+                <p>A ETLG é feito para quem quer ter um futuro melhor. Sabe aquele desejo de entrar na faculdade dos seus sonhos? Ou aquela empresa em que você sempre quis trabalhar no futuro? Já pensou em morar na sua cidade favorita? E o sonho de viajar o mundo? Pode ser que você nunca tenha parado para pensar na maneira como vai conquistar tudo isso (porque, sim, você é capaz de conseguir), mas o fato é que todas essas metas dependem de um ensino de muita qualidade. Porque fazer : </p>
                 <ul id="about-list">
-                  <li><i class="fas fa-check"></i> Lorem ipsum dolor sit amet 1I</li>
-                  <li><i class="fas fa-check"></i> Lorem ipsum dolor sit amet 2</li>
-                  <li><i class="fas fa-check"></i> Lorem ipsum dolor sit amet 3</li>
-                  <li><i class="fas fa-check"></i> Lorem ipsum dolor sit amet 4</li>
-                  <li><i class="fas fa-check"></i> Lorem ipsum dolor sit amet 5</li>
-                </ul>
+                  <li><i class="fas fa-check"></i> Realizar o ensino médio junto do ensino técnico.</li>
+                  <li><i class="fas fa-check"></i> Ingressar rapidamente no mercado de trabalho</li>
+                  <li><i class="fas fa-check"></i> Preparação para ingressar na melhores faculdades </li>
+                  <li><i class="fas fa-check"></i> Laboratória modernos , focado em aulas práticas</li>
+                  </ul>
               </div>
             </div>
           </div>
@@ -331,11 +328,12 @@ include_once "conexao.php";
             <div class="col-md-6 apply-box" id="novidade-img"></div>
             <div class="col-md-6 apply-box" id="pattern-img">
               <h4>Concurso de Bolsas..</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+              <p>A ETLG abriu inscrições para um novo concurso de bolsas de estudo com descontos nas mensalidades que podem chegar a 100%. </p>
+              <p> processo seletivo oferece vagas para estudantes que desejam ingressar no Ensino Médio ou Técnico.</p>
               <p>Clique no botão abaixo e confira os detalhes.</p>
-              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo .</p>
               
               <a href="#" class="main-btn" id="apply-btn">Saiba Mais</a>
+
             </div>
           </div>
         </div>
