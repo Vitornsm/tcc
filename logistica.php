@@ -111,7 +111,7 @@ include_once "conexao.php";
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ALUNOS</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item" href="missao.html"><a href="missao.html" style="color: #F00">Calendario Escolar</a></li>
+                    <li class="dropdown-item" href="missao.html"><a href="docm%20PDF/calendario%20escolar.pdf" style="color: #F00">Calendario Escolar</a></li>
                     <li class="dropdown-item" ><a href="#" style="color: #F00">Cursos Extra Curricular</a></li>   
                     <li class="dropdown-item" ><a href="#" style="color: #F00">Manual do Aluno</a></li>
                     <li class="dropdown-item" ><a href="#" style="color: #F00">Horário de Aulas</a></li>

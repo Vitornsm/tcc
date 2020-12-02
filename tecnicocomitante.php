@@ -110,7 +110,7 @@ include_once "conexao.php";
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ALUNOS</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item" href="missao.html"><a href="missao.html" style="color: #F00">Calendario Escolar</a></li>
+                    <li class="dropdown-item" href="missao.html"><a href="docm%20PDF/calendario%20escolar.pdf" style="color: #F00">Calendario Escolar</a></li>
                     <li class="dropdown-item" ><a href="curso.php" style="color: #F00">Cursos Extra Curricular</a></li>   
                     <li class="dropdown-item" ><a href="manualaluno.php" style="color: #F00">Manual do Aluno</a></li>
                     <li class="dropdown-item" ><a href="horarioaulas.php" style="color: #F00">Horário de Aulas</a></li>
@@ -195,12 +195,12 @@ include_once "conexao.php";
               <h3 class="main-title">Curso oferecidos</h3>
             </div>
             <div class="col-md-12" id="filter-btn-box">
-              <button class="main-btn filter-btn" id="adm-btn">Administração</button>
-              <button class="main-btn filter-btn" id="ifo-btn">Informática</button>
-              <button class="main-btn filter-btn" id="elr-btn">Eletrônica</button>
-              <button class="main-btn filter-btn" id="qui-btn">Química</button>
-              <button class="main-btn filter-btn" id="log-btn">Logistica</button>
-              <button class="main-btn filter-btn" id="gp-btn">Gestão Pessoas</button>
+              <a href="adm.php"><button class="main-btn filter-btn" id="adm-btn">Administração</button></a>
+              <a href="informatica.php"><button class="main-btn filter-btn" id="ifo-btn">Informática</button></a>
+              <a href="eletronica.php"><button class="main-btn filter-btn" id="elr-btn">Eletrônica</button></a>
+              <a href="quimica.php"><button class="main-btn filter-btn" id="qui-btn">Química</button></a>
+              <a href="logistica.php"><button class="main-btn filter-btn" id="log-btn">Logistica</button></a>
+              <a href="gestao.php"><button class="main-btn filter-btn" id="gp-btn">Gestão Pessoas</button></a>
             </div>
             <div class="col-md-4 project-box adm">
               <div class="zoom">
