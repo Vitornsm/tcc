@@ -57,7 +57,7 @@ $obser = $_POST['txtobser'];
        if (smtpmailer('laurindoguimaraestec@gmail.com', 'laurindoguimaraestec@gmail.com', 'Laurindo Guimarães', 'Solicitação de Documentos / Fale Conosco', $Vai)) {
 
         echo "<script> alert ('Mensagem enviada com sucesso!') </script>";
-        echo ('<meta http-equiv="refresh"content=0;"secretariacontato.html">'); // Redireciona para uma página de obrigado.
+        echo ('<meta http-equiv="refresh"content=0;"secretariacontato.php">'); // Redireciona para uma página de obrigado.
 
       }
       if (!empty($error)) echo $error;

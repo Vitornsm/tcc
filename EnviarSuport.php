@@ -54,7 +54,7 @@ $mensagem = $_POST['txtmensagem'];
        if (smtpmailer('laurindoguimaraestec@gmail.com', 'laurindoguimaraestec@gmail.com', 'Laurindo Guimarães',$assu, $Vai)) {
 
         echo "<script> alert ('Mensagem enviada com sucesso!') </script>";
-        echo ('<meta http-equiv="refresh"content=0;"ContatoSuport.html">'); // Redireciona para uma página de obrigado.
+        echo ('<meta http-equiv="refresh"content=0;"ContatoSuport.php">'); // Redireciona para uma página de obrigado.
 
       }
       else
