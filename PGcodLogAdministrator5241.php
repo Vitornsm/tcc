@@ -1,8 +1,15 @@
 <?php
   session_start();
 
+ 
   if(empty($_SESSION['adm']))
   {
+  	if(empty($_SESSION['codlogin']))
+  	{
+  		echo ('<meta http-equiv="refresh"content=0;"livros.php">');
+  	}
+  	else
+  	{
   
     ?>
 <html lang="pt-br">
@@ -16,7 +23,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="sortcut icon" href="img/etlg.ico" type="image/x-icon" />;
+  <link rel="sortcut icon" href="img/etlg.ico" type="image/x-icon" /><br>
 </head>
 <body>
 	<form  enctype="multipart/form-data" method="POST" class="texto">
@@ -147,6 +154,7 @@
 					echo '</h3></center>';
 				}
 			}
+		  }
 		}
 	  	else
 	  	{

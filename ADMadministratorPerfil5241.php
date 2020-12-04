@@ -36,16 +36,7 @@
 
             <?php
             
-
-            $Botaosir=filter_input(INPUT_POST, 'btnsair', FILTER_SANITIZE_STRING);
-
-            if($Botaosir == "Sair") 
-            {
-              echo ('<meta http-equiv="refresh"content=0;"index.php">');
-            }
-
-            
-            echo '<center><a href="index.php" style="text-decoration:none;"><img src ="PerfilADM/' . $IMGadm . '" width="30%" height="30%" style=" border-radius: 50%; margin-left: 1.5%;">';
+            echo '<center><a href="admperfil.php" style="text-decoration:none;"><img src ="PerfilADM/' . $IMGadm . '" width="30%" height="30%" style=" border-radius: 50%; margin-left: 1.5%;">';
             echo '<h6 style="color: #fff ;font-family: Arial Black;margin-left: 1.5%;">' . $row_adm['NOME_ADM'] . '</h6></a></center>';       
             }
           ?>

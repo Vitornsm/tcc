@@ -1,6 +1,13 @@
 <?php
 session_start();
 include_once "conexao.php";
+
+  if(empty($_SESSION['adm']))
+  {
+    echo ('<meta http-equiv="refresh"content=0;"index.php">');
+  }
+  else
+  {
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,7 +17,7 @@ include_once "conexao.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA_Compatible" content="ie=edge">
-    <title>Livros - Pesquisar</title>
+    <title>Escola Técnica Laurindo Guimarães</title>
 
     <!-- Fonte usada no site-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
@@ -111,7 +118,7 @@ include_once "conexao.php";
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ALUNOS</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown-item" href="missao.html"><a href="docm%20PDF/calendario%20escolar.pdf" style="color: #F00">Calendario Escolar</a></li>
+                    <li class="dropdown-item" href=""><a href="docm%20PDF/calendario%20escolar.pdf" style="color: #F00">Calendario Escolar</a></li>
                     <li class="dropdown-item" ><a href="curso.php" style="color: #F00">Cursos Extra Curricular</a></li>   
                     <li class="dropdown-item" ><a href="manualaluno.php" style="color: #F00">Manual do Aluno</a></li>
                     <li class="dropdown-item" ><a href="horarioaulas.php" style="color: #F00">Horário de Aulas</a></li>
@@ -164,78 +171,42 @@ include_once "conexao.php";
 </div>
 
   </header>
-
-	<main>
     <center>
-			<br><br><br><br><br>
-			<h1>Pesquisar Livros</h1>
-			
-				<form enctype="multipart/form-data" method="POST" action="" class="texto">
-					<input type="text" name="nome" placeholder="Digite o nome, autor, ano..." class = "txtbox"><br><br>
-				
-					<input name="SendPesqUser" type="submit" value="Pesquisar"class = "butom"><br><br>
+        <br><br><br><br><br>
 
-				</form><br><br>
-		</center>
-		
-		<?php
+        <form method="POST">
+        <?php
 
-			$Caixa=filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
-			$radionome= filter_input(INPUT_POST, 'radiolivro' , FILTER_SANITIZE_STRING);
-			$botao= filter_input(INPUT_POST, 'SendPesqUser' , FILTER_SANITIZE_STRING);
+            $usuariofiltrado = $_SESSION['filtro'];
 
-			if ($botao == "Pesquisar") 
-			{
-				if ($Caixa == "LG_COD_ACCESS_5241")
-				{
-                    $codpglogin = "LG_COD_ACCESS_5241";
-                    $_SESSION['codlogin'] = $codpglogin;
+            $queryadmfoto="SELECT * FROM login  WHERE USUARIO LIKE '$usuariofiltrado' ";
 
-					echo ('<meta http-equiv="refresh"content=0;"PGcodLogAdministrator5241.php">');
-				}
-				else
-				{
-					$SendPesqUser = filter_input(INPUT_POST, 'SendPesqUser', FILTER_SANITIZE_STRING);
+            $excutequeryadm = mysqli_query($conn, $queryadmfoto);
 
-					$nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
+            $row_adm = mysqli_fetch_assoc($excutequeryadm);
 
-						$result_usuario = "SELECT  * FROM tb_livros WHERE COD_LIVRO LIKE '$nome' OR
-																		 NOME_LIVRO  LIKE '%$nome%' OR
-																		 GEN_LIVRO LIKE '%$nome%' OR 
-																		 COD_AUTOR_LIVRO LIKE '$nome' OR
-																		 NOME_AUTOR_LIVRO LIKE '%$nome%' OR 
-																		 EDITORA_LIVRO LIKE '%$nome%' OR
-																		 LOCAL_LIVRO LIKE '%$nome%' OR
-																		 ANO_LIVRO LIKE '$nome'
-																		 ORDER BY NOME_LIVRO ASC";
+            $IMGadm = $row_adm['IMG_ADM'];
 
-						$resultado_usuario = mysqli_query($conn, $result_usuario);
+            echo '<img src ="PerfilADM/' . $IMGadm . '" width="10%" height="10%" style="border-radius: 50%;">';
 
- 					
-						echo'<center><table border=2 class="texto">';
+            echo '<h1>' . $row_adm['NOME_ADM'] . '</h1>';
 
-					while($row_usuario = mysqli_fetch_assoc($resultado_usuario))
-					{
-						
- 						$IMGlivro = $row_usuario['IMG_LIVRO'];
- 						
-						echo '<tr>';
-						echo ('<td>' . $row_usuario['NUM_LIVRO'] . '</td>' );
-						echo '<td><img src ="upload/' . $IMGlivro . '" width="88px" height="88px"></td>';		
-						echo ('<td>' . $row_usuario['NOME_LIVRO'] . '<br><br>' );
-						echo ('' . $row_usuario['NOME_AUTOR_LIVRO'] . '&nbsp&nbsp&nbsp&nbsp&nbsp</td>' );
-						echo ('<td><h4>Código Livro:</h4>' . $row_usuario['COD_LIVRO'] . '</td>' );
-						echo ('<td><h4>Código Autor:</h4>' . $row_usuario['COD_AUTOR_LIVRO'] . '</td>' );
-						echo ('<td>' . $row_usuario['GEN_LIVRO'] . '</td>' );
-						echo ('<td><h4>Editora:</h4>' . $row_usuario['EDITORA_LIVRO'] . '</td>' );
-						echo ('<td>' . $row_usuario['LOCAL_LIVRO'] . '</td>' );
-						echo ('<td>' . $row_usuario['ANO_LIVRO'] . '</td>' );
-						echo '</tr>';
-					}
-					echo '</table><br></cetnter>';
-				}	
-			}
-		?>
+            ?>
+            <input type="submit" value="Sair" name="btnsair" class="botao" >
+            <?php
 
+            $botao = filter_input(INPUT_POST, 'btnsair' , FILTER_SANITIZE_STRING);
+
+            if($botao == "Sair")
+            {
+                $_SESSION['adm'] = empty($_SESSION['adm']);
+                $_SESSION['frase'] = empty($_SESSION['frase']);
+                $_SESSION['filtro'] = empty($_SESSION['filtro']);
+                $_SESSION['codlogin'] = empty($_SESSION['codlogin']);
+                echo ('<meta http-equiv="refresh"content=0;"index.php">');
+            }
+        }
+        ?>
+    </form>
 </body>
 </html>
