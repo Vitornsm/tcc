@@ -189,7 +189,7 @@ include_once "conexao.php";
 
           include_once "conexao.php";
 
-          $querybaner = "SELECT * FROM noticia `noticia` ORDER BY `noticia`.`NUMERO`  DESC";
+          $querybaner = "SELECT * FROM noticia ORDER BY NUMERO DESC LIMIT 3";
 
           $queryexecute = mysqli_query($conn, $querybaner);
 

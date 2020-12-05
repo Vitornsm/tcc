@@ -192,18 +192,35 @@ include_once "conexao.php";
             echo '<h1>' . $row_adm['NOME_ADM'] . '</h1>';
 
             ?>
-            <input type="submit" value="Sair" name="btnsair" class="botao" >
+            <input type="submit" value="Sair" name="btnsair" class="butom" >
             <?php
 
             $botao = filter_input(INPUT_POST, 'btnsair' , FILTER_SANITIZE_STRING);
 
             if($botao == "Sair")
-            {
-                $_SESSION['adm'] = empty($_SESSION['adm']);
-                $_SESSION['frase'] = empty($_SESSION['frase']);
-                $_SESSION['filtro'] = empty($_SESSION['filtro']);
-                $_SESSION['codlogin'] = empty($_SESSION['codlogin']);
-                echo ('<meta http-equiv="refresh"content=0;"index.php">');
+            {  
+                $saindo = "validou para sair";
+                $_SESSION['sair'] = $saindo;
+            
+            ?>           
+                <script>
+                function mensagem() {
+                var confirma=confirm("Pressione um botão.")
+                if (confirma==true)
+                {  
+                   window.location.assign("Sair.php");
+                }
+                else
+                {
+                    
+                }
+                }
+                mensagem();
+                </script>
+
+
+                <?php
+               
             }
         }
         ?>
